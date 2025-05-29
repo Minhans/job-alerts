@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate AI-powered avatar videos from text prompts. Create perfect avatars for social media reels and shorts with our advanced AI tool.">
+    <meta name="keywords" content="AI avatar, video generator, text to video, avatar creator, social media content, reels maker, shorts creator">
+    <meta name="author" content="AI Avatar Generator">
+    <meta property="og:title" content="AI Avatar Video Generator from Text">
+    <meta property="og:description" content="Create custom AI avatar videos from text prompts for social media content.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://yourwebsite.com/preview-image.jpg">
+    <title>AI Avatar Video Generator | Create from Text Prompts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+            --success-color: #00b894;
+            --warning-color: #fdcb6e;
+            --error-color: #d63031;
+            --text-color: #333;
+            --text-light: #636e72;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .ad-banner {
+            background-color: white;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        .generator-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .generator-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        .generator-form h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+        }
+        .options-row {
+            display: flex;
+            gap: 15px;
+        }
+        .options-row .form-group {
+            flex: 1;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #5649c0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+        .btn-secondary:hover {
+            background-color: #8c7ae6;
+        }
+        .preview-container {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+        .preview-container h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        .preview-placeholder {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .preview-placeholder i {
+            font-size: 60px;
+            color: var(--text-light);
+        }
+        .preview-video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: none;
+        }
+        .download-options {
+            display: none;
+            margin-top: 20px;
+        }
+        .download-options h3 {
+            margin-bottom: 15px;
+        }
+        .download-btns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .features {
+            padding: 60px 0;
+            background-color: white;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        .feature-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        .testimonials {
+            padding: 60px 0;
+            background-color: var(--light-color);
+        }
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin: 0 15px;
+            text-align: center;
+        }
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary-color);
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .faq {
+            padding: 60px 0;
+            background-color: white;
+        }
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .accordion-header {
+            background-color: var(--light-color);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        .accordion-header:hover {
+            background-color: #e1e2e8;
+        }
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion-content-inner {
+            padding: 20px 0;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .footer-column h3 {
+            color: var(--light-color);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        .footer-column ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b2bec3;
+            font-size: 14px;
+        }
+        .loading {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .loading.active {
+            display: flex;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 15px;
+            }
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: var(--shadow);
+                padding: 20px;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 99;
+            }
+            nav.active {
+                transform: translateY(0);
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .options-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .download-btns {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .generated-content {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-robot"></i>
+                    AI AvatarGen
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#" class="btn btn-secondary">Premium</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Create AI-Powered Avatar Videos from Text</h1>
+            <p>Generate stunning avatar videos for your social media reels and shorts with just a text prompt. No technical skills required!</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="ad-banner">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                data-ad-slot="YOUR_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <section class="generator-section">
+        <div class="container">
+            <div class="generator-container">
+                <div class="generator-form">
+                    <h2>Create Your Avatar</h2>
+                    <form id="avatarForm">
+                        <div class="form-group">
+                            <label for="prompt">Describe your avatar</label>
+                            <textarea id="prompt" placeholder="Example: A futuristic female robot with neon blue highlights, smiling, in a cyberpunk city background" required></textarea>
+                        </div>
+                        <div class="options-row">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender">
+                                    <option value="any">Any</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <select id="age">
+                                    <option value="any">Any</option>
+                                    <option value="child">Child</option>
+                                    <option value="teen">Teen</option>
+                                    <option value="young-adult">Young Adult</option>
+                                    <option value="adult">Adult</option>
+                                    <option value="elderly">Elderly</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="style">Art Style</label>
+                            <select id="style">
+                                <option value="realistic">Realistic</option>
+                                <option value="semi-realistic">Semi-Realistic</option>
+                                <option value="anime">Anime</option>
+                                <option value="cartoon">Cartoon</option>
+                                <option value="pixel-art">Pixel Art</option>
+                                <option value="3d-render">3D Render</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Video Duration</label>
+                            <select id="duration">
+                                <option value="15">15 seconds (Shorts)</option>
+                                <option value="30">30 seconds</option>
+                                <option value="60">60 seconds (Reels)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-block" id="generateBtn">
+                            <i class="fas fa-magic"></i> Generate Avatar
+                        </button>
+                    </form>
+                </div>
+                <div class="preview-container">
+                    <h2>Your Avatar Preview</h2>
+                    <div class="preview-placeholder">
+                        <i class="fas fa-user-astronaut"></i>
+                        <div class="loading" id="loadingIndicator">
+                            <div class="spinner"></div>
+                            <p>Generating your avatar...</p>
+                        </div>
+                        <video id="previewVideo" class="preview-video" controls></video>
+                    </div>
+                    <div class="download-options" id="downloadOptions">
+                        <h3>Download Options</h3>
+                        <div class="download-btns">
+                            <button class="btn" id="downloadReelsBtn">
+                                <i class="fas fa-film"></i> Reels (1080x1920)
+                            </button>
+                            <button class="btn" id="downloadShortsBtn">
+                                <i class="fas fa-mobile-alt"></i> Shorts (1080x1920)
+                            </button>
+                            <button class="btn" id="downloadSquareBtn">
+                                <i class="fas fa-square"></i> Square (1080x1080)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="ad-banner">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                data-ad-slot="YOUR_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powerful Features</h2>
+                <p>Everything you need to create stunning avatar content</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Generation</h3>
+                    <p>Create high-quality avatar videos in seconds with our advanced AI technology.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sliders-h"></i>
+                    <h3>Customizable Options</h3>
+                    <p>Fine-tune every aspect of your avatar including appearance, style, and background.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Optimized for Social</h3>
+                    <p>Perfectly sized videos for Instagram Reels, YouTube Shorts, and TikTok.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cloud-download-alt"></i>
+                    <h3>Easy Download</h3>
+                    <p>Download your creations in multiple formats and resolutions with one click.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-edit"></i>
+                    <h3>Personalized Avatars</h3>
+                    <p>Create avatars that look like you or anyone you imagine with detailed prompts.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-infinity"></i>
+                    <h3>Unlimited Variations</h3>
+                    <p>Generate endless variations until you get the perfect avatar for your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Users Say</h2>
+                <p>Trusted by content creators worldwide</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User" class="testimonial-avatar">
+                    <p class="testimonial-text">"This tool has completely transformed my content creation process. I can now generate unique avatar videos for my YouTube channel in minutes!"</p>
+                    <p class="testimonial-author">- Sarah Johnson, Content Creator</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our AI Avatar Generator</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>How does the AI avatar generator work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Our AI avatar generator uses advanced machine learning models to interpret your text prompts and generate corresponding avatar videos. You simply describe what you want, and our system creates a unique avatar video based on your description.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What video formats are supported?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>We support MP4 format for all downloads, which is compatible with all major social media platforms. You can download in vertical (9:16) format for Reels/Shorts, square (1:1) format, or landscape (16:9) format.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Can I customize the avatar after generation?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Yes! After generating your avatar, you can make adjustments to the prompt and regenerate, or use our premium editing tools to fine-tune specific aspects of your avatar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Is there a limit to how many avatars I can create?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Free users can generate up to 5 avatars per day. Our premium plans offer unlimited generations and additional features.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>How do I download my avatar videos?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>After your avatar is generated, click on any of the download buttons to save your video in the selected format. The video will download directly to your device.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AI AvatarGen</h3>
+                    <p>The most advanced AI avatar video generator for social media content creators.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                        <li><a href="#">CCPA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AI AvatarGen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Accordion Functionality
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            
+            header.addEventListener('click', () => {
+                item.classList.toggle('active');
+                
+                const icon = header.querySelector('i');
+                icon.className = item.classList.contains('active') ? 
+                    'fas fa-chevron-up' : 'fas fa-chevron-down';
+            });
+        });
+        
+        // Form Submission and Avatar Generation Simulation
+        const avatarForm = document.getElementById('avatarForm');
+        const generateBtn = document.getElementById('generateBtn');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const previewVideo = document.getElementById('previewVideo');
+        const previewPlaceholder = document.querySelector('.preview-placeholder');
+        const downloadOptions = document.getElementById('downloadOptions');
+        
+        // Sample video URL - in a real app, this would be the URL from your AI generation API
+        const sampleVideoUrl = 'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4';
+        
+        avatarForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show loading indicator
+            loadingIndicator.classList.add('active');
+            previewVideo.style.display = 'none';
+            downloadOptions.style.display = 'none';
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Hide loading indicator
+                loadingIndicator.classList.remove('active');
+                
+                // Set video source and show
+                previewVideo.src = sampleVideoUrl;
+                previewVideo.style.display = 'block';
+                previewVideo.load();
+                previewVideo.play();
+                
+                // Show download options
+                downloadOptions.style.display = 'block';
+                
+                // Scroll to preview section for better UX
+                previewPlaceholder.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+            }, 3000); // Simulate 3 second generation time
+        });
+        
+        // Download buttons functionality
+        const downloadReelsBtn = document.getElementById('downloadReelsBtn');
+        const downloadShortsBtn = document.getElementById('downloadShortsBtn');
+        const downloadSquareBtn = document.getElementById('downloadSquareBtn');
+        
+        function downloadVideo(format) {
+            // In a real app, this would fetch the appropriate video from your server
+            const a = document.createElement('a');
+            a.href = sampleVideoUrl;
+            a.download = `ai-avatar-${format}-${Date.now()}.mp4`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        
+        downloadReelsBtn.addEventListener('click', () => downloadVideo('reels'));
+        downloadShortsBtn.addEventListener('click', () => downloadVideo('shorts'));
+        downloadSquareBtn.addEventListener('click', () => downloadVideo('square'));
+        
+        // SEO Enhancement: Track generation events
+        generateBtn.addEventListener('click', () => {
+            const prompt = document.getElementById('prompt').value;
+            const style = document.getElementById('style').value;
+            
+            // In a real app, you would send this data to your analytics platform
+            console.log('Generation started:', { prompt, style });
+            
+            // Simulate tracking event
+            if (window.gtag) {
+                gtag('event', 'generation_start', {
+                    'event_category': 'engagement',
+                    'event_label': 'avatar_generation'
+                });
+            }
+        });
+    </script>
+
+    <!-- Google Analytics (optional) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_GA_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YOUR_GA_ID');
+    </script>
+</body>
+</html>
