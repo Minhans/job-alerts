@@ -1,477 +1,1076 @@
-from flask import Flask, jsonify, request, send_file, session, redirect, render_template_string
-from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
-from io import BytesIO
-from reportlab.pdfgen import canvas
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key_here'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-CORS(app, supports_credentials=True)
-
-# Models
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True)
-    password = db.Column(db.String(120))
-
-class Job(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(150))
-    location = db.Column(db.String(100))
-    sector = db.Column(db.String(100))
-    state = db.Column(db.String(100))
-    link = db.Column(db.String(300))
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
-    if Job.query.count() == 0:
-        jobs = [
-            Job(title="Railway Recruitment 2025", location="Delhi", sector="Railway", state="Delhi", link="https://www.indianrailways.gov.in/apply"),
-            Job(title="SSC CGL 2025 Notification", location="Pan India", sector="SSC", state="All", link="https://ssc.nic.in/Apply"),
-            Job(title="MP Bhulekh Job Vacancy", location="Madhya Pradesh", sector="State Govt", state="Madhya Pradesh", link="https://mpbhulekh.gov.in/mpbhulekh.do"),
-            Job(title="SAARA MP Recruitment", location="Madhya Pradesh", sector="State Govt", state="Madhya Pradesh", link="https://saara.mp.gov.in/"),
-            Job(title="MP eDistrict Jobs", location="Madhya Pradesh", sector="State Govt", state="Madhya Pradesh", link="https://mpedistrict.gov.in/MPL/index.aspx"),
-            Job(title="RCMS MP Vacancy", location="Madhya Pradesh", sector="State Govt", state="Madhya Pradesh", link="https://rcms.mp.gov.in/Citizen/Default.aspx")
-        ]
-        db.session.bulk_save_objects(jobs)
-        db.session.commit()
-
-# API: get jobs with filters and pagination
-@app.route('/api/jobs', methods=['GET'])
-def get_jobs():
-    page = int(request.args.get('page', 1))
-    per_page = int(request.args.get('per_page', 5))
-    state = request.args.get('state', '').lower()
-    sector = request.args.get('sector', '').lower()
-    search = request.args.get('search', '').lower()
-
-    query = Job.query
-    if state:
-        query = query.filter(Job.state.ilike(f'%{state}%'))
-    if sector:
-        query = query.filter(Job.sector.ilike(f'%{sector}%'))
-    if search:
-        query = query.filter((Job.title.ilike(f'%{search}%')) | (Job.location.ilike(f'%{search}%')))
-
-    paginated = query.paginate(page, per_page, error_out=False)
-    jobs = [{
-        'id': job.id,
-        'title': job.title,
-        'location': job.location,
-        'sector': job.sector,
-        'state': job.state,
-        'link': job.link
-    } for job in paginated.items]
-
-    return jsonify({
-        'jobs': jobs,
-        'total': paginated.total,
-        'pages': paginated.pages,
-        'page': page
-    })
-
-# API: download job PDF
-@app.route('/api/jobs/pdf/<int:job_id>', methods=['GET'])
-def download_job_pdf(job_id):
-    job = Job.query.get_or_404(job_id)
-    buffer = BytesIO()
-    p = canvas.Canvas(buffer)
-    p.setFont("Helvetica-Bold", 16)
-    p.drawString(100, 800, f"Job Title: {job.title}")
-    p.setFont("Helvetica", 12)
-    p.drawString(100, 770, f"Location: {job.location}")
-    p.drawString(100, 750, f"Sector: {job.sector}")
-    p.drawString(100, 730, f"State: {job.state}")
-    p.drawString(100, 710, f"Apply Link: {job.link}")
-    p.showPage()
-    p.save()
-    buffer.seek(0)
-    return send_file(buffer, as_attachment=True, download_name=f"{job.title}.pdf", mimetype='application/pdf')
-
-# User register/login/logout (simple, not secure for production)
-@app.route('/api/auth/register', methods=['POST'])
-def register():
-    data = request.json
-    if User.query.filter_by(email=data['email']).first():
-        return jsonify({"error": "Email already registered"}), 400
-    user = User(email=data['email'], password=data['password'])
-    db.session.add(user)
-    db.session.commit()
-    return jsonify({"message": "Registered successfully"})
-
-@app.route('/api/auth/login', methods=['POST'])
-def login():
-    data = request.json
-    user = User.query.filter_by(email=data['email'], password=data['password']).first()
-    if not user:
-        return jsonify({"error": "Invalid credentials"}), 401
-    session['user_id'] = user.id
-    return jsonify({"message": "Logged in successfully"})
-
-@app.route('/api/auth/logout', methods=['POST'])
-def logout():
-    session.pop('user_id', None)
-    return jsonify({"message": "Logged out"})
-
-# Serve frontend
-@app.route('/')
-def index():
-    return render_template_string('''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nearby Government Jobs - Free Job Alert</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #eef2f7;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-  header {
-    background: linear-gradient(90deg, #003366, #0066cc);
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  }
-  .container {
-    max-width: 960px;
-    margin: auto;
-    padding: 1rem;
-  }
-  input, select, button {
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-  }
-  button {
-    background: #0066cc;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #004a99;
-  }
-  .job-card {
-    background: white;
-    margin: 1rem 0;
-    padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .job-info {
-    max-width: 70%;
-  }
-  .job-info h3 {
-    margin: 0;
-  }
-  .job-info p {
-    margin: 0.3rem 0;
-  }
-  a.apply-btn {
-    background: #008000;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-  }
-  a.apply-btn:hover {
-    background: #005900;
-  }
-  .pagination {
-    text-align: center;
-    margin: 1rem 0;
-  }
-  .pagination button {
-    margin: 0 0.25rem;
-  }
-  .filters {
-    background: white;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
-  }
-  .adsense {
-    margin: 2rem 0;
-    text-align: center;
-  }
-  footer {
-    background: #003366;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-  }
-  /* Login/Signup */
-  #authPanel {
-    background: white;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  #authPanel input {
-    width: 100%;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeJobAlert - Latest Government Job Notifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .search-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            display: flex;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-box button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box button:hover {
+            background: #c0392b;
+        }
+        
+        /* Categories Section */
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-img {
+            height: 150px;
+            overflow: hidden;
+        }
+        
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-img img {
+            transform: scale(1.1);
+        }
+        
+        .category-content {
+            padding: 20px;
+        }
+        
+        .category-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .category-content p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Latest Jobs Section */
+        .jobs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .job-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            transition: all 0.3s ease;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .job-type {
+            width: 80px;
+            background: var(--secondary);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 5px;
+        }
+        
+        .job-type i {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .job-type span {
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        
+        .job-details {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .job-details h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .job-meta i {
+            color: var(--secondary);
+        }
+        
+        .job-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .pdf-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-btn:hover {
+            background: #c0392b;
+        }
+        
+        .apply-btn {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .apply-btn:hover {
+            background: #1a252f;
+        }
+        
+        /* Notification Section */
+        .notification-section {
+            background: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .notification-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.8);
+        }
+        
+        .notification-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .notification-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .notification-content p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .notification-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+        
+        .notification-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .notification-form button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .notification-form button:hover {
+            background: #c0392b;
+        }
+        
+        /* Resources Section */
+        .resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .resource-img {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .resource-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .resource-card:hover .resource-img img {
+            transform: scale(1.05);
+        }
+        
+        .resource-content {
+            padding: 20px;
+        }
+        
+        .resource-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .resource-content p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .download-btn:hover {
+            text-decoration: underline;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 5rem;
+            color: rgba(52, 152, 219, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.8rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .search-box {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+            
+            .search-box input {
+                border-radius: 10px 10px 0 0;
+            }
+            
+            .search-box button {
+                border-radius: 0 0 10px 10px;
+            }
+            
+            .notification-form {
+                flex-direction: column;
+            }
+            
+            .notification-form input {
+                border-radius: 10px 10px 0 0;
+            }
+            
+            .notification-form button {
+                border-radius: 0 0 10px 10px;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 350px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <h1>Free Government Job Alerts</h1>
-  <p>Search and apply to nearby government jobs</p>
-</header>
-
-<div class="container">
-  <div id="authPanel">
-    <h2 id="authTitle">Login</h2>
-    <input type="email" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Password" />
-    <button id="loginBtn">Login</button>
-    <button id="registerBtn">Register</button>
-    <button id="logoutBtn" style="display:none;">Logout</button>
-    <p id="authMsg"></p>
-  </div>
-
-  <div class="filters" style="display:none;" id="filtersPanel">
-    <input type="text" id="searchInput" placeholder="Search jobs by title or location" />
-    <select id="stateFilter">
-      <option value="">All States</option>
-      <option value="Madhya Pradesh">Madhya Pradesh</option>
-      <option value="Delhi">Delhi</option>
-      <option value="All">All</option>
-    </select>
-    <select id="sectorFilter">
-      <option value="">All Sectors</option>
-      <option value="Railway">Railway</option>
-      <option value="SSC">SSC</option>
-      <option value="State Govt">State Govt</option>
-    </select>
-    <button onclick="loadJobs()">Filter</button>
-  </div>
-
-  <div id="jobList"></div>
-
-  <div class="pagination" style="display:none;" id="paginationPanel">
-    <button onclick="prevPage()">Prev</button>
-    <span id="pageNum">1</span>
-    <button onclick="nextPage()">Next</button>
-  </div>
-
-  <div class="adsense" style="display:none;" id="adsTop">
-    <!-- Top Ad Space -->
-    <p>[Ad placeholder top]</p>
-  </div>
-
-  <div class="adsense" style="display:none;" id="adsBottom">
-    <!-- Bottom Ad Space -->
-    <p>[Ad placeholder bottom]</p>
-  </div>
-</div>
-
-<footer>
-  &copy; 2025 FreeJobAlert Clone. All rights reserved.
-</footer>
-
-<script>
-  let currentPage = 1;
-
-  const loginBtn = document.getElementById('loginBtn');
-  const registerBtn = document.getElementById('registerBtn');
-  const logoutBtn = document.getElementById('logoutBtn');
-  const authMsg = document.getElementById('authMsg');
-  const authTitle = document.getElementById('authTitle');
-  const filtersPanel = document.getElementById('filtersPanel');
-  const paginationPanel = document.getElementById('paginationPanel');
-  const adsTop = document.getElementById('adsTop');
-  const adsBottom = document.getElementById('adsBottom');
-
-  function showAuthUI(loggedIn) {
-    if (loggedIn) {
-      loginBtn.style.display = 'none';
-      registerBtn.style.display = 'none';
-      logoutBtn.style.display = 'inline-block';
-      filtersPanel.style.display = 'block';
-      paginationPanel.style.display = 'block';
-      adsTop.style.display = 'block';
-      adsBottom.style.display = 'block';
-      authTitle.innerText = 'Welcome';
-      authMsg.innerText = '';
-      loadJobs();
-    } else {
-      loginBtn.style.display = 'inline-block';
-      registerBtn.style.display = 'inline-block';
-      logoutBtn.style.display = 'none';
-      filtersPanel.style.display = 'none';
-      paginationPanel.style.display = 'none';
-      adsTop.style.display = 'none';
-      adsBottom.style.display = 'none';
-      authTitle.innerText = 'Login';
-      authMsg.innerText = '';
-      document.getElementById('jobList').innerHTML = '';
-    }
-  }
-
-  // Check login status by trying to load jobs (will fail if not logged in)
-  async function checkLogin() {
-    try {
-      const res = await fetch('/api/jobs?page=1&per_page=1', {credentials:'include'});
-      if (res.ok) {
-        showAuthUI(true);
-      } else {
-        showAuthUI(false);
-      }
-    } catch {
-      showAuthUI(false);
-    }
-  }
-
-  loginBtn.onclick = async () => {
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-    if (!email || !password) {
-      authMsg.innerText = 'Please enter email and password';
-      return;
-    }
-    const res = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({email, password}),
-      credentials: 'include'
-    });
-    const data = await res.json();
-    if (res.ok) {
-      authMsg.innerText = data.message;
-      showAuthUI(true);
-    } else {
-      authMsg.innerText = data.error || 'Login failed';
-    }
-  };
-
-  registerBtn.onclick = async () => {
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-    if (!email || !password) {
-      authMsg.innerText = 'Please enter email and password';
-      return;
-    }
-    const res = await fetch('/api/auth/register', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({email, password}),
-      credentials: 'include'
-    });
-    const data = await res.json();
-    if (res.ok) {
-      authMsg.innerText = data.message + ' You can now login.';
-    } else {
-      authMsg.innerText = data.error || 'Registration failed';
-    }
-  };
-
-  logoutBtn.onclick = async () => {
-    await fetch('/api/auth/logout', {
-      method: 'POST',
-      credentials: 'include'
-    });
-    showAuthUI(false);
-  };
-
-  async function loadJobs() {
-    const search = document.getElementById('searchInput').value;
-    const state = document.getElementById('stateFilter').value;
-    const sector = document.getElementById('sectorFilter').value;
-
-    const response = await fetch(`/api/jobs?page=${currentPage}&per_page=5&search=${search}&state=${state}&sector=${sector}`, {credentials: 'include'});
-    if (!response.ok) {
-      document.getElementById('jobList').innerHTML = '<p>Please login to see job listings.</p>';
-      return;
-    }
-    const data = await response.json();
-    const jobList = document.getElementById('jobList');
-    jobList.innerHTML = '';
-
-    if (data.jobs.length === 0) {
-      jobList.innerHTML = '<p>No jobs found.</p>';
-      return;
-    }
-
-    data.jobs.forEach(job => {
-      const jobCard = document.createElement('div');
-      jobCard.classList.add('job-card');
-
-      jobCard.innerHTML = `
-        <div class="job-info">
-          <h3>${job.title}</h3>
-          <p><strong>Location:</strong> ${job.location}</p>
-          <p><strong>Sector:</strong> ${job.sector}</p>
-          <p><strong>State:</strong> ${job.state}</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/3281/3281289.png" alt="FreeJobAlert Logo">
+                <div class="logo-text">Free<span>JobAlert</span></div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Latest Jobs</a></li>
+                    <li><a href="#">Admit Cards</a></li>
+                    <li><a href="#">Results</a></li>
+                    <li><a href="#">Syllabus</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <div>
-          <a class="apply-btn" href="${job.link}" target="_blank">Apply Now</a>
-          <br /><br />
-          <button onclick="downloadPDF(${job.id})">Download PDF</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find Your Dream Government Job</h1>
+            <p>Get instant alerts for the latest government job openings across India. Search by category, location, or sector.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search jobs by title, location, or sector...">
+                <button><i class="fas fa-search"></i> Search Jobs</button>
+            </div>
         </div>
-      `;
+    </section>
 
-      jobList.appendChild(jobCard);
-    });
+    <!-- Categories Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Job Categories</h2>
+            </div>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Banking Jobs">
+                    </div>
+                    <div class="category-content">
+                        <h3>Banking Jobs</h3>
+                        <p>Latest RBI, SBI, IBPS and other banking sector recruitment notifications</p>
+                        <a href="#" class="btn">View Jobs</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Railway Jobs">
+                    </div>
+                    <div class="category-content">
+                        <h3>Railway Jobs</h3>
+                        <p>RRB NTPC, Group D, JE and other railway recruitment notifications</p>
+                        <a href="#" class="btn">View Jobs</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1581093196277-2f5df3571257?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Teaching Jobs">
+                    </div>
+                    <div class="category-content">
+                        <h3>Teaching Jobs</h3>
+                        <p>Latest TGT, PGT, Professor and other teaching recruitment notifications</p>
+                        <a href="#" class="btn">View Jobs</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Defense Jobs">
+                    </div>
+                    <div class="category-content">
+                        <h3>Defense Jobs</h3>
+                        <p>Indian Army, Navy, Air Force and other defense sector recruitment</p>
+                        <a href="#" class="btn">View Jobs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    document.getElementById('pageNum').innerText = data.page;
-  }
+    <!-- Latest Jobs Section -->
+    <section class="section" style="background-color: #f0f4f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Job Notifications</h2>
+            </div>
+            <div class="jobs-container">
+                <div class="job-card">
+                    <div class="job-type">
+                        <i class="fas fa-train"></i>
+                        <span>Railway</span>
+                    </div>
+                    <div class="job-details">
+                        <h3>RRB NTPC 2023 Recruitment</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> All India</span>
+                            <span><i class="fas fa-calendar-alt"></i> Last Date: 30 Aug 2023</span>
+                            <span><i class="fas fa-graduation-cap"></i> Graduation</span>
+                        </div>
+                        <div class="job-actions">
+                            <button class="pdf-btn"><i class="fas fa-file-pdf"></i> Download PDF</button>
+                            <a href="#" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-type" style="background-color: #27ae60;">
+                        <i class="fas fa-university"></i>
+                        <span>Banking</span>
+                    </div>
+                    <div class="job-details">
+                        <h3>SBI PO 2023 Recruitment</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> All India</span>
+                            <span><i class="fas fa-calendar-alt"></i> Last Date: 15 Sep 2023</span>
+                            <span><i class="fas fa-graduation-cap"></i> Any Degree</span>
+                        </div>
+                        <div class="job-actions">
+                            <button class="pdf-btn"><i class="fas fa-file-pdf"></i> Download PDF</button>
+                            <a href="#" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-type" style="background-color: #8e44ad;">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Teaching</span>
+                    </div>
+                    <div class="job-details">
+                        <h3>UP TGT Teacher Recruitment 2023</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Uttar Pradesh</span>
+                            <span><i class="fas fa-calendar-alt"></i> Last Date: 25 Aug 2023</span>
+                            <span><i class="fas fa-graduation-cap"></i> B.Ed Required</span>
+                        </div>
+                        <div class="job-actions">
+                            <button class="pdf-btn"><i class="fas fa-file-pdf"></i> Download PDF</button>
+                            <a href="#" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" class="btn" style="padding: 12px 30px;">View All Jobs</a>
+            </div>
+        </div>
+    </section>
 
-  function nextPage() {
-    currentPage++;
-    loadJobs();
-  }
+    <!-- Notification Section -->
+    <section class="notification-section">
+        <div class="container">
+            <div class="notification-content">
+                <h2>Never Miss a Job Opportunity</h2>
+                <p>Subscribe to our free job alert service and get the latest government job notifications directly to your email or mobile.</p>
+                <form class="notification-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button type="submit">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-  function prevPage() {
-    if (currentPage > 1) {
-      currentPage--;
-      loadJobs();
-    }
-  }
+    <!-- Resources Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Free Study Resources</h2>
+            </div>
+            <div class="resources">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Syllabus PDF">
+                    </div>
+                    <div class="resource-content">
+                        <h3>SSC CGL Complete Syllabus 2023</h3>
+                        <p>Download the complete syllabus PDF for SSC CGL 2023 examination with detailed topic-wise breakdown.</p>
+                        <a href="#" class="download-btn"><i class="fas fa-file-pdf"></i> Download PDF</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Previous Papers">
+                    </div>
+                    <div class="resource-content">
+                        <h3>IBPS PO Previous Year Papers</h3>
+                        <p>Collection of last 5 years IBPS PO question papers with solutions in PDF format.</p>
+                        <a href="#" class="download-btn"><i class="fas fa-file-pdf"></i> Download PDF</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Exam Pattern">
+                    </div>
+                    <div class="resource-content">
+                        <h3>RRB Exam Pattern & Preparation Guide</h3>
+                        <p>Detailed exam pattern and preparation strategy for all RRB recruitment exams.</p>
+                        <a href="#" class="download-btn"><i class="fas fa-file-pdf"></i> Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  async function downloadPDF(jobId) {
-    const res = await fetch(`/api/jobs/pdf/${jobId}`, {credentials:'include'});
-    if (res.ok) {
-      const blob = await res.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'job-details.pdf';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-    } else {
-      alert('Failed to download PDF');
-    }
-  }
+    <!-- Testimonials Section -->
+    <section class="section" style="background-color: #f0f4f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Thanks to FreeJobAlert, I got timely notification for SBI PO exam. Their PDF resources helped me prepare well and I cleared the exam in my first attempt!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya Sharma">
+                        </div>
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <p>SBI PO (2022 Batch)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The job alerts and study materials provided by FreeJobAlert are excellent. I recommend this platform to all government job aspirants."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rahul Verma">
+                        </div>
+                        <div class="author-info">
+                            <h4>Rahul Verma</h4>
+                            <p>RRB NTPC (2021 Batch)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I was able to download all the previous year question papers and syllabus from one place. This saved me a lot of time in my preparation."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Anjali Patel">
+                        </div>
+                        <div class="author-info">
+                            <h4>Anjali Patel</h4>
+                            <p>UP TGT (2023 Batch)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  checkLogin();
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>FreeJobAlert</h3>
+                    <p>India's No.1 Government Job Alert Portal. Providing latest job notifications, admit cards, results and study materials for all government job aspirants.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Latest Jobs</a></li>
+                        <li><a href="#">Admit Cards</a></li>
+                        <li><a href="#">Results</a></li>
+                        <li><a href="#">Answer Keys</a></li>
+                        <li><a href="#">Syllabus</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Job Categories</h3>
+                    <ul>
+                        <li><a href="#">Banking Jobs</a></li>
+                        <li><a href="#">Railway Jobs</a></li>
+                        <li><a href="#">SSC Jobs</a></li>
+                        <li><a href="#">Teaching Jobs</a></li>
+                        <li><a href="#">Defense Jobs</a></li>
+                        <li><a href="#">State Govt Jobs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Job Street, Delhi, India</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> info@freejobalert.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 FreeJobAlert. All Rights Reserved. | <a href="#" style="color: var(--secondary);">Privacy Policy</a> | <a href="#" style="color: var(--secondary);">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
 
-</script>
-
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-''')
-
