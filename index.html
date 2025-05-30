@@ -3,297 +3,253 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="म0प्र0 लेखपाल के लिए एमपी के सरकारी पोर्टल्स का हब - रियल टाइम अपडेट्स और त्वरित पहुंच।" />
+  <meta name="description" content="म0प्र0 लेखपाल के लिए एमपी के सरकारी पोर्टल्स का हब " />
   <meta name="keywords" content="म0प्र0 लेखपाल, MP, सरकारी पोर्टल, रियल टाइम, Responsive" />
-  <meta name="author" content="YourName" />
-  <title>म0प्र0 लेखपाल  </title>
+  <meta name="Musk06" content="YourName" />
+  <title>म0प्र0 लेखपाल </title>
+
+  <!-- Google AdSense Integration -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7384639868183712" crossorigin="anonymous"></script>
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0066ff 0%, #00ccff 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%);
+      color: #222;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem 1rem;
+      padding: 1rem;
     }
+
     header {
       text-align: center;
-      max-width: 700px;
-      margin-bottom: 2rem;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      margin-bottom: 1rem;
     }
+
+    header img {
+      width: 80px;
+      margin-bottom: 0.5rem;
+    }
+
     header h1 {
-      font-weight: 800;
-      font-size: 2.6rem;
-      margin-bottom: 0.25rem;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #00204a;
+      text-shadow: 1px 1px 2px #fff;
     }
+
     header p {
-      font-weight: 500;
       font-size: 1.1rem;
-      color: #ccf9ffdd;
+      color: #003d1d;
     }
+
     .container {
-      background: #fff;
-      border-radius: 1rem;
-      max-width: 700px;
-      width: 100%;
-      color: #222;
-      box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
-      overflow: hidden;
+      background: #ffffffee;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
       display: grid;
       grid-template-columns: 1fr 2fr;
-      gap: 1rem;
-      min-height: 350px;
-    }
-    .portal-selector {
-      background: #f0f8ff;
-      padding: 1.5rem 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      border-right: 2px solid #00aaff;
-      border-radius: 1rem 0 0 1rem;
-    }
-    .portal-selector label {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 1rem;
-      color: #0066cc;
-      user-select: none;
-      padding: 0.6rem 0.8rem;
-      border-radius: 8px;
-      transition: background 0.25s ease;
-      border: 2px solid transparent;
-    }
-    .portal-selector label:hover {
-      background: #d0ecff;
-      border-color: #0099ff;
-    }
-    .portal-selector input[type="radio"] {
-      margin-right: 1rem;
-      accent-color: #0099ff;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
-    .portal-selector input[type="radio"]:checked + span {
-      color: #007acc;
-      font-weight: 900;
-    }
-    .info-box {
-      padding: 2rem 1.5rem;
-      background: #e6f4ff;
-      border-radius: 0 1rem 1rem 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: #004a80;
-      box-shadow: inset 0 0 15px #99d6ff88;
-    }
-    .info-box strong {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #003366;
-      letter-spacing: 0.03em;
-    }
-    .info-box p {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin: 0 0 1rem;
-    }
-    .info-box a {
-      font-weight: 700;
-      color: #0066cc;
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-    .info-box a:hover,
-    .info-box a:focus {
-      border-color: #004a99;
-      outline: none;
-    }
-    .timestamp {
-      font-style: italic;
-      color: #004080aa;
-      font-size: 0.9rem;
+      width: 100%;
+      max-width: 850px;
+      overflow: hidden;
       margin-top: 1rem;
     }
+
+    .portal-selector {
+      background: #f5faff;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-right: 2px solid #008080;
+    }
+
+    .portal-selector label {
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      color: #006666;
+    }
+
+    .portal-selector input[type="radio"] {
+      margin-right: 0.75rem;
+    }
+
+    .info-box {
+      padding: 1.5rem;
+      background: #e8f9f1;
+      color: #004400;
+    }
+
+    .info-box strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-box a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .info-box a:hover {
+      text-decoration: underline;
+    }
+
     .ad-container {
       width: 100%;
       max-width: 728px;
       height: 90px;
-      margin: 3rem auto 1rem;
-      background-color: #ccdefb;
-      border-radius: 12px;
-      border: 2px dashed #3399ff;
-      color: #0066cc;
+      margin: 2rem auto 1rem;
+      background: #fff9c4;
+      border: 2px dashed #ff9800;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-      user-select: none;
+      font-size: 1rem;
+      color: #ff6f00;
+      border-radius: 8px;
     }
+
     footer {
-      color: #cce7ffdd;
-      font-size: 0.9rem;
       margin-top: auto;
-      padding-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #ffffffcc;
       text-align: center;
-      user-select: none;
+      padding: 1rem;
     }
+
     @media (max-width: 700px) {
       .container {
         grid-template-columns: 1fr;
-        border-radius: 1rem;
       }
+
       .portal-selector {
         border-right: none;
-        border-bottom: 2px solid #00aaff;
-        border-radius: 1rem 1rem 0 0;
+        border-bottom: 2px solid #008080;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-around;
-        padding: 1rem 0.5rem;
       }
+
       .portal-selector label {
-        padding: 0.3rem 0.5rem;
         font-size: 0.9rem;
-      }
-      .info-box {
-        border-radius: 0 0 1rem 1rem;
-        padding: 1.5rem 1rem;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>म0प्र0 लेखपाल  </h1>
-    <p>एमपी के सरकारी पोर्टल </p>
+    <img src="mp-emblem.png" alt="Madhya Pradesh Emblem" />
+    <h1>म0प्र0 लेखपाल </h1>
+    <p>रियल टाइम सरकारी पोर्टल एक्सेस</p>
   </header>
 
-  <main class="container" role="main">
-    <nav class="portal-selector" role="radiogroup" aria-label="Select MP Government Portal">
-      <label>
-        <input type="radio" name="portal" value="mpbhulekh" checked />
-        <span>MP Bhulekh</span>
-      </label>
-      <label>
-        <input type="radio" name="portal" value="saara" />
-        <span>Saara MP</span>
-      </label>
-      <label>
-        <input type="radio" name="portal" value="mpedistrict" />
-        <span>MP eDistrict</span>
-      </label>
-      <label>
-        <input type="radio" name="portal" value="rcms" />
-        <span>RCMS Citizen</span>
-      </label>
-      <label>
-        <input type="radio" name="portal" value="mpigr" />
-        <span>MP IGR</span>
-      </label>
+  <main class="container">
+    <nav class="portal-selector">
+      <label><input type="radio" name="portal" value="mpbhulekh" checked />MP Bhulekh</label>
+      <label><input type="radio" name="portal" value="saara" />Saara MP</label>
+      <label><input type="radio" name="portal" value="mpedistrict" />MP eDistrict</label>
+      <label><input type="radio" name="portal" value="rcms" />RCMS</label>
+      <label><input type="radio" name="portal" value="mpigr" />MP IGR</label>
+      <label><input type="radio" name="portal" value="mponline" />MPOnline Portal</label>
     </nav>
 
-    <section class="info-box" aria-live="polite" aria-atomic="true" id="portal-info" tabindex="0">
-      Loading information...
+    <section class="info-box" id="portal-info">
+      Loading portal info...
     </section>
   </main>
 
-  <div class="ad-container" aria-label="Advertisement">
-    <!-- Replace this with your Google AdSense code -->
-    Your AdSense Ad Here
+  <div class="ad-container">
+    <!-- Replace this div with your Google AdSense ad slot -->
+    🔶 Your Google AdSense Ad will appear here
   </div>
 
   <footer>
-    © 2025 म0प्र0 लेखपाल Hub
+    © 2025 म0प्र0 लेखपाल • Developed for MP Revenue Users
   </footer>
 
   <script>
-    // Replace the API URLs below with your real backend API endpoints
     const portalData = {
       mpbhulekh: {
-        name: "MP Bhulekh (Land Records)",
-        description: "एमपी भूमि रिकॉर्ड और संपत्ति विवरण सुरक्षित रूप से देखें।",
+        name: "MP Bhulekh (भूमि रिकॉर्ड)",
+        description: "भूमि और संपत्ति की जानकारी देखें।",
         url: "https://mpbhulekh.gov.in/mpbhulekh.do",
         api: "https://jsonplaceholder.typicode.com/posts/1"
       },
       saara: {
-        name: "Saara MP (State Services)",
-        description: "सरकारी कर्मचारी सेवाएं और सूचनाएं।",
+        name: "Saara MP (राज्य सेवाएं)",
+        description: "कर्मचारी और शासन से संबंधित सेवाएं।",
         url: "https://saara.mp.gov.in/",
         api: "https://jsonplaceholder.typicode.com/posts/2"
       },
       mpedistrict: {
-        name: "MP eDistrict Portal",
-        description: "जिला स्तर की सरकारी सेवाओं तक ऑनलाइन पहुंच।",
+        name: "MP eDistrict",
+        description: "डिजिटल जिला सेवाओं का केंद्र।",
         url: "https://mpedistrict.gov.in/MPL/index.aspx",
         api: "https://jsonplaceholder.typicode.com/posts/3"
       },
       rcms: {
-        name: "RCMS Citizen Portal",
-        description: "नागरिक शिकायत और निगरानी प्रणाली।",
+        name: "RCMS Citizen",
+        description: "शिकायत निगरानी और समाधान पोर्टल।",
         url: "https://rcms.mp.gov.in/Citizen/Default.aspx",
         api: "https://jsonplaceholder.typicode.com/posts/4"
       },
       mpigr: {
-        name: "MP IGR (Inspector General of Registration)",
-        description: "पंजीकरण और सरकारी सेवाएं।",
+        name: "MP IGR",
+        description: "पंजीकरण और दस्तावेज सेवाएं।",
         url: "https://www.mpigr.gov.in/",
         api: "https://jsonplaceholder.typicode.com/posts/5"
+      },
+      mponline: {
+        name: "MPOnline Portal",
+        description: "मध्यप्रदेश सरकार की आधिकारिक ऑनलाइन सेवाएं।",
+        url: "https://www.mponline.gov.in/portal/",
+        api: "https://jsonplaceholder.typicode.com/posts/6"
       }
     };
 
-    const portalInfoEl = document.getElementById('portal-info');
+    const infoBox = document.getElementById('portal-info');
     const radios = document.querySelectorAll('input[name="portal"]');
 
-    let selectedPortal = 'mpbhulekh';
+    let currentPortal = 'mpbhulekh';
 
-    async function fetchPortalInfo(portalKey) {
-      const portal = portalData[portalKey];
+    async function loadPortalInfo(key) {
+      const portal = portalData[key];
       try {
-        portalInfoEl.textContent = 'Loading information...';
-        const response = await fetch(portal.api);
-        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-        const data = await response.json();
-
-        // Show fetched content in Hindi-friendly, accessible format
+        const res = await fetch(portal.api);
+        const data = await res.json();
         const time = new Date().toLocaleTimeString('hi-IN');
-        portalInfoEl.innerHTML = `
+
+        infoBox.innerHTML = `
           <strong>${portal.name}</strong>
           <p>${portal.description}</p>
-          <p><em>ताजा अपडेट शीर्षक:</em> ${data.title}</p>
-          <a href="${portal.url}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${portal.name} portal">पोर्टल पर जाएं</a>
-          <div class="timestamp">अंतिम अपडेट: ${time}</div>
+          <p><em>Live अपडेट:</em> ${data.title}</p>
+          <a href="${portal.url}" target="_blank" rel="noopener noreferrer">पोर्टल पर जाएं</a>
+          <div style="font-size: 0.85rem; margin-top: 1rem;">अंतिम अपडेट: ${time}</div>
         `;
-      } catch (error) {
-        portalInfoEl.innerHTML = `<strong>${portal.name}</strong><p>डेटा लोड करने में विफल। कृपया बाद में पुनः प्रयास करें।</p>`;
-        console.error(error);
+      } catch (err) {
+        infoBox.innerHTML = `<p>डेटा लोड करने में त्रुटि हुई।</p>`;
       }
     }
 
-    function onPortalChange() {
-      selectedPortal = this.value;
-      fetchPortalInfo(selectedPortal);
-    }
+    radios.forEach(r => r.addEventListener('change', function () {
+      currentPortal = this.value;
+      loadPortalInfo(currentPortal);
+    }));
 
-    radios.forEach(radio => radio.addEventListener('change', onPortalChange));
-
-    // Initial fetch
-    fetchPortalInfo(selectedPortal);
-
-    // Refresh every 20 seconds to simulate real-time updates
-    setInterval(() => fetchPortalInfo(selectedPortal), 20000);
+    // First load + refresh every 20s
+    loadPortalInfo(currentPortal);
+    setInterval(() => loadPortalInfo(currentPortal), 20000);
   </script>
 </body>
 </html>
