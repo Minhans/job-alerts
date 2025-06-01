@@ -3,61 +3,289 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="आत्‍म निर्भर स्‍वरोजगार पोर्टल " />
-  <meta name="keywords" content="म0प्र0 लेखपाल, MP, सरकारी पोर्टल" />
-  <meta name="Musk06" content="Motivate Urself And Strengthen Knowledge" />
-  <title>म0प्र0 शासकीय सेवा का पोर्टल </title>
-
+  <meta name="description" content="म0प्र0 लेखपाल और सरकारी नौकरियाँ - MP सरकारी पोर्टल्स और नवीनतम रोजगार अवसरों का हब" />
+  <meta name="keywords" content="म0प्र0 लेखपाल, MP सरकारी नौकरी, सरकारी पोर्टल, रियल टाइम, Sarkari Naukri 2025" />
+  <meta name="author" content="CareerConnect" />
+  <title>म0प्र0 लेखपाल और सरकारी नौकरियाँ 2025</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <!-- Google AdSense Integration -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7384639868183712" crossorigin="anonymous"></script>
 
   <style>
-    * { box-sizing: border-box; }
-    body {
+    /* Modern Color Palette with Tricolor Theme */
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --accent: #4895ef;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #4cc9f0;
+      --warning: #f72585;
+      --info: #560bad;
+      --card-bg: #ffffff;
+      --saffron: #FF9933;
+      --white: #FFFFFF;
+      --green: #138808;
+      --gradient: linear-gradient(135deg, var(--saffron) 0%, var(--white) 50%, var(--green) 100%);
+    }
+
+    /* Base styles & reset */
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%);
-      color: #222;
+    }
+    
+    body {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7ff;
+      color: var(--dark);
+      line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+    
+    /* Language Toggle */
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+    
+    .lang-btn {
+      background: rgba(255,255,255,0.9);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
       align-items: center;
-      padding: 1rem;
+      gap: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
+    
+    /* Header with Hero Section */
     header {
+      background: var(--gradient);
+      color: white;
+      padding: 30px 15px 40px;
       text-align: center;
-      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-
-    header img {
-      width: 80px;
-      margin-bottom: 0.5rem;
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
+    
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    
     header h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
+      margin: 0 0 15px;
+      font-weight: 800;
+      font-size: 2.8rem;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
       color: #00204a;
-      text-shadow: 1px 1px 2px #fff;
     }
-
+    
     header p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
       color: #003d1d;
     }
-
-    .container {
-      background: #ffffffee;
+    
+    .search-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.9);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .search-bar {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    #jobSearch {
+      flex: 1 1 300px;
+      padding: 15px 25px;
+      border: 2px solid #e0e0e0;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    
+    #jobSearch:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    }
+    
+    #stateFilter {
+      flex: 0 1 200px;
+      padding: 15px 20px;
+      border-radius: 50px;
+      border: 2px solid #e0e0e0;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      background: white;
+      color: var(--dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    #stateFilter:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    }
+    
+    #clearBtn {
+      background: var(--warning);
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    #clearBtn:hover,
+    #clearBtn:focus {
+      background: #d31666;
+      outline: none;
+      transform: translateY(-2px);
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      background: white;
+      padding: 40px 20px;
+      margin-top: -20px;
+      position: relative;
+      z-index: 3;
+      border-radius: 15px 15px 0 0;
+      box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      flex: 1 1 150px;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+      color: #666;
+    }
+    
+    /* Main Content Tabs */
+    .content-tabs {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      max-width: 1000px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    
+    .tab-btn {
+      padding: 12px 25px;
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #666;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active {
+      color: var(--primary);
+    }
+    
+    .tab-btn.active::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    .tab-btn:hover {
+      color: var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+      width: 100%;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* MP Portal Section */
+    .portal-container {
+      background: white;
       border-radius: 12px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
       display: grid;
       grid-template-columns: 1fr 2fr;
       width: 100%;
-      max-width: 850px;
+      max-width: 1000px;
+      margin: 20px auto;
       overflow: hidden;
-      margin-top: 1rem;
     }
 
     .portal-selector {
@@ -66,7 +294,7 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      border-right: 2px solid #008080;
+      border-right: 2px solid var(--primary);
     }
 
     .portal-selector label {
@@ -75,7 +303,7 @@
       display: flex;
       align-items: center;
       font-size: 1rem;
-      color: #006666;
+      color: var(--primary);
     }
 
     .portal-selector input[type="radio"] {
@@ -103,38 +331,306 @@
     .info-box a:hover {
       text-decoration: underline;
     }
-
-    .ad-container {
-      width: 100%;
-      max-width: 728px;
-      height: 90px;
-      margin: 2rem auto 1rem;
-      background: #fff9c4;
-      border: 2px dashed #ff9800;
+    
+    /* Job Listings Section */
+    .job-listings {
+      padding: 40px 15px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .job-card {
+      background: white;
+      margin-bottom: 25px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .job-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .job-card:hover::before {
+      width: 8px;
+      background: var(--warning);
+    }
+    
+    .job-card h3 {
+      margin: 0 0 10px;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.4rem;
       display: flex;
-      justify-content: center;
       align-items: center;
-      font-size: 1rem;
-      color: #ff6f00;
-      border-radius: 8px;
     }
-
-    footer {
-      margin-top: auto;
+    
+    .job-card h3 i {
+      margin-right: 10px;
+      color: var(--accent);
+    }
+    
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .job-meta-item {
+      display: flex;
+      align-items: center;
+      color: #555;
+      font-weight: 500;
       font-size: 0.9rem;
-      color: #ffffffcc;
-      text-align: center;
-      padding: 1rem;
     }
-
-    @media (max-width: 700px) {
-      .container {
+    
+    .job-meta-item i {
+      margin-right: 5px;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    
+    .job-card p {
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    
+    .job-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .apply-btn, .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      gap: 8px;
+    }
+    
+    .apply-btn {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .apply-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+    }
+    
+    .download-btn {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .download-btn:hover {
+      background: #f0f2ff;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1);
+    }
+    
+    .urgent-badge {
+      position: absolute;
+      top: 20px;
+      right: -30px;
+      background: var(--warning);
+      color: white;
+      padding: 5px 30px;
+      transform: rotate(45deg);
+      font-size: 0.8rem;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(247, 37, 133, 0.3);
+    }
+    
+    /* Ad Spaces */
+    .ad-space {
+      background: white;
+      padding: 20px;
+      margin: 30px auto;
+      border-radius: 12px;
+      max-width: 1000px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: 1px dashed #ccc;
+    }
+    
+    .ad-space.horizontal {
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, #f5f7ff, #e8ebff);
+    }
+    
+    .ad-space.vertical {
+      height: 250px;
+      width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px auto;
+      background: linear-gradient(45deg, #f5f7ff, #e8ebff);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      padding: 50px 15px 20px;
+      margin-top: auto;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+    
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .footer-logo span {
+      color: var(--accent);
+    }
+    
+    .footer-about p {
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      color: white;
+      background: rgba(255,255,255,0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-links h3 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-links h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    
+    .footer-links a i {
+      font-size: 0.8rem;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: #888;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .search-bar {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      #jobSearch, #stateFilter, #clearBtn {
+        width: 100%;
+      }
+      
+      .portal-container {
         grid-template-columns: 1fr;
       }
 
       .portal-selector {
         border-right: none;
-        border-bottom: 2px solid #008080;
+        border-bottom: 2px solid var(--primary);
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -143,78 +639,402 @@
       .portal-selector label {
         font-size: 0.9rem;
       }
+      
+      .job-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .apply-btn, .download-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .job-card h3 {
+        font-size: 1.2rem;
+      }
+      
+      .tab-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="mp-emblem.png" alt="Madhya Pradesh Emblem" />
-    <h1>म0प्र0 लेखपाल </h1>
-    <p>रियल टाइम सरकारी पोर्टल एक्सेस</p>
-  </header>
-
-  <main class="container">
-    <nav class="portal-selector">
-      <label><input type="radio" name="portal" value="mpbhulekh" checked />MP Bhulekh</label>
-      <label><input type="radio" name="portal" value="saara" />Saara MP</label>
-      <label><input type="radio" name="portal" value="mpedistrict" />MP eDistrict</label>
-      <label><input type="radio" name="portal" value="rcms" />RCMS</label>
-      <label><input type="radio" name="portal" value="mpigr" />MP IGR</label>
-      <label><input type="radio" name="portal" value="mponline" />MPOnline Portal</label>
-    </nav>
-
-    <section class="info-box" id="portal-info">
-      Loading portal info...
-    </section>
-  </main>
-
-  <div class="ad-container">
-    <!-- Replace this div with your Google AdSense ad slot -->
-    🔶 Your Google AdSense Ad will appear here
+  <!-- Language Toggle Button -->
+  <div class="lang-toggle">
+    <button class="lang-btn" id="langToggle">
+      <i class="fas fa-language"></i> हिंदी
+    </button>
   </div>
 
+  <header>
+    <div class="header-bg"></div>
+    <div class="header-content">
+      <img src="mp-emblem.png" alt="Madhya Pradesh Emblem" width="80" />
+      <h1 class="lang-hi">म0प्र0 लेखपाल और सरकारी नौकरियाँ</h1>
+      <h1 class="lang-en" style="display:none;">MP Lekhpal & Government Jobs</h1>
+      <p class="lang-hi">राज्य पोर्टल्स और नवीनतम रोजगार अवसरों का हब</p>
+      <p class="lang-en" style="display:none;">Hub for state portals and latest employment opportunities</p>
+      
+      <div class="search-container lang-hi">
+        <div class="search-bar" role="search" aria-label="Job search and filter">
+          <input type="search" id="jobSearch" placeholder="कीवर्ड, विभाग या स्थान से खोजें..." aria-label="Search government jobs" />
+          <select id="stateFilter" aria-label="Filter jobs by state">
+            <option value="all">सभी राज्य/केंद्रशासित प्रदेश</option>
+            <option value="Madhya Pradesh">मध्य प्रदेश</option>
+            <option value="Delhi">दिल्ली</option>
+            <option value="Maharashtra">महाराष्ट्र</option>
+            <option value="Uttar Pradesh">उत्तर प्रदेश</option>
+            <option value="Tamil Nadu">तमिल नाडु</option>
+          </select>
+          <button id="clearBtn" aria-label="Clear search and filters">
+            <i class="fas fa-times"></i> रीसेट
+          </button>
+        </div>
+      </div>
+      
+      <div class="search-container lang-en" style="display:none;">
+        <div class="search-bar" role="search" aria-label="Job search and filter">
+          <input type="search" id="jobSearchEn" placeholder="Search by keyword, department or location..." aria-label="Search government jobs" />
+          <select id="stateFilterEn" aria-label="Filter jobs by state">
+            <option value="all">All States/UTs</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+          </select>
+          <button id="clearBtnEn" aria-label="Clear search and filters">
+            <i class="fas fa-times"></i> Clear
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-number">12,450+</div>
+        <div class="stat-label lang-hi">वर्तमान रिक्तियाँ</div>
+        <div class="stat-label lang-en" style="display:none;">Current Vacancies</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1,280+</div>
+        <div class="stat-label lang-hi">नई आज</div>
+        <div class="stat-label lang-en" style="display:none;">New Today</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">36</div>
+        <div class="stat-label lang-hi">राज्य/केंद्रशासित प्रदेश</div>
+        <div class="stat-label lang-en" style="display:none;">States/UTs</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">98.9%</div>
+        <div class="stat-label lang-hi">सत्यापित सूची</div>
+        <div class="stat-label lang-en" style="display:none;">Verified Listings</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Tabs -->
+  <div class="content-tabs">
+    <button class="tab-btn active lang-hi" data-tab="jobs">सरकारी नौकरियाँ</button>
+    <button class="tab-btn lang-hi" data-tab="portals">एमपी पोर्टल्स</button>
+    <button class="tab-btn active lang-en" style="display:none;" data-tab="jobs">Government Jobs</button>
+    <button class="tab-btn lang-en" style="display:none;" data-tab="portals">MP Portals</button>
+  </div>
+
+  <!-- Job Listings Section -->
+  <div class="tab-content active" id="jobs">
+    <div class="job-listings">
+      <div class="section-title">
+        <h2 class="lang-hi">नवीनतम सरकारी नौकरियाँ - मई 2025</h2>
+        <h2 class="lang-en" style="display:none;">Latest Government Jobs - May 2025</h2>
+      </div>
+      
+      <div id="jobResults">
+        <!-- Updated job listings as of May 30, 2025 -->
+        <div class="job-card" data-state="Madhya Pradesh" data-keywords="engineer technical railway">
+          <div class="urgent-badge lang-hi">जरूरी</div>
+          <div class="urgent-badge lang-en" style="display:none;">Urgent</div>
+          <h3><i class="fas fa-train"></i> <span class="lang-hi">जूनियर इंजीनियर (सिविल) - मध्य प्रदेश रेलवे</span><span class="lang-en" style="display:none;">Junior Engineer (Civil) - MP Railway</span></h3>
+          <div class="job-meta">
+            <div class="job-meta-item">
+              <i class="fas fa-building"></i> <span class="lang-hi">रेलवे भर्ती बोर्ड</span><span class="lang-en" style="display:none;">Railway Recruitment Board</span>
+            </div>
+            <div class="job-meta-item">
+              <i class="fas fa-map-marker-alt"></i> <span class="lang-hi">मध्य प्रदेश</span><span class="lang-en" style="display:none;">Madhya Pradesh</span>
+            </div>
+            <div class="job-meta-item">
+              <i class="fas fa-calendar-alt"></i> <span class="lang-hi">अंतिम तिथि:</span><span class="lang-en" style="display:none;">Last Date:</span> 15/06/2025
+            </div>
+            <div class="job-meta-item">
+              <i class="fas fa-rupee-sign"></i> ₹56,100 - ₹1,77,500
+            </div>
+          </div>
+          <p class="lang-hi">मध्य प्रदेश रेलवे में 1,250 जूनियर इंजीनियर (सिविल) पदों के लिए आवेदन आमंत्रित। सिविल इंजीनियरिंग में डिप्लोमा/डिग्री आवश्यक। आयु सीमा: 18-33 वर्ष। चयन सीबीटी और दस्तावेज़ सत्यापन के माध्यम से।</p>
+          <p class="lang-en" style="display:none;">Applications invited for 1,250 Junior Engineer (Civil) positions in MP Railway. Diploma/Degree in Civil Engineering required. Age limit: 18-33 years. Selection through CBT and document verification.</p>
+          <div class="job-actions">
+            <a href="#" class="apply-btn">
+              <i class="fas fa-paper-plane"></i> <span class="lang-hi">ऑनलाइन आवेदन करें</span><span class="lang-en" style="display:none;">Apply Online</span>
+            </a>
+            <a href="#" class="download-btn">
+              <i class="fas fa-download"></i> <span class="lang-hi">अधिसूचना</span><span class="lang-en" style="display:none;">Notification</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="job-card" data-state="Madhya Pradesh" data-keywords="teacher education">
+          <h3><i class="fas fa-chalkboard-teacher"></i> <span class="lang-hi">शिक्षक (TGT) - मध्य प्रदेश शिक्षा विभाग</span><span class="lang-en" style="display:none;">Teacher (TGT) - MP Education Dept</span></h3>
+          <div class="job-meta">
+            <div class="job-meta-item">
+              <i class="fas fa-building"></i> <span class="lang-hi">मध्य प्रदेश शिक्षा विभाग</span><span class="lang-en" style="display:none;">MP Education Department</span>
+            </div>
+            <div class="job-meta-item">
+              <i class="fas fa-map-marker-alt"></i> <span class="lang-hi">मध्य प्रदेश</span><span class="lang-en" style="display:none;">Madhya Pradesh</span>
+            </div>
+            <div class="job-meta-item">
+              <i class="fas fa-calendar-alt"></i> <span class="lang-hi">अंतिम तिथि:</span><span class="lang-en" style="display:none;">Last Date:</span> 10/06/2025
+            </div>
+            <div class="job-meta-item">
+              <i class="fas fa-rupee-sign"></i> ₹47,600 - ₹1,51,100
+            </div>
+          </div>
+          <p class="lang-hi">मध्य प्रदेश सरकारी स्कूलों के लिए 3,500 प्रशिक्षित स्नातक शिक्षक (विज्ञान/गणित) की भर्ती। बी.एससी/बी.एड के साथ सीटीईटी/एमपी-टीईटी आवश्यक। आयु सीमा: 21-40 वर्ष। चयन लिखित परीक्षा और साक्षात्कार के माध्यम से।</p>
+          <p class="lang-en" style="display:none;">Recruitment of 3,500 Trained Graduate Teachers (Science/Maths) for MP government schools. B.Sc/B.Ed with CTET/MP-TET required. Age limit: 21-40 years. Selection through written exam and interview.</p>
+          <div class="job-actions">
+            <a href="#" class="apply-btn">
+              <i class="fas fa-paper-plane"></i> <span class="lang-hi">ऑनलाइन आवेदन करें</span><span class="lang-en" style="display:none;">Apply Online</span>
+            </a>
+            <a href="#" class="download-btn">
+              <i class="fas fa-download"></i> <span class="lang-hi">अधिसूचना</span><span class="lang-en" style="display:none;">Notification</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="job-card" data-state="Madhya Pradesh" data-keywords="police constable">
+          <div class="urgent-badge lang-hi">जरूरी</div>
+          <div class="urgent-badge lang-en" style="display:none;">Urgent</div>
+          <h3><i class="fas fa-shield-alt"></i> <span class="lang-hi">पुलिस कांस्टेबल - मध्य प्रदेश पुलिस</span><span class="lang-en" style="display:none;">Police Constable - MP Police</span></h3>
+          <div class="job-meta">
+            <div class="job-meta-item">
+              <i class="fas fa-building"></i> <span class="lang-hi">मध्य प्रदेश पुलिस</span><span class="lang-en" style="display:none;">MP Police</span>
+            </div>
+            <div class="job-meta-item">
+              <i class="fas fa-map-marker-alt"></i> <span class="lang-hi">मध्य प्रदेश</span><span class="lang-en" style="display:none;">Madhya Pradesh</span>
+            </div>
+            <div class="job-meta-item">
+              <i class="fas fa-calendar-alt"></i> <span class="lang-hi">अंतिम तिथि:</span><span class="lang-en" style="display:none;">Last Date:</span> 05/06/2025
+            </div>
+            <div class="job-meta-item">
+              <i class="fas fa-rupee-sign"></i> ₹25,500 - ₹81,100
+            </div>
+          </div>
+          <p class="lang-hi">मध्य प्रदेश पुलिस में 2,800 कांस्टेबल पदों के लिए भर्ती। 10+2 योग्यता आवश्यक। शारीरिक मानक: ऊंचाई 165cm (पुरुष)/157cm (महिला)। चयन शारीरिक परीक्षण, लिखित परीक्षा और साक्षात्कार के माध्यम से।</p>
+          <p class="lang-en" style="display:none;">MP Police recruitment for 2,800 Constable positions. 10+2 qualification required. Physical standards: Height 165cm (Men)/157cm (Women). Selection through physical test, written exam and interview.</p>
+          <div class="job-actions">
+            <a href="#" class="apply-btn">
+              <i class="fas fa-paper-plane"></i> <span class="lang-hi">ऑनलाइन आवेदन करें</span><span class="lang-en" style="display:none;">Apply Online</span>
+            </a>
+            <a href="#" class="download-btn">
+              <i class="fas fa-download"></i> <span class="lang-hi">अधिसूचना</span><span class="lang-en" style="display:none;">Notification</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div id="noResults" class="no-results" style="display:none;">
+        <i class="fas fa-search" style="font-size:2rem; margin-bottom:15px; color:#aaa;"></i>
+        <p class="lang-hi">आपकी खोज से मेल खाती कोई नौकरी नहीं मिली। विभिन्न कीवर्ड आज़माएं या बाद में जांचें।</p>
+        <p class="lang-en" style="display:none;">No jobs found matching your criteria. Try different keywords or check back later.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MP Portals Section -->
+  <div class="tab-content" id="portals">
+    <div class="portal-container">
+      <nav class="portal-selector">
+        <label><input type="radio" name="portal" value="mpbhulekh" checked />MP Bhulekh</label>
+        <label><input type="radio" name="portal" value="saara" />Saara MP</label>
+        <label><input type="radio" name="portal" value="mpedistrict" />MP eDistrict</label>
+        <label><input type="radio" name="portal" value="rcms" />RCMS</label>
+        <label><input type="radio" name="portal" value="mpigr" />MP IGR</label>
+        <label><input type="radio" name="portal" value="mponline" />MPOnline Portal</label>
+      </nav>
+
+      <section class="info-box" id="portal-info">
+        Loading portal info...
+      </section>
+    </div>
+  </div>
+
+  <!-- Ad Space -->
+  <div class="ad-space horizontal">
+    <p>Advertisement Space (728x90) - Premium Job Postings Here</p>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    © 2025 म0प्र0 लेखपाल • Developed for MP Revenue Users
+    <div class="footer-container">
+      <div class="footer-about">
+        <a href="#" class="footer-logo">Career<span>Connect</span></a>
+        <p class="lang-hi">2018 से भारत का सबसे विश्वसनीय सरकारी नौकरी पोर्टल। हम सभी राज्यों से आधिकारिक स्रोतों से सत्यापित और अद्यतन नौकरी सूची प्रदान करते हैं।</p>
+        <p class="lang-en" style="display:none;">India's most trusted government job portal since 2018. We provide verified and updated job listings from official sources across all states.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h3 class="lang-hi">त्वरित लिंक</h3>
+        <h3 class="lang-en" style="display:none;">Quick Links</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">नवीनतम नौकरियाँ</span><span class="lang-en" style="display:none;">Latest Jobs</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">राज्यवार नौकरियाँ</span><span class="lang-en" style="display:none;">State Wise Jobs</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">प्रवेश पत्र</span><span class="lang-en" style="display:none;">Admit Cards</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">परिणाम</span><span class="lang-en" style="display:none;">Results</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">उत्तर कुंजी</span><span class="lang-en" style="display:none;">Answer Keys</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h3 class="lang-hi">लोकप्रिय नौकरियाँ</h3>
+        <h3 class="lang-en" style="display:none;">Popular Jobs</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">एसएससी नौकरियाँ 2025</span><span class="lang-en" style="display:none;">SSC Jobs 2025</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">रेलवे नौकरियाँ</span><span class="lang-en" style="display:none;">Railway Jobs</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">बैंकिंग नौकरियाँ</span><span class="lang-en" style="display:none;">Banking Jobs</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">शिक्षण नौकरियाँ</span><span class="lang-en" style="display:none;">Teaching Jobs</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">यूपीएससी नौकरियाँ</span><span class="lang-en" style="display:none;">UPSC Jobs</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h3 class="lang-hi">सहायता और समर्थन</h3>
+        <h3 class="lang-en" style="display:none;">Help & Support</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">हमारे बारे में</span><span class="lang-en" style="display:none;">About Us</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">संपर्क करें</span><span class="lang-en" style="display:none;">Contact Us</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">गोपनीयता नीति</span><span class="lang-en" style="display:none;">Privacy Policy</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">नियम और शर्तें</span><span class="lang-en" style="display:none;">Terms & Conditions</span></a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-hi">सामान्य प्रश्न</span><span class="lang-en" style="display:none;">FAQ</span></a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2018-2025 CareerConnect. All Rights Reserved. | <span class="lang-hi">अंतिम अपडेट:</span><span class="lang-en" style="display:none;">Last Updated:</span> May 30, 2025</p>
+      <p class="lang-hi">अस्वीकरण: हम किसी सरकारी संगठन से संबद्ध नहीं हैं। यह एक स्वतंत्र नौकरी पोर्टल है।</p>
+      <p class="lang-en" style="display:none;">Disclaimer: We are not affiliated with any government organization. This is an independent job portal.</p>
+    </div>
   </footer>
 
   <script>
+    // Language Toggle Functionality
+    const langToggle = document.getElementById('langToggle');
+    const hiElements = document.querySelectorAll('.lang-hi');
+    const enElements = document.querySelectorAll('.lang-en');
+    
+    let currentLang = 'hi';
+    
+    langToggle.addEventListener('click', function() {
+      if(currentLang === 'hi') {
+        // Switch to English
+        hiElements.forEach(el => el.style.display = 'none');
+        enElements.forEach(el => el.style.display = 'block');
+        langToggle.innerHTML = '<i class="fas fa-language"></i> हिंदी';
+        currentLang = 'en';
+      } else {
+        // Switch to Hindi
+        hiElements.forEach(el => el.style.display = 'block');
+        enElements.forEach(el => el.style.display = 'none');
+        langToggle.innerHTML = '<i class="fas fa-language"></i> English';
+        currentLang = 'hi';
+      }
+    });
+    
+    // Tab Switching Functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remove active class from all buttons and contents
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding content
+        this.classList.add('active');
+        const tabId = this.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+    
+    // MP Portal Data and Functionality
     const portalData = {
       mpbhulekh: {
         name: "MP Bhulekh (भूमि रिकॉर्ड)",
+        nameEn: "MP Bhulekh (Land Records)",
         description: "भूमि और संपत्ति की जानकारी देखें।",
+        descriptionEn: "View land and property information.",
         url: "https://mpbhulekh.gov.in/mpbhulekh.do",
-        api: "https://musk06.com/posts/1"
+        api: "https://jsonplaceholder.typicode.com/posts/1"
       },
       saara: {
         name: "Saara MP (राज्य सेवाएं)",
+        nameEn: "Saara MP (State Services)",
         description: "कर्मचारी और शासन से संबंधित सेवाएं।",
+        descriptionEn: "Employee and governance related services.",
         url: "https://saara.mp.gov.in/",
-        api: "https://musk06.com/posts/2"
+        api: "https://jsonplaceholder.typicode.com/posts/2"
       },
       mpedistrict: {
         name: "MP eDistrict",
+        nameEn: "MP eDistrict",
         description: "डिजिटल जिला सेवाओं का केंद्र।",
+        descriptionEn: "Hub for digital district services.",
         url: "https://mpedistrict.gov.in/MPL/index.aspx",
-        api: "https://musk06.com/posts/3"
+        api: "https://jsonplaceholder.typicode.com/posts/3"
       },
       rcms: {
         name: "RCMS Citizen",
+        nameEn: "RCMS Citizen",
         description: "शिकायत निगरानी और समाधान पोर्टल।",
+        descriptionEn: "Grievance monitoring and resolution portal.",
         url: "https://rcms.mp.gov.in/Citizen/Default.aspx",
-        api: "https://musk06.com/posts/4"
+        api: "https://jsonplaceholder.typicode.com/posts/4"
       },
       mpigr: {
         name: "MP IGR",
+        nameEn: "MP IGR",
         description: "पंजीकरण और दस्तावेज सेवाएं।",
+        descriptionEn: "Registration and document services.",
         url: "https://www.mpigr.gov.in/",
-        api: "https://musk06.com/posts/5"
+        api: "https://jsonplaceholder.typicode.com/posts/5"
       },
       mponline: {
         name: "MPOnline Portal",
+        nameEn: "MPOnline Portal",
         description: "मध्यप्रदेश सरकार की आधिकारिक ऑनलाइन सेवाएं।",
+        descriptionEn: "Official online services of MP Government.",
         url: "https://www.mponline.gov.in/portal/",
-        api: "https://musk06.com/posts/6"
+        api: "https://jsonplaceholder.typicode.com/posts/6"
       }
     };
 
@@ -230,15 +1050,29 @@
         const data = await res.json();
         const time = new Date().toLocaleTimeString('hi-IN');
 
-        infoBox.innerHTML = `
-          <strong>${portal.name}</strong>
-          <p>${portal.description}</p>
-          <p><em>Live अपडेट:</em> ${data.title}</p>
-          <a href="${portal.url}" target="_blank" rel="noopener noreferrer">पोर्टल पर जाएं</a>
-          <div style="font-size: 0.85rem; margin-top: 1rem;">अंतिम अपडेट: ${time}</div>
-        `;
+        if(currentLang === 'hi') {
+          infoBox.innerHTML = `
+            <strong>${portal.name}</strong>
+            <p>${portal.description}</p>
+            <p><em>लाइव अपडेट:</em> ${data.title}</p>
+            <a href="${portal.url}" target="_blank" rel="noopener noreferrer">पोर्टल पर जाएं</a>
+            <div style="font-size: 0.85rem; margin-top: 1rem;">अंतिम अपडेट: ${time}</div>
+          `;
+        } else {
+          infoBox.innerHTML = `
+            <strong>${portal.nameEn}</strong>
+            <p>${portal.descriptionEn}</p>
+            <p><em>Live Update:</em> ${data.title}</p>
+            <a href="${portal.url}" target="_blank" rel="noopener noreferrer">Visit Portal</a>
+            <div style="font-size: 0.85rem; margin-top: 1rem;">Last Updated: ${time}</div>
+          `;
+        }
       } catch (err) {
-        infoBox.innerHTML = `<p>डेटा लोड करने में त्रुटि हुई।</p>`;
+        if(currentLang === 'hi') {
+          infoBox.innerHTML = `<p>डेटा लोड करने में त्रुटि हुई।</p>`;
+        } else {
+          infoBox.innerHTML = `<p>Error loading data.</p>`;
+        }
       }
     }
 
@@ -250,6 +1084,74 @@
     // First load + refresh every 20s
     loadPortalInfo(currentPortal);
     setInterval(() => loadPortalInfo(currentPortal), 20000);
+    
+    // Job search functionality
+    function setupJobSearch() {
+      const jobSearch = document.getElementById('jobSearch');
+      const jobSearchEn = document.getElementById('jobSearchEn');
+      const stateFilter = document.getElementById('stateFilter');
+      const stateFilterEn = document.getElementById('stateFilterEn');
+      const clearBtn = document.getElementById('clearBtn');
+      const clearBtnEn = document.getElementById('clearBtnEn');
+      const jobCards = document.querySelectorAll('.job-card');
+      const noResults = document.getElementById('noResults');
+      
+      function filterJobs(searchTerm, stateValue) {
+        let visibleCount = 0;
+
+        jobCards.forEach(card => {
+          const keywords = card.dataset.keywords.toLowerCase();
+          const cardState = card.dataset.state;
+          const matchesSearch = searchTerm === '' || keywords.includes(searchTerm) || 
+                              card.textContent.toLowerCase().includes(searchTerm);
+          const matchesState = stateValue === 'all' || cardState === stateValue;
+
+          if (matchesSearch && matchesState) {
+            card.style.display = 'block';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+
+      // Clear button handler
+      function clearFilters() {
+        if(currentLang === 'hi') {
+          jobSearch.value = '';
+          stateFilter.value = 'all';
+        } else {
+          jobSearchEn.value = '';
+          stateFilterEn.value = 'all';
+        }
+        filterJobs('', 'all');
+      }
+
+      clearBtn.addEventListener('click', clearFilters);
+      clearBtnEn.addEventListener('click', clearFilters);
+
+      // Event listeners for Hindi interface
+      jobSearch.addEventListener('input', function() {
+        filterJobs(this.value.toLowerCase(), stateFilter.value);
+      });
+      
+      stateFilter.addEventListener('change', function() {
+        filterJobs(jobSearch.value.toLowerCase(), this.value);
+      });
+
+      // Event listeners for English interface
+      jobSearchEn.addEventListener('input', function() {
+        filterJobs(this.value.toLowerCase(), stateFilterEn.value);
+      });
+      
+      stateFilterEn.addEventListener('change', function() {
+        filterJobs(jobSearchEn.value.toLowerCase(), this.value);
+      });
+    }
+    
+    setupJobSearch();
   </script>
 </body>
 </html>
