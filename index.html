@@ -3,373 +3,372 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital India Nexus | Futuristic Govt Portal</title>
+  <title>Digital India Nexus | Gateway to Governance</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7384639868183712" crossorigin="anonymous"></script>
   
   <style>
     :root {
-      --neon-saffron: #FF9933;
-      --neon-white: #FFFFFF;
-      --neon-green: #138808;
-      --neon-blue: #0ff0fc;
-      --neon-purple: #bc13fe;
-      --cyber-dark: #0a0a20;
-      --cyber-pink: #ff44cc;
-      --cyber-yellow: #f5d300;
+      --hope-blue: #1a73e8;
+      --hope-green: #34a853;
+      --hope-yellow: #fbbc05;
+      --hope-red: #ea4335;
+      --hope-light: #f8f9fa;
+      --hope-dark: #202124;
+      --hope-primary: #4285f4;
+      --hope-secondary: #5f6368;
+      --hope-accent: #1e88e5;
+      --hope-success: #00c853;
+      --hope-warning: #ffab00;
+      --hope-info: #00b8d4;
     }
     
     body {
-      font-family: 'Orbitron', 'Rajdhani', sans-serif;
+      font-family: 'Poppins', 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: var(--cyber-dark);
+      background-color: var(--hope-light);
+      color: var(--hope-dark);
+      line-height: 1.6;
+    }
+    
+    /* Header Styles */
+    .header-container {
+      background: linear-gradient(135deg, var(--hope-primary), var(--hope-accent));
       color: white;
-      background-image: 
-        radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: 50px 50px;
-      background-position: 0 0, 25px 25px;
-      overflow-x: hidden;
-    }
-    
-    /* Tricolor Ad Space */
-    .tricolor-ad {
-      background: linear-gradient(
-        to right,
-        var(--neon-saffron) 33%,
-        var(--neon-white) 33% 66%,
-        var(--neon-green) 66%
-      );
-      border-radius: 8px;
-      padding: 3px;
-      margin: 20px 0;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
-    
-    .ad-container {
-      background-color: rgba(10,10,30,0.9);
-      border-radius: 6px;
-      padding: 15px;
-      text-align: center;
-    }
-    
-    /* Header Animation */
-    @keyframes hologram {
-      0%, 100% { text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple); }
-      50% { text-shadow: 0 0 15px var(--cyber-pink), 0 0 30px var(--neon-green); }
-    }
-    
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .cyber-header {
-      background: linear-gradient(135deg, rgba(10,10,30,0.8), rgba(30,10,50,0.8));
-      border-bottom: 1px solid var(--neon-blue);
-      box-shadow: 0 0 30px rgba(11, 240, 252, 0.2);
+      padding: 2rem 0;
       position: relative;
       overflow: hidden;
-      text-align: center;
-      padding: 40px 0;
-      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     
-    .cyber-header::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(
-        circle,
-        rgba(11, 240, 252, 0.1) 0%,
-        transparent 70%
-      );
-      animation: rotate 20s linear infinite;
-    }
-    
-    .cyber-logo {
-      font-size: 3.5rem;
-      background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: hologram 3s ease-in-out infinite;
-      letter-spacing: 3px;
-      margin: 0;
-    }
-    
-    .cyber-subtitle {
-      color: var(--neon-blue);
-      font-size: 1.5rem;
-      text-shadow: 0 0 10px var(--neon-blue);
-      margin-top: 10px;
-    }
-    
-    /* News Ticker */
-    .cyber-ticker {
-      background: #000;
-      color: var(--neon-blue);
-      padding: 15px;
-      overflow: hidden;
-      white-space: nowrap;
-      box-shadow: inset 0 0 10px var(--neon-blue);
-      margin: 30px 0;
-      border-radius: 4px;
-      font-family: 'Orbitron', sans-serif;
-      font-weight: bold;
-    }
-    
-    .cyber-ticker span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: ticker 20s linear infinite;
-      text-shadow: 0 0 5px var(--neon-blue);
-    }
-    
-    @keyframes ticker {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-    
-    /* Cyber Grid */
-    .cyber-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin: 40px 0;
-    }
-    
-    .cyber-card {
-      background: rgba(10, 10, 32, 0.7);
-      border: 1px solid var(--neon-blue);
-      border-radius: 12px;
-      padding: 25px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(11, 240, 252, 0.1);
-    }
-    
-    .cyber-card::before {
+    .header-container::before {
       content: "";
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        45deg,
-        transparent 48%,
-        rgba(11, 240, 252, 0.1) 49%,
-        rgba(11, 240, 252, 0.1) 51%,
-        transparent 52%
-      );
-      background-size: 5px 5px;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+      background-size: cover;
+      opacity: 0.1;
     }
     
-    .cyber-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 30px rgba(11, 240, 252, 0.4);
+    .main-logo {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
-    .cyber-card-title {
-      font-size: 1.8rem;
-      margin-top: 0;
-      color: var(--neon-blue);
-      display: flex;
-      align-items: center;
-      gap: 15px;
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 300;
     }
     
-    .cyber-card-title i {
-      font-size: 2rem;
-    }
-    
-    .cyber-card-content {
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    
-    .cyber-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 25px;
-      background: linear-gradient(45deg, var(--neon-purple), var(--cyber-pink));
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
+    /* Navigation */
+    .nav-pills .nav-link {
+      color: var(--hope-dark);
+      font-weight: 500;
+      border-radius: 50px;
+      padding: 0.5rem 1.25rem;
+      margin: 0 0.25rem;
       transition: all 0.3s ease;
+    }
+    
+    .nav-pills .nav-link.active {
+      background-color: var(--hope-primary);
+      color: white;
+      box-shadow: 0 4px 8px rgba(26, 115, 232, 0.3);
+    }
+    
+    .nav-pills .nav-link:hover:not(.active) {
+      background-color: rgba(66, 133, 244, 0.1);
+    }
+    
+    /* Card Styles */
+    .service-card {
       border: none;
-      cursor: pointer;
-      box-shadow: 0 0 10px rgba(188, 19, 254, 0.5);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+      background-color: white;
     }
     
-    .cyber-btn:hover {
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    }
+    
+    .card-header {
+      background: linear-gradient(to right, var(--hope-primary), var(--hope-accent));
+      color: white;
+      padding: 1.25rem;
+      font-weight: 600;
+      border-bottom: none;
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--hope-primary);
+    }
+    
+    /* Button Styles */
+    .btn-hope {
+      background: linear-gradient(to right, var(--hope-primary), var(--hope-accent));
+      border: none;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 500;
+      box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-hope:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 20px rgba(188, 19, 254, 0.8);
+      box-shadow: 0 6px 12px rgba(66, 133, 244, 0.4);
+      color: white;
     }
     
-    .cyber-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      margin-bottom: 20px;
+    .btn-outline-hope {
+      border: 2px solid var(--hope-primary);
+      color: var(--hope-primary);
+      background: transparent;
+      font-weight: 500;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
     }
     
-    .cyber-feature-icon {
-      font-size: 1.5rem;
-      color: var(--neon-blue);
-      flex-shrink: 0;
+    .btn-outline-hope:hover {
+      background: var(--hope-primary);
+      color: white;
     }
     
-    .cyber-feature-content h3 {
-      margin: 0 0 5px 0;
-      color: var(--cyber-pink);
+    /* Feature List */
+    .feature-list {
+      list-style-type: none;
+      padding-left: 0;
     }
     
-    .cyber-feature-content p {
-      margin: 0;
-      color: rgba(255,255,255,0.8);
+    .feature-list li {
+      padding: 0.5rem 0;
+      position: relative;
+      padding-left: 1.75rem;
     }
     
-    /* Special Cards */
-    .pmkisan-card {
-      border-color: var(--cyber-yellow);
-      box-shadow: 0 0 15px rgba(245, 211, 0, 0.3);
+    .feature-list li::before {
+      content: "✓";
+      color: var(--hope-success);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
     }
     
-    .pmkisan-card .cyber-card-title {
-      color: var(--cyber-yellow);
+    /* News Ticker */
+    .news-ticker {
+      background-color: var(--hope-dark);
+      color: white;
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      overflow: hidden;
     }
     
-    .pmkisan-btn {
-      background: linear-gradient(45deg, #ffcc00, #ff9500);
-      box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+    .ticker-content {
+      display: inline-block;
+      white-space: nowrap;
+      animation: ticker 25s linear infinite;
     }
     
-    .aadhaar-card {
-      border-color: var(--cyber-pink);
-      box-shadow: 0 0 15px rgba(255, 68, 204, 0.3);
+    @keyframes ticker {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
     
-    .aadhaar-card .cyber-card-title {
-      color: var(--cyber-pink);
-    }
-    
-    .aadhaar-btn {
-      background: linear-gradient(45deg, var(--cyber-pink), #ff0066);
-      box-shadow: 0 0 10px rgba(255, 68, 204, 0.5);
-    }
-    
-    .farmer-card {
-      border-color: var(--neon-green);
-      box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
-    }
-    
-    .farmer-card .cyber-card-title {
-      color: var(--neon-green);
-    }
-    
-    .farmer-btn {
-      background: linear-gradient(45deg, var(--neon-green), #2E7D32);
-      box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-    }
-    
-    .study-card {
-      border-color: #9c27b0;
-      box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
-    }
-    
-    .study-card .cyber-card-title {
-      color: #9c27b0;
-    }
-    
-    .study-btn {
-      background: linear-gradient(45deg, #9c27b0, #673ab7);
-      box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
+    .ticker-item {
+      display: inline-block;
+      margin-right: 2rem;
+      font-weight: 500;
     }
     
     /* State Links */
-    .state-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      padding: 30px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 8px;
-      margin: 30px 0;
-      border: 1px solid rgba(11, 240, 252, 0.2);
-    }
-    
     .state-link {
-      background: rgba(11, 240, 252, 0.1);
-      border: 1px solid var(--neon-blue);
-      padding: 12px 20px;
-      border-radius: 6px;
+      display: inline-block;
+      background-color: white;
+      color: var(--hope-dark);
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      margin: 0.5rem;
       text-decoration: none;
-      color: var(--neon-blue);
+      font-weight: 500;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
-      font-weight: bold;
+      border: 1px solid #e0e0e0;
     }
     
     .state-link:hover {
-      background: rgba(11, 240, 252, 0.2);
+      background-color: var(--hope-primary);
+      color: white;
       transform: translateY(-2px);
-      box-shadow: 0 0 10px var(--neon-blue);
+      box-shadow: 0 4px 8px rgba(66, 133, 244, 0.2);
     }
     
-    /* Floating Animation */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    /* Footer */
+    .main-footer {
+      background-color: var(--hope-dark);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
     }
     
-    .floating {
-      animation: float 6s ease-in-out infinite;
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin: 0 0.75rem;
+      transition: color 0.3s ease;
     }
     
-    /* Responsive */
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--hope-primary);
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .cyber-logo { font-size: 2.5rem; }
-      .cyber-grid { grid-template-columns: 1fr; }
-      .state-links { padding: 15px; }
-      .state-link { padding: 10px 15px; font-size: 0.9rem; }
+      .main-logo {
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .card-header {
+        font-size: 1.1rem;
+      }
     }
+    
+    /* Special Card Colors */
+    .jobs-card .card-header {
+      background: linear-gradient(to right, #4285f4, #34a853);
+    }
+    
+    .study-card .card-header {
+      background: linear-gradient(to right, #673ab7, #9c27b0);
+    }
+    
+    .pmkisan-card .card-header {
+      background: linear-gradient(to right, #ff9800, #ff5722);
+    }
+    
+    .aadhaar-card .card-header {
+      background: linear-gradient(to right, #00bcd4, #009688);
+    }
+    
+    .mp-card .card-header {
+      background: linear-gradient(to right, #3f51b5, #2196f3);
+    }
+    
+    .farmer-card .card-header {
+      background: linear-gradient(to right, #4caf50, #8bc34a);
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animated-card {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    /* Delay animations */
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+    .delay-6 { animation-delay: 0.6s; }
   </style>
 </head>
 <body>
-  <div class="cyber-container">
-    <!-- Animated Background Elements -->
-    <div class="position-fixed top-0 start-0 w-100 h-100" style="
-      background: radial-gradient(circle at 20% 30%, rgba(188, 19, 254, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 70%, rgba(11, 240, 252, 0.1) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-    "></div>
-    
-    <!-- Header -->
-    <header class="cyber-header">
-      <h1 class="cyber-logo">DIGITAL INDIA NEXUS</h1>
-      <p class="cyber-subtitle">YOUR GATEWAY TO FUTURE-READY GOVERNMENT SERVICES</p>
-    </header>
-    
-    <!-- News Ticker -->
-    <div class="cyber-ticker">
-      <span>🚀 LATEST UPDATES: MP Lekhpal Recruitment 2025 | PM Kisan 15th Installment | Aadhaar Update Portal | SSC CGL Notification | Download NCERT Books PDF 🚀</span>
+  <!-- Header Section -->
+  <header class="header-container">
+    <div class="container text-center">
+      <h1 class="main-logo">Digital India Nexus</h1>
+      <p class="subtitle">Empowering Citizens Through Digital Governance</p>
     </div>
-    
-    <!-- Tricolor Ad Space 1 -->
-    <div class="tricolor-ad">
-      <div class="ad-container">
+  </header>
+  
+  <!-- Navigation -->
+  <div class="container my-4">
+    <ul class="nav nav-pills justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><i class="fas fa-home me-2"></i>Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-briefcase me-2"></i>Jobs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-graduation-cap me-2"></i>Education</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-id-card me-2"></i>Identity</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-tractor me-2"></i>Agriculture</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt me-2"></i>State Services</a>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- News Ticker -->
+  <div class="container">
+    <div class="news-ticker">
+      <div class="ticker-content">
+        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> PM Kisan 15th Installment released - Check your status now!</span>
+        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> MP Lekhpal Recruitment 2025 - Apply before June 30</span>
+        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> Aadhaar Update Portal now available in 12 regional languages</span>
+        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> SSC CGL Notification 2025 released - 10,000+ vacancies</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Ad Space -->
+  <div class="container my-4">
+    <div class="card">
+      <div class="card-body text-center py-3">
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-7384639868183712"
@@ -381,323 +380,288 @@
         </script>
       </div>
     </div>
-    
-    <!-- Main Services Grid -->
-    <div class="cyber-grid">
+  </div>
+  
+  <!-- Main Services Grid -->
+  <div class="container my-5">
+    <div class="row">
       <!-- Government Jobs Card -->
-      <div class="cyber-card floating">
-        <h2 class="cyber-card-title"><i class="fas fa-briefcase"></i> GOVERNMENT JOBS</h2>
-        <div class="cyber-card-content">
-          <p>Explore thousands of latest government job opportunities across all departments and states.</p>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-search"></i></div>
-            <div class="cyber-feature-content">
-              <h3>Advanced Search</h3>
-              <p>Filter by state, department, and qualification</p>
-            </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card jobs-card h-100 animated-card delay-1">
+          <div class="card-header">
+            <i class="fas fa-briefcase me-2"></i> GOVERNMENT JOBS
           </div>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-bell"></i></div>
-            <div class="cyber-feature-content">
-              <h3>Job Alerts</h3>
-              <p>Get notifications for new job postings</p>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-search"></i>
             </div>
+            <h3 class="h5">Find Your Dream Government Job</h3>
+            <p>Explore thousands of latest government job opportunities across all departments and states.</p>
+            
+            <ul class="feature-list">
+              <li>Advanced search by state, department, qualification</li>
+              <li>Personalized job alerts</li>
+              <li>Application tracking</li>
+              <li>Exam preparation resources</li>
+            </ul>
+            
+            <a href="https://www.sarkariresult.com/" class="btn btn-hope mt-3" target="_blank">
+              <i class="fas fa-external-link-alt me-2"></i> Explore Jobs
+            </a>
           </div>
         </div>
-        <button class="cyber-btn" id="exploreJobsBtn">
-          <i class="fas fa-arrow-right"></i> EXPLORE JOBS
-        </button>
       </div>
       
       <!-- Study Materials Card -->
-      <div class="cyber-card study-card floating" style="animation-delay: 0.3s;">
-        <h2 class="cyber-card-title"><i class="fas fa-download"></i> STUDY MATERIALS</h2>
-        <div class="cyber-card-content">
-          <p>Download free study materials from top educational platforms:</p>
-          
-          <div class="row">
-            <div class="col-md-6">
-              <h3><i class="fas fa-book-open"></i> Popular Platforms</h3>
-              <ul>
-                <li><a href="https://testbook.com/" target="_blank" style="color: var(--neon-blue);">Testbook</a></li>
-                <li><a href="https://www.adda247.com/" target="_blank" style="color: var(--neon-blue);">Adda247</a></li>
-                <li><a href="https://exampur.com/study-material/" target="_blank" style="color: var(--neon-blue);">Exampur</a></li>
-                <li><a href="https://guidely.in/free-pdf" target="_blank" style="color: var(--neon-blue);">Guidely</a></li>
-              </ul>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card study-card h-100 animated-card delay-2">
+          <div class="card-header">
+            <i class="fas fa-download me-2"></i> STUDY MATERIALS
+          </div>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-book-open"></i>
             </div>
-            <div class="col-md-6">
-              <h3><i class="fas fa-university"></i> Government Portals</h3>
-              <ul>
-                <li><a href="https://swayam.gov.in/" target="_blank" style="color: var(--neon-blue);">SWAYAM</a></li>
-                <li><a href="https://epathshala.nic.in/" target="_blank" style="color: var(--neon-blue);">ePathshala</a></li>
-                <li><a href="https://nptel.ac.in/" target="_blank" style="color: var(--neon-blue);">NPTEL</a></li>
-              </ul>
+            <h3 class="h5">Free Educational Resources</h3>
+            <p>Download free study materials from top educational platforms and government portals.</p>
+            
+            <div class="row">
+              <div class="col-6">
+                <h4 class="h6"><i class="fas fa-globe me-2"></i>Portals</h4>
+                <ul class="list-unstyled">
+                  <li><a href="https://testbook.com/" target="_blank" class="text-primary">Testbook</a></li>
+                  <li><a href="https://www.adda247.com/" target="_blank" class="text-primary">Adda247</a></li>
+                  <li><a href="https://swayam.gov.in/" target="_blank" class="text-primary">SWAYAM</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <h4 class="h6"><i class="fas fa-mobile-alt me-2"></i>Apps</h4>
+                <ul class="list-unstyled">
+                  <li><a href="https://play.google.com/store/apps/details?id=com.sarkariresult" target="_blank" class="text-primary">Sarkari Result</a></li>
+                  <li><a href="https://play.google.com/store/apps/details?id=com.freejobalert.app" target="_blank" class="text-primary">Free Job Alert</a></li>
+                </ul>
+              </div>
             </div>
+            
+            <a href="https://ncert.nic.in/textbook.php" class="btn btn-hope mt-3" target="_blank">
+              <i class="fas fa-download me-2"></i> Download Now
+            </a>
           </div>
         </div>
-        <button class="cyber-btn study-btn" id="studyMaterialsBtn">
-          <i class="fas fa-download"></i> DOWNLOAD NOW
-        </button>
       </div>
       
       <!-- PM Kisan Card -->
-      <div class="cyber-card pmkisan-card floating" style="animation-delay: 0.6s;">
-        <h2 class="cyber-card-title"><i class="fas fa-rupee-sign"></i> PM KISAN</h2>
-        <div class="cyber-card-content">
-          <p>Check your beneficiary status under Pradhan Mantri Kisan Samman Nidhi Yojana.</p>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-search-dollar"></i></div>
-            <div class="cyber-feature-content">
-              <h3>Status Check</h3>
-              <p>Verify your payment status</p>
-            </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card pmkisan-card h-100 animated-card delay-3">
+          <div class="card-header">
+            <i class="fas fa-rupee-sign me-2"></i> PM KISAN
           </div>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-history"></i></div>
-            <div class="cyber-feature-content">
-              <h3>Payment History</h3>
-              <p>View all previous installments</p>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-hand-holding-usd"></i>
             </div>
+            <h3 class="h5">Farmer Support Scheme</h3>
+            <p>Check your beneficiary status under Pradhan Mantri Kisan Samman Nidhi Yojana.</p>
+            
+            <ul class="feature-list">
+              <li>Check payment status</li>
+              <li>View payment history</li>
+              <li>Update bank details</li>
+              <li>Scheme guidelines</li>
+            </ul>
+            
+            <a href="https://pmkisan.gov.in/BeneficiaryStatus_New.aspx" class="btn btn-hope mt-3" target="_blank">
+              <i class="fas fa-search-dollar me-2"></i> Check Status
+            </a>
           </div>
         </div>
-        <a href="https://pmkisan.gov.in/BeneficiaryStatus_New.aspx" class="cyber-btn pmkisan-btn" target="_blank">
-          <i class="fas fa-external-link-alt"></i> CHECK STATUS
-        </a>
       </div>
       
       <!-- Aadhaar Card -->
-      <div class="cyber-card aadhaar-card floating" style="animation-delay: 0.9s;">
-        <h2 class="cyber-card-title"><i class="fas fa-id-card"></i> AADHAAR</h2>
-        <div class="cyber-card-content">
-          <p>Verify your Aadhaar card validity and update details through the official UIDAI portal.</p>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-qrcode"></i></div>
-            <div class="cyber-feature-content">
-              <h3>Quick Check</h3>
-              <p>Verify Aadhaar number validity</p>
-            </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card aadhaar-card h-100 animated-card delay-4">
+          <div class="card-header">
+            <i class="fas fa-id-card me-2"></i> AADHAAR
           </div>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-shield-alt"></i></div>
-            <div class="cyber-feature-content">
-              <h3>Secure Process</h3>
-              <p>Official UIDAI portal</p>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-qrcode"></i>
             </div>
+            <h3 class="h5">Identity Verification</h3>
+            <p>Verify your Aadhaar card validity and update details through the official UIDAI portal.</p>
+            
+            <ul class="feature-list">
+              <li>Verify Aadhaar number</li>
+              <li>Update personal details</li>
+              <li>Download e-Aadhaar</li>
+              <li>Check update status</li>
+            </ul>
+            
+            <a href="https://myaadhaar.uidai.gov.in/check-aadhaar-validity/" class="btn btn-hope mt-3" target="_blank">
+              <i class="fas fa-shield-alt me-2"></i> Verify Now
+            </a>
           </div>
         </div>
-        <a href="https://myaadhaar.uidai.gov.in/check-aadhaar-validity/" class="cyber-btn aadhaar-btn" target="_blank">
-          <i class="fas fa-external-link-alt"></i> VERIFY NOW
-        </a>
       </div>
       
       <!-- MP Services Card -->
-      <div class="cyber-card floating" style="animation-delay: 1.2s;">
-        <h2 class="cyber-card-title"><i class="fas fa-map-marked-alt"></i> MP SERVICES</h2>
-        <div class="cyber-card-content">
-          <p>Access various Madhya Pradesh government services through these official portals:</p>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-map"></i></div>
-            <div class="cyber-feature-content">
-              <h3>Land Records</h3>
-              <p><a href="https://mpbhulekh.gov.in/mpbhulekh.do" target="_blank" style="color: var(--neon-blue);">MP Bhulekh Portal</a></p>
-            </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card mp-card h-100 animated-card delay-5">
+          <div class="card-header">
+            <i class="fas fa-map-marked-alt me-2"></i> MP SERVICES
           </div>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-home"></i></div>
-            <div class="cyber-feature-content">
-              <h3>Property Registration</h3>
-              <p><a href="https://saara.mp.gov.in/" target="_blank" style="color: var(--neon-blue);">SAARA Portal</a></p>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-landmark"></i>
             </div>
-          </div>
-
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-laptop-house"></i></div>
-            <div class="cyber-feature-content">
-              <h3>e-District Services</h3>
-              <p><a href="https://mpedistrict.gov.in/MPL/index.aspx" target="_blank" style="color: var(--neon-blue);">MP e-District</a></p>
-            </div>
+            <h3 class="h5">Madhya Pradesh Services</h3>
+            <p>Access various Madhya Pradesh government services through these official portals.</p>
+            
+            <ul class="feature-list">
+              <li><a href="https://mpbhulekh.gov.in/mpbhulekh.do" target="_blank" class="text-primary">MP Bhulekh (Land Records)</a></li>
+              <li><a href="https://saara.mp.gov.in/" target="_blank" class="text-primary">SAARA (Property Registration)</a></li>
+              <li><a href="https://mpedistrict.gov.in/MPL/index.aspx" target="_blank" class="text-primary">MP e-District Services</a></li>
+            </ul>
+            
+            <a href="https://mp.gov.in/" class="btn btn-hope mt-3" target="_blank">
+              <i class="fas fa-external-link-alt me-2"></i> Access Portal
+            </a>
           </div>
         </div>
-        <a href="https://mpbhulekh.gov.in" class="cyber-btn" target="_blank">
-          <i class="fas fa-external-link-alt"></i> ACCESS PORTAL
-        </a>
       </div>
       
       <!-- Farmer Registration Card -->
-      <div class="cyber-card farmer-card floating" style="animation-delay: 1.5s;">
-        <h2 class="cyber-card-title"><i class="fas fa-tractor"></i> FARMER REGISTRY</h2>
-        <div class="cyber-card-content">
-          <p>Register in the MP Farmer Registry to access all agricultural schemes and benefits.</p>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-user-plus"></i></div>
-            <div class="cyber-feature-content">
-              <h3>New Registration</h3>
-              <p>Add your details to the registry</p>
-            </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card farmer-card h-100 animated-card delay-6">
+          <div class="card-header">
+            <i class="fas fa-tractor me-2"></i> FARMER REGISTRY
           </div>
-          
-          <div class="cyber-feature">
-            <div class="cyber-feature-icon"><i class="fas fa-seedling"></i></div>
-            <div class="cyber-feature-content">
-              <h3>Scheme Benefits</h3>
-              <p>Access all agricultural schemes</p>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-seedling"></i>
             </div>
+            <h3 class="h5">Agricultural Benefits</h3>
+            <p>Register in the MP Farmer Registry to access all agricultural schemes and benefits.</p>
+            
+            <ul class="feature-list">
+              <li>New farmer registration</li>
+              <li>Access to all schemes</li>
+              <li>Subsidy information</li>
+              <li>Crop advisory</li>
+            </ul>
+            
+            <a href="https://mpfr.agristack.gov.in/farmer-registry-mp/#/pages/farmerRegistry/addFarmerRegistry" class="btn btn-hope mt-3" target="_blank">
+              <i class="fas fa-user-plus me-2"></i> Register Now
+            </a>
           </div>
         </div>
-        <section>
-  <h2>🌾 Farmer Registry (MP)</h2>
-  <a href="https://mpfr.agristack.gov.in/farmer-registry-mp/#/pages/farmerRegistry/addFarmerRegistry"
-     class="cyber-btn farmer-btn"
-     target="_blank"
-     style="display:inline-block; padding:10px 15px; background:#4CAF50; color:white; text-decoration:none; border-radius:5px; font-weight:bold;">
-    <i class="fas fa-external-link-alt"></i> Visit MP Farmer Registry
-  </a>
-</section>
-REGISTER NOW
-        </a>
       </div>
     </div>
-    
-    <!-- Tricolor Ad Space 2 -->
-    <div class="tricolor-ad">
-      <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7384639868183712"
-             data-ad-slot="2345678901"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+  </div>
+  
+  <!-- State Links Section -->
+  <div class="container my-5">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h2 class="h4 mb-0"><i class="fas fa-link me-2"></i>State Government Portals</h2>
+      </div>
+      <div class="card-body">
+        <div class="text-center">
+          <a href="https://mponline.gov.in/" class="state-link" target="_blank">Madhya Pradesh</a>
+          <a href="https://uppsc.up.nic.in/" class="state-link" target="_blank">Uttar Pradesh</a>
+          <a href="https://delhi.gov.in/" class="state-link" target="_blank">Delhi</a>
+          <a href="https://rpsc.rajasthan.gov.in/" class="state-link" target="_blank">Rajasthan</a>
+          <a href="https://bpsc.bih.nic.in/" class="state-link" target="_blank">Bihar</a>
+          <a href="https://mahampsc.mahaonline.gov.in/" class="state-link" target="_blank">Maharashtra</a>
+          <a href="https://kpsc.kar.nic.in/" class="state-link" target="_blank">Karnataka</a>
+          <a href="https://www.tnpsc.gov.in/" class="state-link" target="_blank">Tamil Nadu</a>
+          <a href="https://wbpsc.gov.in/" class="state-link" target="_blank">West Bengal</a>
+          <a href="https://gpsc.gujarat.gov.in/" class="state-link" target="_blank">Gujarat</a>
+          <a href="https://opsconline.gov.in/" class="state-link" target="_blank">Odisha</a>
+          <a href="https://www.appsc.gov.in/" class="state-link" target="_blank">Andhra Pradesh</a>
+          <a href="https://www.psc.ap.gov.in/" class="state-link" target="_blank">Telangana</a>
+          <a href="https://hpsc.gov.in/" class="state-link" target="_blank">Haryana</a>
+          <a href="https://jpsc.gov.in/" class="state-link" target="_blank">Jharkhand</a>
+          <a href="https://keralapsc.gov.in/" class="state-link" target="_blank">Kerala</a>
+          <a href="https://ppsc.gov.in/" class="state-link" target="_blank">Punjab</a>
+          <a href="https://assam.gov.in/" class="state-link" target="_blank">Assam</a>
+          <a href="https://chhattisgarh.gov.in/" class="state-link" target="_blank">Chhattisgarh</a>
+          <a href="https://goapsc.gov.in/" class="state-link" target="_blank">Goa</a>
+        </div>
       </div>
     </div>
-    
-    <!-- State Links Section -->
-    <div class="state-links">
-      <!-- States -->
-      <a href="https://mponline.gov.in/" class="state-link" target="_blank">MP JOBS</a>
-      <a href="https://uppsc.up.nic.in/" class="state-link" target="_blank">UP PSC</a>
-      <a href="https://delhi.gov.in/" class="state-link" target="_blank">DELHI JOBS</a>
-      <a href="https://rpsc.rajasthan.gov.in/" class="state-link" target="_blank">RAJASTHAN PSC</a>
-      <a href="https://bpsc.bih.nic.in/" class="state-link" target="_blank">BIHAR PSC</a>
-      <a href="https://mahampsc.mahaonline.gov.in/" class="state-link" target="_blank">MAHARASHTRA PSC</a>
-      <a href="https://kpsc.kar.nic.in/" class="state-link" target="_blank">KARNATAKA PSC</a>
-      <a href="https://www.tnpsc.gov.in/" class="state-link" target="_blank">TAMIL NADU PSC</a>
-      <a href="https://wbpsc.gov.in/" class="state-link" target="_blank">WEST BENGAL PSC</a>
-      <a href="https://gpsc.gujarat.gov.in/" class="state-link" target="_blank">GUJARAT PSC</a>
-      <a href="https://opsconline.gov.in/" class="state-link" target="_blank">ODISHA PSC</a>
-      <a href="https://www.appsc.gov.in/" class="state-link" target="_blank">ANDHRA PRADESH PSC</a>
-      <a href="https://www.psc.ap.gov.in/" class="state-link" target="_blank">TELANGANA PSC</a>
-      <a href="https://hpsc.gov.in/" class="state-link" target="_blank">HARYANA PSC</a>
-      <a href="https://jpsc.gov.in/" class="state-link" target="_blank">JHARKHAND PSC</a>
-      <a href="https://mpsc.nic.in/" class="state-link" target="_blank">MADHYA PRADESH PSC</a>
-      <a href="https://keralapsc.gov.in/" class="state-link" target="_blank">KERALA PSC</a>
-      <a href="https://ppsc.gov.in/" class="state-link" target="_blank">PUNJAB PSC</a>
-      <a href="https://assam.gov.in/" class="state-link" target="_blank">ASSAM PSC</a>
-      <a href="https://chhattisgarh.gov.in/" class="state-link" target="_blank">CHHATTISGARH PSC</a>
-      <a href="https://goapsc.gov.in/" class="state-link" target="_blank">GOA PSC</a>
-      <a href="https://mpsc.nic.in/" class="state-link" target="_blank">MANIPUR PSC</a>
-      <a href="https://megpsc.gov.in/" class="state-link" target="_blank">MEGHALAYA PSC</a>
-      <a href="https://mizoram.gov.in/" class="state-link" target="_blank">MIZORAM PSC</a>
-      <a href="https://nagaland.gov.in/" class="state-link" target="_blank">NAGALAND PSC</a>
-      <a href="https://sikkim.gov.in/" class="state-link" target="_blank">SIKKIM PSC</a>
-      <a href="https://tripura.gov.in/" class="state-link" target="_blank">TRIPURA PSC</a>
-      <a href="https://hp.gov.in/" class="state-link" target="_blank">HIMACHAL PRADESH PSC</a>
-      <a href="https://ukpsc.gov.in/" class="state-link" target="_blank">UTTARAKHAND PSC</a>
-      
-      <!-- Union Territories -->
-      <a href="https://daman.nic.in/" class="state-link" target="_blank">DAMAN & DIU</a>
-      <a href="https://delhi.gov.in/" class="state-link" target="_blank">DELHI</a>
-      <a href="https://andaman.gov.in/" class="state-link" target="_blank">ANDAMAN</a>
-      <a href="https://chandigarh.gov.in/" class="state-link" target="_blank">CHANDIGARH</a>
-      <a href="https://dadra.gov.in/" class="state-link" target="_blank">DADRA</a>
-      <a href="https://lakshadweep.gov.in/" class="state-link" target="_blank">LAKSHADWEEP</a>
-      <a href="https://puducherry.gov.in/" class="state-link" target="_blank">PUDUCHERRY</a>
-      <a href="https://jkgad.nic.in/" class="state-link" target="_blank">JAMMU & KASHMIR</a>
-      <a href="https://ladakh.nic.in/" class="state-link" target="_blank">LADAKH</a>
-    </div>
-    
-    <!-- Tricolor Ad Space 3 -->
-    <div class="tricolor-ad">
-      <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7384639868183712"
-             data-ad-slot="3456789012"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+  </div>
+  
+  <!-- Job Alert Portals Section -->
+  <div class="container my-5">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h2 class="h4 mb-0"><i class="fas fa-bell me-2"></i>Job Alert Portals</h2>
       </div>
-    </div>
-    
-    <!-- Job Alert Portals Section -->
-    <div class="cyber-card" style="margin-top: 30px;">
-      <h2 class="cyber-card-title"><i class="fas fa-bell"></i> JOB ALERT PORTALS</h2>
-      <div class="cyber-card-content">
-        <p>Subscribe to these job alert portals to get notified about latest government job openings:</p>
-        
+      <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h3><i class="fas fa-globe"></i> National Portals</h3>
-            <ul>
-              <li><a href="https://www.sarkariresult.com/" target="_blank" style="color: var(--neon-blue);">Sarkari Result</a></li>
-              <li><a href="https://www.sarkari-naukri.org/" target="_blank" style="color: var(--neon-blue);">Sarkari Naukri</a></li>
-              <li><a href="https://www.freejobalert.com/" target="_blank" style="color: var(--neon-blue);">Free Job Alert</a></li>
-              <li><a href="https://www.sarkarijobfind.com/" target="_blank" style="color: var(--neon-blue);">Sarkari Job Find</a></li>
+            <h3 class="h5"><i class="fas fa-globe me-2"></i>National Portals</h3>
+            <ul class="feature-list">
+              <li><a href="https://www.sarkariresult.com/" target="_blank" class="text-primary">Sarkari Result</a></li>
+              <li><a href="https://www.sarkari-naukri.org/" target="_blank" class="text-primary">Sarkari Naukri</a></li>
+              <li><a href="https://www.freejobalert.com/" target="_blank" class="text-primary">Free Job Alert</a></li>
             </ul>
           </div>
           <div class="col-md-6">
-            <h3><i class="fas fa-mobile-alt"></i> Mobile Apps</h3>
-            <ul>
-              <li><a href="https://play.google.com/store/apps/details?id=com.sarkariresult" target="_blank" style="color: var(--neon-blue);">Sarkari Result App</a></li>
-              <li><a href="https://play.google.com/store/apps/details?id=com.sarkari.naukri" target="_blank" style="color: var(--neon-blue);">Sarkari Naukri App</a></li>
-              <li><a href="https://play.google.com/store/apps/details?id=com.freejobalert.app" target="_blank" style="color: var(--neon-blue);">Free Job Alert App</a></li>
-              <li><a href="https://play.google.com/store/apps/details?id=com.government.jobs.alerts" target="_blank" style="color: var(--neon-blue);">Govt Jobs Alerts</a></li>
+            <h3 class="h5"><i class="fas fa-mobile-alt me-2"></i>Mobile Apps</h3>
+            <ul class="feature-list">
+              <li><a href="https://play.google.com/store/apps/details?id=com.sarkariresult" target="_blank" class="text-primary">Sarkari Result App</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.freejobalert.app" target="_blank" class="text-primary">Free Job Alert App</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.government.jobs.alerts" target="_blank" class="text-primary">Govt Jobs Alerts</a></li>
             </ul>
           </div>
         </div>
       </div>
-      <a href="#state-links" class="cyber-btn">
-        <i class="fas fa-arrow-up"></i> VIEW STATE PORTALS
-      </a>
     </div>
-    
-    <!-- Footer -->
-    <footer class="text-center py-4 mt-5" style="border-top: 1px solid var(--neon-blue);">
-      <p>© 2023 DIGITAL INDIA NEXUS | POWERED BY INNOVATION</p>
-      <div class="d-flex justify-content-center gap-3 mt-2">
-        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-      </div>
-    </footer>
   </div>
+  
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <h3 class="h5">Digital India Nexus</h3>
+          <p>Your gateway to government services and information.</p>
+          <div class="footer-links mb-3">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <h3 class="h5">Connect With Us</h3>
+          <div class="social-icons mt-3">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4 pt-3 border-top border-secondary">
+        <p class="mb-0">© 2023 Digital India Nexus. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Initialize AdSense
     (adsbygoogle = window.adsbygoogle || []).push({});
     
-    // Add floating animation to all cards with delays
-    document.querySelectorAll('.floating').forEach((card, index) => {
-      card.style.animationDelay = `${index * 0.3}s`;
-    });
-    
-    // News ticker animation
-    document.querySelectorAll('.cyber-ticker span').forEach(ticker => {
-      ticker.style.animationDuration = `${ticker.textContent.length / 5}s`;
+    // News ticker animation duration based on content length
+    document.querySelectorAll('.ticker-content').forEach(ticker => {
+      const contentWidth = ticker.scrollWidth;
+      const containerWidth = ticker.parentElement.offsetWidth;
+      const duration = Math.max(20, contentWidth / 50); // Minimum 20 seconds
+      ticker.style.animationDuration = `${duration}s`;
     });
   </script>
 </body>
