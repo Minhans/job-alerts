@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital India Nexus | Gateway to Governance</title>
+  <title>आत्‍मनिर्भर भारत| Gateway to Governance</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -396,7 +396,7 @@
   <!-- Header Section -->
   <header class="header-container">
     <div class="container text-center">
-      <h1 class="main-logo">Digital India Nexus</h1>
+      <h1 class="main-logo">आत्‍मनिर्भर भारत</h1>
       <p class="subtitle">Empowering Citizens Through Digital Governance</p>
     </div>
   </header>
@@ -464,31 +464,785 @@
   <div class="container my-5">
     <div class="row">
       <!-- Government Jobs Card -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card jobs-card h-100 animated-card delay-1">
-          <div class="card-header">
-            <i class="fas fa-briefcase me-2"></i> GOVERNMENT JOBS
+      <!-- Updated Jobs Section -->
+<div class="container my-5" id="jobs-section">
+  <div class="service-card jobs-card h-100">
+    <div class="card-header">
+      <i class="fas fa-briefcase me-2"></i> GOVERNMENT JOB PORTAL
+    </div>
+    <div class="card-body">
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input type="text" class="form-control" id="jobSearch" placeholder="Search jobs...">
+            <button class="btn btn-primary" id="searchBtn">Search</button>
           </div>
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fas fa-search"></i>
-            </div>
-            <h3 class="h5">Find Your Dream Government Job</h3>
-            <p>Explore thousands of latest government job opportunities across all departments and states.</p>
-            
-            <ul class="feature-list">
-              <li>Advanced search by state, department, qualification</li>
-              <li>Personalized job alerts</li>
-              <li>Application tracking</li>
-              <li>Exam preparation resources</li>
-            </ul>
-            
-            <a href="https://www.sarkariresult.com/" class="btn btn-hope mt-3" target="_blank">
-              <i class="fas fa-external-link-alt me-2"></i> Explore Jobs
-            </a>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+            <select class="form-select" id="jobLocation">
+              <option value="">All Locations</option>
+              <option value="delhi">Delhi</option>
+              <option value="mumbai">Mumbai</option>
+              <option value="bangalore">Bangalore</option>
+              <option value="hyderabad">Hyderabad</option>
+              <option value="chennai">Chennai</option>
+              <option value="kolkata">Kolkata</option>
+              <option value="mp">Madhya Pradesh</option>
+              <option value="up">Uttar Pradesh</option>
+              <option value="maharashtra">Maharashtra</option>
+            </select>
+            <select class="form-select" id="jobDepartment">
+              <option value="">All Departments</option>
+              <option value="banking">Banking</option>
+              <option value="railway">Railway</option>
+              <option value="defense">Defense</option>
+              <option value="education">Education</option>
+              <option value="health">Health</option>
+              <option value="police">Police</option>
+              <option value="administration">Administration</option>
+            </select>
           </div>
         </div>
       </div>
+
+      <!-- Job Listing Tabs -->
+      <ul class="nav nav-tabs mb-4" id="jobTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="all-jobs-tab" data-bs-toggle="tab" data-bs-target="#all-jobs" type="button" role="tab">All Jobs (1,245)</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="recent-tab" data-bs-toggle="tab" data-bs-target="#recent-jobs" type="button" role="tab">Recently Added (42)</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="deadline-tab" data-bs-toggle="tab" data-bs-target="#deadline-jobs" type="button" role="tab">Approaching Deadline (18)</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="applied-tab" data-bs-toggle="tab" data-bs-target="#applied-jobs" type="button" role="tab">My Applications (3)</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="saved-tab" data-bs-toggle="tab" data-bs-target="#saved-jobs" type="button" role="tab">Saved Jobs (5)</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="jobTabContent">
+        <!-- All Jobs Tab -->
+        <div class="tab-pane fade show active" id="all-jobs" role="tabpanel">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Department</th>
+                  <th>Location</th>
+                  <th>Last Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="allJobsTable">
+                <!-- Will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+          <nav aria-label="Job pagination">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Recent Jobs Tab -->
+        <div class="tab-pane fade" id="recent-jobs" role="tabpanel">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Department</th>
+                  <th>Location</th>
+                  <th>Posted On</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="recentJobsTable">
+                <!-- Will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Deadline Jobs Tab -->
+        <div class="tab-pane fade" id="deadline-jobs" role="tabpanel">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Department</th>
+                  <th>Location</th>
+                  <th>Days Left</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="deadlineJobsTable">
+                <!-- Will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Applied Jobs Tab -->
+        <div class="tab-pane fade" id="applied-jobs" role="tabpanel">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Applied On</th>
+                  <th>Status</th>
+                  <th>Next Step</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="appliedJobsTable">
+                <!-- Will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Saved Jobs Tab -->
+        <div class="tab-pane fade" id="saved-jobs" role="tabpanel">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Department</th>
+                  <th>Location</th>
+                  <th>Last Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="savedJobsTable">
+                <!-- Will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Job Details Modal -->
+<div class="modal fade" id="jobDetailsModal" tabindex="-1" aria-labelledby="jobDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="jobDetailsModalLabel">Job Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="jobDetailsContent">
+        <!-- Will be populated by JavaScript -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="applyJobBtn">Apply Now</button>
+        <button type="button" class="btn btn-outline-primary" id="saveJobBtn">
+          <i class="far fa-bookmark"></i> Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Application Form Modal -->
+<div class="modal fade" id="applicationModal" tabindex="-1" aria-labelledby="applicationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="applicationModalLabel">Job Application</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="jobApplicationForm">
+          <div class="mb-3">
+            <label for="applicantName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="applicantName" required>
+          </div>
+          <div class="mb-3">
+            <label for="applicantEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="applicantEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="applicantPhone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="applicantPhone" required>
+          </div>
+          <div class="mb-3">
+            <label for="applicantResume" class="form-label">Upload Resume (PDF only)</label>
+            <input class="form-control" type="file" id="applicantResume" accept=".pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="applicantPhoto" class="form-label">Upload Photo (JPG/PNG)</label>
+            <input class="form-control" type="file" id="applicantPhoto" accept=".jpg,.jpeg,.png">
+          </div>
+          <div class="mb-3">
+            <label for="applicantQualifications" class="form-label">Qualifications</label>
+            <textarea class="form-control" id="applicantQualifications" rows="3" required></textarea>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="termsAgreement" required>
+            <label class="form-check-label" for="termsAgreement">
+              I certify that all information provided is accurate
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="submitApplicationBtn">Submit Application</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Job Data (in a real app, this would come from an API)
+const jobData = [
+  {
+    id: 1,
+    title: "SSC CGL 2025 - Group B Gazetted Officer",
+    department: "Administration",
+    location: "All India",
+    postedOn: "2025-06-15",
+    lastDate: "2025-07-30",
+    salary: "₹44,900 - ₹1,42,400",
+    qualifications: "Bachelor's degree from recognized university",
+    experience: "Freshers can apply",
+    description: "Combined Graduate Level Examination for various Group B posts in different ministries and departments.",
+    applyLink: "https://ssc.nic.in",
+    saved: false,
+    applied: false,
+    status: ""
+  },
+  {
+    id: 2,
+    title: "IBPS PO 2025 - Probationary Officer",
+    department: "Banking",
+    location: "All India",
+    postedOn: "2025-06-10",
+    lastDate: "2025-07-15",
+    salary: "₹36,000 - ₹63,840",
+    qualifications: "Degree in any discipline",
+    experience: "Freshers can apply",
+    description: "Recruitment for Probationary Officers in participating public sector banks.",
+    applyLink: "https://ibps.in",
+    saved: true,
+    applied: false,
+    status: ""
+  },
+  {
+    id: 3,
+    title: "Railway Recruitment Board - Technician",
+    department: "Railway",
+    location: "Mumbai",
+    postedOn: "2025-06-05",
+    lastDate: "2025-06-30",
+    salary: "₹19,900 - ₹63,200",
+    qualifications: "ITI in relevant trade",
+    experience: "1-2 years preferred",
+    description: "Technician posts in various divisions of Indian Railways.",
+    applyLink: "https://rrbcdg.gov.in",
+    saved: false,
+    applied: true,
+    status: "Applied",
+    appliedOn: "2025-06-12"
+  },
+  {
+    id: 4,
+    title: "MP Police Constable 2025",
+    department: "Police",
+    location: "Madhya Pradesh",
+    postedOn: "2025-06-01",
+    lastDate: "2025-07-10",
+    salary: "₹21,700 - ₹69,100",
+    qualifications: "10+2 or equivalent",
+    experience: "Freshers can apply",
+    description: "Constable recruitment for Madhya Pradesh Police Department.",
+    applyLink: "https://mppolice.gov.in",
+    saved: true,
+    applied: false,
+    status: ""
+  },
+  {
+    id: 5,
+    title: "UPSC Civil Services 2025",
+    department: "Administration",
+    location: "All India",
+    postedOn: "2025-05-25",
+    lastDate: "2025-06-25",
+    salary: "₹56,100 - ₹2,50,000",
+    qualifications: "Bachelor's degree from recognized university",
+    experience: "Freshers can apply",
+    description: "Indian Administrative Service, Indian Police Service, and other central services.",
+    applyLink: "https://upsc.gov.in",
+    saved: false,
+    applied: true,
+    status: "Application Under Review",
+    appliedOn: "2025-06-01"
+  },
+  {
+    id: 6,
+    title: "AIIMS Nursing Officer 2025",
+    department: "Health",
+    location: "Delhi",
+    postedOn: "2025-06-18",
+    lastDate: "2025-07-05",
+    salary: "₹44,900 - ₹1,42,400",
+    qualifications: "B.Sc Nursing or equivalent",
+    experience: "2 years minimum",
+    description: "Nursing officer recruitment for All India Institute of Medical Sciences.",
+    applyLink: "https://aiims.edu",
+    saved: false,
+    applied: false,
+    status: ""
+  }
+];
+
+// DOM Elements
+const allJobsTable = document.getElementById('allJobsTable');
+const recentJobsTable = document.getElementById('recentJobsTable');
+const deadlineJobsTable = document.getElementById('deadlineJobsTable');
+const appliedJobsTable = document.getElementById('appliedJobsTable');
+const savedJobsTable = document.getElementById('savedJobsTable');
+const jobDetailsModal = new bootstrap.Modal(document.getElementById('jobDetailsModal'));
+const applicationModal = new bootstrap.Modal(document.getElementById('applicationModal'));
+const jobDetailsContent = document.getElementById('jobDetailsContent');
+const jobSearch = document.getElementById('jobSearch');
+const jobLocation = document.getElementById('jobLocation');
+const jobDepartment = document.getElementById('jobDepartment');
+const searchBtn = document.getElementById('searchBtn');
+const applyJobBtn = document.getElementById('applyJobBtn');
+const saveJobBtn = document.getElementById('saveJobBtn');
+const submitApplicationBtn = document.getElementById('submitApplicationBtn');
+const jobApplicationForm = document.getElementById('jobApplicationForm');
+
+// Current selected job
+let currentJob = null;
+
+// Initialize the job portal
+function initJobPortal() {
+  renderAllJobs();
+  renderRecentJobs();
+  renderDeadlineJobs();
+  renderAppliedJobs();
+  renderSavedJobs();
+  
+  // Set up event listeners
+  searchBtn.addEventListener('click', handleSearch);
+  jobSearch.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') handleSearch();
+  });
+  jobLocation.addEventListener('change', handleSearch);
+  jobDepartment.addEventListener('change', handleSearch);
+  applyJobBtn.addEventListener('click', openApplicationForm);
+  saveJobBtn.addEventListener('click', toggleSaveJob);
+  submitApplicationBtn.addEventListener('click', submitApplication);
+}
+
+// Render all jobs table
+function renderAllJobs(filteredJobs = null) {
+  const jobsToRender = filteredJobs || jobData;
+  allJobsTable.innerHTML = '';
+  
+  jobsToRender.forEach(job => {
+    const row = document.createElement('tr');
+    const daysLeft = getDaysLeft(job.lastDate);
+    const rowClass = daysLeft <= 7 ? 'table-warning' : '';
+    const daysLeftText = daysLeft <= 0 ? 'Closed' : `${daysLeft} days left`;
+    
+    row.className = rowClass;
+    row.innerHTML = `
+      <td>
+        <strong>${job.title}</strong>
+        ${job.applied ? '<span class="badge bg-success ms-2">Applied</span>' : ''}
+        ${job.saved ? '<span class="badge bg-info ms-2">Saved</span>' : ''}
+      </td>
+      <td>${job.department}</td>
+      <td>${job.location}</td>
+      <td>${formatDate(job.lastDate)} <small class="text-muted">(${daysLeftText})</small></td>
+      <td>
+        <button class="btn btn-sm btn-outline-primary view-details" data-id="${job.id}">
+          <i class="fas fa-eye"></i> View
+        </button>
+        ${job.applyLink ? `
+          <a href="${job.applyLink}" target="_blank" class="btn btn-sm btn-outline-success">
+            <i class="fas fa-external-link-alt"></i> Official
+          </a>
+        ` : ''}
+      </td>
+    `;
+    allJobsTable.appendChild(row);
+  });
+  
+  // Add event listeners to view buttons
+  document.querySelectorAll('.view-details').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const jobId = parseInt(this.getAttribute('data-id'));
+      showJobDetails(jobId);
+    });
+  });
+}
+
+// Render recent jobs (posted in last 7 days)
+function renderRecentJobs() {
+  const recentJobs = jobData.filter(job => {
+    const postedDate = new Date(job.postedOn);
+    const today = new Date();
+    const diffTime = today - postedDate;
+    const diffDays = diffTime / (1000 * 60 * 60 * 24);
+    return diffDays <= 7;
+  });
+  
+  recentJobsTable.innerHTML = '';
+  
+  recentJobs.forEach(job => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td><strong>${job.title}</strong></td>
+      <td>${job.department}</td>
+      <td>${job.location}</td>
+      <td>${formatDate(job.postedOn)}</td>
+      <td>
+        <button class="btn btn-sm btn-outline-primary view-details" data-id="${job.id}">
+          <i class="fas fa-eye"></i> View
+        </button>
+      </td>
+    `;
+    recentJobsTable.appendChild(row);
+  });
+}
+
+// Render jobs with approaching deadline (within 7 days)
+function renderDeadlineJobs() {
+  const deadlineJobs = jobData.filter(job => {
+    const daysLeft = getDaysLeft(job.lastDate);
+    return daysLeft > 0 && daysLeft <= 7;
+  }).sort((a, b) => getDaysLeft(a.lastDate) - getDaysLeft(b.lastDate));
+  
+  deadlineJobsTable.innerHTML = '';
+  
+  deadlineJobs.forEach(job => {
+    const row = document.createElement('tr');
+    const daysLeft = getDaysLeft(job.lastDate);
+    const rowClass = daysLeft <= 3 ? 'table-danger' : '';
+    
+    row.className = rowClass;
+    row.innerHTML = `
+      <td><strong>${job.title}</strong></td>
+      <td>${job.department}</td>
+      <td>${job.location}</td>
+      <td>${daysLeft} days left</td>
+      <td>
+        <button class="btn btn-sm btn-outline-primary view-details" data-id="${job.id}">
+          <i class="fas fa-eye"></i> View
+        </button>
+      </td>
+    `;
+    deadlineJobsTable.appendChild(row);
+  });
+}
+
+// Render applied jobs
+function renderAppliedJobs() {
+  const appliedJobs = jobData.filter(job => job.applied);
+  
+  appliedJobsTable.innerHTML = '';
+  
+  appliedJobs.forEach(job => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td><strong>${job.title}</strong></td>
+      <td>${formatDate(job.appliedOn)}</td>
+      <td>
+        <span class="badge ${getStatusBadgeClass(job.status)}">
+          ${job.status || 'Applied'}
+        </span>
+      </td>
+      <td>${getNextStep(job.status)}</td>
+      <td>
+        <button class="btn btn-sm btn-outline-primary view-details" data-id="${job.id}">
+          <i class="fas fa-eye"></i> View
+        </button>
+      </td>
+    `;
+    appliedJobsTable.appendChild(row);
+  });
+}
+
+// Render saved jobs
+function renderSavedJobs() {
+  const savedJobs = jobData.filter(job => job.saved);
+  
+  savedJobsTable.innerHTML = '';
+  
+  savedJobs.forEach(job => {
+    const row = document.createElement('tr');
+    const daysLeft = getDaysLeft(job.lastDate);
+    const daysLeftText = daysLeft <= 0 ? 'Closed' : `${daysLeft} days left`;
+    
+    row.innerHTML = `
+      <td><strong>${job.title}</strong></td>
+      <td>${job.department}</td>
+      <td>${job.location}</td>
+      <td>${formatDate(job.lastDate)} <small class="text-muted">(${daysLeftText})</small></td>
+      <td>
+        <button class="btn btn-sm btn-outline-primary view-details" data-id="${job.id}">
+          <i class="fas fa-eye"></i> View
+        </button>
+        <button class="btn btn-sm btn-outline-danger unsave-job" data-id="${job.id}">
+          <i class="far fa-trash-alt"></i> Remove
+        </button>
+      </td>
+    `;
+    savedJobsTable.appendChild(row);
+  });
+  
+  // Add event listeners to unsave buttons
+  document.querySelectorAll('.unsave-job').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const jobId = parseInt(this.getAttribute('data-id'));
+      toggleSaveJob(jobId);
+    });
+  });
+}
+
+// Show job details in modal
+function showJobDetails(jobId) {
+  currentJob = jobData.find(job => job.id === jobId);
+  
+  if (!currentJob) return;
+  
+  const daysLeft = getDaysLeft(currentJob.lastDate);
+  const statusBadge = currentJob.applied ? 
+    `<span class="badge ${getStatusBadgeClass(currentJob.status)}">
+      ${currentJob.status || 'Applied'}
+    </span>` : '';
+  
+  jobDetailsContent.innerHTML = `
+    <div class="row">
+      <div class="col-md-8">
+        <h4>${currentJob.title}</h4>
+        <p class="text-muted">${currentJob.department} Department • ${currentJob.location}</p>
+        ${statusBadge}
+      </div>
+      <div class="col-md-4 text-end">
+        <p><strong>Salary:</strong> ${currentJob.salary}</p>
+        <p><strong>Last Date:</strong> ${formatDate(currentJob.lastDate)} 
+           <span class="badge ${daysLeft <= 7 ? 'bg-warning' : 'bg-success'}">
+             ${daysLeft > 0 ? `${daysLeft} days left` : 'Closed'}
+           </span>
+        </p>
+      </div>
+    </div>
+    
+    <hr>
+    
+    <div class="mb-4">
+      <h5>Job Description</h5>
+      <p>${currentJob.description}</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Qualifications</h5>
+        <p>${currentJob.qualifications}</p>
+        
+        <h5 class="mt-3">Experience</h5>
+        <p>${currentJob.experience}</p>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-calendar-alt me-2"></i> Important Dates
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><strong>Posted On:</strong> ${formatDate(currentJob.postedOn)}</li>
+              <li><strong>Last Date:</strong> ${formatDate(currentJob.lastDate)}</li>
+              ${currentJob.applied ? `<li><strong>Applied On:</strong> ${formatDate(currentJob.appliedOn)}</li>` : ''}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Update apply/save buttons
+  applyJobBtn.disabled = daysLeft <= 0 || currentJob.applied;
+  applyJobBtn.textContent = currentJob.applied ? 'Already Applied' : 'Apply Now';
+  applyJobBtn.className = currentJob.applied ? 'btn btn-secondary' : 'btn btn-success';
+  
+  saveJobBtn.innerHTML = currentJob.saved ? 
+    '<i class="fas fa-bookmark"></i> Saved' : 
+    '<i class="far fa-bookmark"></i> Save';
+  saveJobBtn.className = currentJob.saved ? 
+    'btn btn-primary' : 'btn btn-outline-primary';
+  
+  jobDetailsModal.show();
+}
+
+// Open application form
+function openApplicationForm() {
+  if (!currentJob) return;
+  
+  // Reset form
+  jobApplicationForm.reset();
+  
+  // Set application modal title
+  document.getElementById('applicationModalLabel').textContent = `Apply for ${currentJob.title}`;
+  
+  applicationModal.show();
+}
+
+// Submit application
+function submitApplication() {
+  if (!jobApplicationForm.checkValidity()) {
+    jobApplicationForm.reportValidity();
+    return;
+  }
+  
+  // In a real app, this would submit to a server
+  currentJob.applied = true;
+  currentJob.appliedOn = new Date().toISOString().split('T')[0];
+  currentJob.status = "Application Submitted";
+  
+  // Update UI
+  renderAllJobs();
+  renderAppliedJobs();
+  renderSavedJobs();
+  
+  applicationModal.hide();
+  jobDetailsModal.hide();
+  
+  showToast('Application submitted successfully!', 'success');
+}
+
+// Toggle save job
+function toggleSaveJob(jobId = null) {
+  const job = jobId ? jobData.find(j => j.id === jobId) : currentJob;
+  if (!job) return;
+  
+  job.saved = !job.saved;
+  
+  // Update UI
+  renderAllJobs();
+  renderSavedJobs();
+  
+  if (!jobId) {
+    saveJobBtn.innerHTML = job.saved ? 
+      '<i class="fas fa-bookmark"></i> Saved' : 
+      '<i class="far fa-bookmark"></i> Save';
+    saveJobBtn.className = job.saved ? 
+      'btn btn-primary' : 'btn btn-outline-primary';
+  }
+  
+  showToast(job.saved ? 'Job saved to your list' : 'Job removed from saved list', 'info');
+}
+
+// Handle search/filter
+function handleSearch() {
+  const searchTerm = jobSearch.value.toLowerCase();
+  const locationFilter = jobLocation.value;
+  const departmentFilter = jobDepartment.value;
+  
+  const filteredJobs = jobData.filter(job => {
+    const matchesSearch = job.title.toLowerCase().includes(searchTerm) || 
+                         job.description.toLowerCase().includes(searchTerm);
+    const matchesLocation = !locationFilter || job.location.toLowerCase().includes(locationFilter);
+    const matchesDepartment = !departmentFilter || job.department.toLowerCase() === departmentFilter;
+    
+    return matchesSearch && matchesLocation && matchesDepartment;
+  });
+  
+  renderAllJobs(filteredJobs);
+}
+
+// Helper functions
+function formatDate(dateString) {
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-IN', options);
+}
+
+function getDaysLeft(endDate) {
+  const today = new Date();
+  const end = new Date(endDate);
+  const diffTime = end - today;
+  return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+}
+
+function getStatusBadgeClass(status) {
+  switch(status.toLowerCase()) {
+    case 'application submitted': return 'bg-info';
+    case 'application under review': return 'bg-primary';
+    case 'exam scheduled': return 'bg-warning';
+    case 'selected': return 'bg-success';
+    case 'rejected': return 'bg-danger';
+    default: return 'bg-secondary';
+  }
+}
+
+function getNextStep(status) {
+  switch(status.toLowerCase()) {
+    case 'application submitted': return 'Wait for confirmation';
+    case 'application under review': return 'Check for exam date';
+    case 'exam scheduled': return 'Prepare for exam';
+    case 'selected': return 'Complete joining formalities';
+    case 'rejected': return 'Look for other opportunities';
+    default: return 'Check application status';
+  }
+}
+
+function showToast(message, type = 'info') {
+  const toast = document.createElement('div');
+  toast.className = `toast align-items-center text-white bg-${type} border-0 position-fixed bottom-0 end-0 m-3`;
+  toast.setAttribute('role', 'alert');
+  toast.setAttribute('aria-live', 'assertive');
+  toast.setAttribute('aria-atomic', 'true');
+  toast.style.zIndex = '1100';
+  
+  toast.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body">
+        ${message}
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  `;
+  
+  document.body.appendChild(toast);
+  const bsToast = new bootstrap.Toast(toast);
+  bsToast.show();
+  
+  toast.addEventListener('hidden.bs.toast', function() {
+    document.body.removeChild(toast);
+  });
+}
+
+// Initialize the job portal when DOM is loaded
+document.addEventListener('DOMContentLoaded', initJobPortal);
+</script>
       
       <!-- Study Materials Card -->
       <div class="col-lg-4 col-md-6 mb-4">
