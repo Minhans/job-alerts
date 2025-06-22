@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>आत्‍मनिर्भर भारत एक नवनिर्माण की राह | Gateway to Governance</title>
+  <title>Digital India Nexus | Gateway to Governance</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,6 +16,8 @@
       --deep-blue: #1a237e;
       --light-blue: #e3f2fd;
       --gold: #FFD700;
+      --light-saffron: #FFE4B5;
+      --light-green: #E8F5E9;
     }
     
     body {
@@ -24,6 +26,7 @@
       padding: 0;
       color: #333;
       line-height: 1.6;
+      background-color: #f8f9fa;
     }
     
     /* Indian Flag Background */
@@ -61,7 +64,7 @@
     
     /* Header Styles */
     .header-container {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       color: var(--navy-blue);
       padding: 1.5rem 0;
       position: relative;
@@ -124,7 +127,7 @@
     
     /* Hero Section */
     .hero-section {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.92);
       color: var(--navy-blue);
       padding: 3rem 2rem;
       text-align: center;
@@ -206,7 +209,7 @@
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
       margin-bottom: 1.5rem;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(5px);
       position: relative;
       border-top: 3px solid var(--navy-blue);
@@ -248,7 +251,7 @@
     
     .card-body {
       padding: 1.5rem;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.9);
     }
     
     .card-icon {
@@ -330,7 +333,7 @@
       text-align: center;
       padding: 1rem;
       min-width: 150px;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.95);
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       margin: 0.5rem;
@@ -356,7 +359,238 @@
       margin: 0 5px;
     }
     
-    /* Responsive Adjustments */
+    /* News Ticker */
+    .news-ticker {
+      background-color: var(--navy-blue);
+      color: white;
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+      overflow: hidden;
+      border-left: 4px solid var(--saffron);
+    }
+    
+    .ticker-content {
+      display: inline-block;
+      white-space: nowrap;
+      animation: ticker 25s linear infinite;
+    }
+    
+    @keyframes ticker {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    
+    .ticker-item {
+      display: inline-block;
+      margin-right: 2rem;
+      font-weight: 500;
+    }
+    
+    .ticker-item i {
+      color: var(--saffron);
+    }
+    
+    /* State Links */
+    .state-link {
+      display: inline-block;
+      background-color: white;
+      color: var(--navy-blue);
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      margin: 0.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid #e0e0e0;
+    }
+    
+    .state-link:hover {
+      background: linear-gradient(to right, var(--saffron), var(--gold));
+      color: var(--navy-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(255, 153, 51, 0.2);
+      border-color: transparent;
+    }
+    
+    /* Footer */
+    .main-footer {
+      background-color: var(--navy-blue);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      border-top: 3px solid var(--saffron);
+      position: relative;
+    }
+    
+    .main-footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--saffron), var(--white), var(--green));
+    }
+    
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin: 0 0.75rem;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+      color: white;
+    }
+    
+    .social-icon:hover {
+      background-color: var(--saffron);
+      transform: translateY(-3px);
+      color: var(--navy-blue);
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animated-card {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    /* Delay animations */
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+    .delay-6 { animation-delay: 0.6s; }
+    
+    /* Blog Editor Styles */
+    .blog-editor {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      min-height: 300px;
+      background-color: white;
+    }
+    
+    .toolbar {
+      margin-bottom: 10px;
+    }
+    
+    .toolbar button {
+      margin-right: 5px;
+      margin-bottom: 5px;
+      background-color: #f1f1f1;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    
+    .toolbar button:hover {
+      background-color: #e1e1e1;
+    }
+    
+    /* PDF Editor Styles */
+    .pdf-editor-container {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      background-color: white;
+    }
+    
+    .pdf-preview {
+      width: 100%;
+      height: 300px;
+      border: 1px dashed #ccc;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f9f9f9;
+    }
+    
+    .pdf-actions {
+      margin-top: 15px;
+    }
+    
+    .pdf-page-controls {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .pdf-page-controls button {
+      margin: 0 5px;
+    }
+    
+    /* Job Portal Styles */
+    .job-table th {
+      white-space: nowrap;
+    }
+    
+    .job-table .badge {
+      font-size: 0.75em;
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1100;
+    }
+    
+    /* Table Styles */
+    .table-hover tbody tr:hover {
+      background-color: rgba(0, 0, 128, 0.05);
+    }
+    
+    /* Modal Styles */
+    .modal-lg {
+      max-width: 900px;
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--saffron);
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--navy-blue);
+    }
+    
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .main-logo {
         font-size: 2rem;
@@ -392,25 +626,44 @@
         font-size: 0.9rem;
         margin: 0.1rem;
       }
+      
+      .card-header {
+        font-size: 1.1rem;
+      }
     }
     
-    /* Animation */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Special Card Colors */
+    .jobs-card .card-header {
+      background: linear-gradient(to right, #4285f4, #34a853);
     }
     
-    .animated-card {
-      animation: fadeIn 0.6s ease-out forwards;
+    .study-card .card-header {
+      background: linear-gradient(to right, #673ab7, #9c27b0);
     }
     
-    /* Delay animations */
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .delay-5 { animation-delay: 0.5s; }
-    .delay-6 { animation-delay: 0.6s; }
+    .pmkisan-card .card-header {
+      background: linear-gradient(to right, #ff9800, #ff5722);
+    }
+    
+    .aadhaar-card .card-header {
+      background: linear-gradient(to right, #00bcd4, #009688);
+    }
+    
+    .mp-card .card-header {
+      background: linear-gradient(to right, #3f51b5, #2196f3);
+    }
+    
+    .farmer-card .card-header {
+      background: linear-gradient(to right, #4caf50, #8bc34a);
+    }
+    
+    .blog-card .card-header {
+      background: linear-gradient(to right, #9c27b0, #e91e63);
+    }
+    
+    .pdf-card .card-header {
+      background: linear-gradient(to right, #ff5722, #f44336);
+    }
   </style>
 </head>
 <body>
@@ -421,7 +674,7 @@
   <!-- Header Section -->
   <header class="header-container">
     <div class="container text-center">
-      <h1 class="main-logo">आत्‍मनिर्भर भारत एक नवनिर्माण की राह</h1>
+      <h1 class="main-logo">Digital India Nexus</h1>
       <p class="subtitle">Empowering Citizens Through Digital Governance <i class="fas fa-circle chakra-icon"></i> एक डिजिटल भारत की ओर</p>
     </div>
   </header>
@@ -430,43 +683,43 @@
   <div class="container my-4">
     <ul class="nav nav-pills justify-content-center">
       <li class="nav-item">
-        <a class="nav-link active" href="#"><i class="fas fa-home me-2"></i>Home</a>
+        <a class="nav-link active" href="#home-section"><i class="fas fa-home me-2"></i>Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-briefcase me-2"></i>Jobs</a>
+        <a class="nav-link" href="#jobs-section"><i class="fas fa-briefcase me-2"></i>Jobs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-graduation-cap me-2"></i>Education</a>
+        <a class="nav-link" href="#education-section"><i class="fas fa-graduation-cap me-2"></i>Education</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-id-card me-2"></i>Identity</a>
+        <a class="nav-link" href="#identity-section"><i class="fas fa-id-card me-2"></i>Identity</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-tractor me-2"></i>Agriculture</a>
+        <a class="nav-link" href="#agriculture-section"><i class="fas fa-tractor me-2"></i>Agriculture</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-map-marked-alt me-2"></i>State Services</a>
+        <a class="nav-link" href="#state-section"><i class="fas fa-map-marked-alt me-2"></i>State Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-blog me-2"></i>Blog</a>
+        <a class="nav-link" href="#blog-section"><i class="fas fa-blog me-2"></i>Blog</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-file-pdf me-2"></i>PDF Tools</a>
+        <a class="nav-link" href="#pdf-section"><i class="fas fa-file-pdf me-2"></i>PDF Tools</a>
       </li>
     </ul>
   </div>
   
   <!-- Hero Section -->
-  <div class="container">
+  <div class="container" id="home-section">
     <div class="hero-section">
-      <h1 class="hero-title">Welcome to आत्‍मनिर्भर भारत एक नवनिर्माण की राह</h1>
+      <h1 class="hero-title">Welcome to Digital India Nexus</h1>
       <p class="hero-subtitle">Your one-stop portal for all government services, schemes, and digital governance initiatives</p>
       
       <div class="quick-links">
-        <a href="#" class="quick-link"><i class="fas fa-briefcase"></i> Latest Jobs</a>
-        <a href="#" class="quick-link"><i class="fas fa-book-open"></i> Study Materials</a>
-        <a href="#" class="quick-link"><i class="fas fa-id-card"></i> Aadhaar Services</a>
-        <a href="#" class="quick-link"><i class="fas fa-rupee-sign"></i> PM Kisan Status</a>
+        <a href="#jobs-section" class="quick-link"><i class="fas fa-briefcase"></i> Latest Jobs</a>
+        <a href="#education-section" class="quick-link"><i class="fas fa-book-open"></i> Study Materials</a>
+        <a href="#identity-section" class="quick-link"><i class="fas fa-id-card"></i> Aadhaar Services</a>
+        <a href="#agriculture-section" class="quick-link"><i class="fas fa-rupee-sign"></i> PM Kisan Status</a>
       </div>
     </div>
   </div>
@@ -493,13 +746,71 @@
     </div>
   </div>
   
+  <!-- News Ticker -->
+  <div class="container">
+    <div class="news-ticker">
+      <div class="ticker-content">
+        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> PM Kisan 15th Installment released - Check your status now!</span>
+        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> MP Lekhpal Recruitment 2025 - Apply before June 30</span>
+        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> Aadhaar Update Portal now available in 12 regional languages</span>
+        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> SSC CGL Notification 2025 released - 10,000+ vacancies</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Testimonials -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4" style="color: var(--navy-blue);">What Citizens Say About Us</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="text-center mb-3">
+            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--saffron);"></i>
+          </div>
+          <p class="testimonial-text text-center">"Digital India Nexus helped me find my dream government job. The application process was so simple!"</p>
+          <div class="text-center mt-3">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="60" alt="User">
+            <p class="testimonial-author mt-2 mb-0">Rahul Sharma</p>
+            <small class="text-muted">Delhi</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="text-center mb-3">
+            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--saffron);"></i>
+          </div>
+          <p class="testimonial-text text-center">"I updated my Aadhaar details in just 10 minutes using this portal. Amazing service!"</p>
+          <div class="text-center mt-3">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle" width="60" alt="User">
+            <p class="testimonial-author mt-2 mb-0">Priya Patel</p>
+            <small class="text-muted">Gujarat</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="text-center mb-3">
+            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--saffron);"></i>
+          </div>
+          <p class="testimonial-text text-center">"As a farmer, the PM Kisan status check feature has been a game-changer for me."</p>
+          <div class="text-center mt-3">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" class="rounded-circle" width="60" alt="User">
+            <p class="testimonial-author mt-2 mb-0">Harish Singh</p>
+            <small class="text-muted">Uttar Pradesh</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <!-- Main Services Grid -->
   <div class="container my-5">
     <h2 class="text-center mb-4" style="color: var(--navy-blue);">Our Key Services</h2>
     <div class="row">
       <!-- Government Jobs Card -->
       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card h-100 animated-card delay-1">
+        <div class="service-card jobs-card h-100 animated-card delay-1">
           <div class="card-header">
             <i class="fas fa-briefcase me-2"></i> GOVERNMENT JOBS
           </div>
@@ -507,7 +818,7 @@
             <div class="card-icon">
               <i class="fas fa-search"></i>
             </div>
-            <h3 class="h5" style="color: var(--navy-blue);">Find Your Dream Government Job</h3>
+            <h3 class="h5">Find Your Dream Government Job</h3>
             <p>Explore thousands of latest government job opportunities across all departments and states.</p>
             
             <ul class="feature-list">
@@ -517,7 +828,7 @@
               <li>Exam preparation resources</li>
             </ul>
             
-            <a href="#" class="btn btn-india mt-3">
+            <a href="#jobs-section" class="btn btn-india mt-3">
               <i class="fas fa-external-link-alt me-2"></i> Explore Jobs
             </a>
           </div>
@@ -526,7 +837,7 @@
       
       <!-- Study Materials Card -->
       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card h-100 animated-card delay-2">
+        <div class="service-card study-card h-100 animated-card delay-2">
           <div class="card-header">
             <i class="fas fa-download me-2"></i> STUDY MATERIALS
           </div>
@@ -534,28 +845,28 @@
             <div class="card-icon">
               <i class="fas fa-book-open"></i>
             </div>
-            <h3 class="h5" style="color: var(--navy-blue);">Free Educational Resources</h3>
+            <h3 class="h5">Free Educational Resources</h3>
             <p>Download free study materials from top educational platforms and government portals.</p>
             
             <div class="row">
               <div class="col-6">
                 <h4 class="h6"><i class="fas fa-globe me-2"></i>Portals</h4>
                 <ul class="list-unstyled">
-                  <li><a href="#" style="color: var(--navy-blue);">Testbook</a></li>
-                  <li><a href="#" style="color: var(--navy-blue);">Adda247</a></li>
-                  <li><a href="#" style="color: var(--navy-blue);">SWAYAM</a></li>
+                  <li><a href="https://testbook.com/" target="_blank" style="color: var(--navy-blue);">Testbook</a></li>
+                  <li><a href="https://www.adda247.com/" target="_blank" style="color: var(--navy-blue);">Adda247</a></li>
+                  <li><a href="https://swayam.gov.in/" target="_blank" style="color: var(--navy-blue);">SWAYAM</a></li>
                 </ul>
               </div>
               <div class="col-6">
                 <h4 class="h6"><i class="fas fa-mobile-alt me-2"></i>Apps</h4>
                 <ul class="list-unstyled">
-                  <li><a href="#" style="color: var(--navy-blue);">Sarkari Result</a></li>
-                  <li><a href="#" style="color: var(--navy-blue);">Free Job Alert</a></li>
+                  <li><a href="https://play.google.com/store/apps/details?id=com.sarkariresult" target="_blank" style="color: var(--navy-blue);">Sarkari Result</a></li>
+                  <li><a href="https://play.google.com/store/apps/details?id=com.freejobalert.app" target="_blank" style="color: var(--navy-blue);">Free Job Alert</a></li>
                 </ul>
               </div>
             </div>
             
-            <a href="#" class="btn btn-india mt-3">
+            <a href="https://ncert.nic.in/textbook.php" class="btn btn-india mt-3" target="_blank">
               <i class="fas fa-download me-2"></i> Download Now
             </a>
           </div>
@@ -564,7 +875,7 @@
       
       <!-- PM Kisan Card -->
       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card h-100 animated-card delay-3">
+        <div class="service-card pmkisan-card h-100 animated-card delay-3">
           <div class="card-header">
             <i class="fas fa-rupee-sign me-2"></i> PM KISAN
           </div>
@@ -572,7 +883,7 @@
             <div class="card-icon">
               <i class="fas fa-hand-holding-usd"></i>
             </div>
-            <h3 class="h5" style="color: var(--navy-blue);">Farmer Support Scheme</h3>
+            <h3 class="h5">Farmer Support Scheme</h3>
             <p>Check your beneficiary status under Pradhan Mantri Kisan Samman Nidhi Yojana.</p>
             
             <ul class="feature-list">
@@ -582,8 +893,88 @@
               <li>Scheme guidelines</li>
             </ul>
             
-            <a href="#" class="btn btn-india mt-3">
+            <a href="https://pmkisan.gov.in/BeneficiaryStatus_New.aspx" class="btn btn-india mt-3" target="_blank">
               <i class="fas fa-search-dollar me-2"></i> Check Status
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Aadhaar Card -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card aadhaar-card h-100 animated-card delay-4">
+          <div class="card-header">
+            <i class="fas fa-id-card me-2"></i> AADHAAR
+          </div>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-qrcode"></i>
+            </div>
+            <h3 class="h5">Identity Verification</h3>
+            <p>Verify your Aadhaar card validity and update details through the official UIDAI portal.</p>
+            
+            <ul class="feature-list">
+              <li>Verify Aadhaar number</li>
+              <li>Update personal details</li>
+              <li>Download e-Aadhaar</li>
+              <li>Check update status</li>
+            </ul>
+            
+            <a href="https://myaadhaar.uidai.gov.in/check-aadhaar-validity/" class="btn btn-india mt-3" target="_blank">
+              <i class="fas fa-shield-alt me-2"></i> Verify Now
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- MP Services Card -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card mp-card h-100 animated-card delay-5">
+          <div class="card-header">
+            <i class="fas fa-map-marked-alt me-2"></i> MP SERVICES
+          </div>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <h3 class="h5">Madhya Pradesh Services</h3>
+            <p>Access various Madhya Pradesh government services through these official portals.</p>
+            
+            <ul class="feature-list">
+              <li><a href="https://mpbhulekh.gov.in/mpbhulekh.do" target="_blank" style="color: var(--navy-blue);">MP Bhulekh (Land Records)</a></li>
+              <li><a href="https://saara.mp.gov.in/" target="_blank" style="color: var(--navy-blue);">SAARA (Property Registration)</a></li>
+              <li><a href="https://mpedistrict.gov.in/MPL/index.aspx" target="_blank" style="color: var(--navy-blue);">MP e-District Services</a></li>
+            </ul>
+            
+            <a href="https://mp.gov.in/" class="btn btn-india mt-3" target="_blank">
+              <i class="fas fa-external-link-alt me-2"></i> Access Portal
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Farmer Registration Card -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card farmer-card h-100 animated-card delay-6">
+          <div class="card-header">
+            <i class="fas fa-tractor me-2"></i> FARMER REGISTRY
+          </div>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <h3 class="h5">Farmer Registration Portal</h3>
+            <p>Register as a farmer to access various agricultural schemes and benefits from the government.</p>
+            
+            <ul class="feature-list">
+              <li>New farmer registration</li>
+              <li>Scheme application</li>
+              <li>Subsidy tracking</li>
+              <li>Crop advisory</li>
+            </ul>
+            
+            <a href="https://farmer.gov.in/" class="btn btn-india mt-3" target="_blank">
+              <i class="fas fa-user-edit me-2"></i> Register Now
             </a>
           </div>
         </div>
@@ -591,51 +982,593 @@
     </div>
   </div>
 
-  <!-- Testimonials -->
-  <div class="container my-5">
-    <h2 class="text-center mb-4" style="color: var(--navy-blue);">What Citizens Say About Us</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="service-card h-100">
-          <div class="card-body">
-            <div class="text-center mb-3">
-              <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--saffron);"></i>
+  <!-- Blog Section -->
+  <div class="container my-5" id="blog-section">
+    <div class="service-card blog-card h-100">
+      <div class="card-header">
+        <i class="fas fa-blog me-2"></i> BLOG & NEWS
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="h4 mb-4">Latest Government Updates</h3>
+            <div class="blog-editor">
+              <div class="toolbar">
+                <button onclick="formatText('bold')"><i class="fas fa-bold"></i></button>
+                <button onclick="formatText('italic')"><i class="fas fa-italic"></i></button>
+                <button onclick="formatText('underline')"><i class="fas fa-underline"></i></button>
+                <button onclick="insertImage()"><i class="fas fa-image"></i></button>
+                <button onclick="insertLink()"><i class="fas fa-link"></i></button>
+              </div>
+              <div id="editor" contenteditable="true" class="p-3 border rounded">
+                <h4>New Digital India Initiatives Launched</h4>
+                <p>The government has announced 5 new digital initiatives to boost rural connectivity and e-governance services.</p>
+                <ul>
+                  <li>Digital Village Program expanded to 50,000 villages</li>
+                  <li>New BharatNet phase with 10x faster speeds</li>
+                  <li>AI-powered grievance redressal system</li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <button class="btn btn-india" onclick="saveBlogPost()">
+                  <i class="fas fa-save me-2"></i> Publish Update
+                </button>
+              </div>
             </div>
-            <p class="text-center">"आत्‍मनिर्भर भारत एक नवनिर्माण की राह helped me find my dream government job. The application process was so simple!"</p>
-            <div class="text-center mt-3">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="60" alt="User">
-              <p class="mt-2 mb-0"><strong>Rahul Sharma</strong></p>
-              <small class="text-muted">Delhi</small>
+          </div>
+          <div class="col-md-6">
+            <h3 class="h4 mb-4">Recent Blog Posts</h3>
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">How to Apply for PM Kisan Scheme</h5>
+                  <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Step-by-step guide to register for PM Kisan Samman Nidhi Yojana</p>
+                <small>By Agriculture Ministry</small>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">SSC CGL 2025 Preparation Tips</h5>
+                  <small>1 week ago</small>
+                </div>
+                <p class="mb-1">Expert strategies to crack SSC Combined Graduate Level exam</p>
+                <small>By Education Department</small>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Aadhaar Update Process Simplified</h5>
+                  <small>2 weeks ago</small>
+                </div>
+                <p class="mb-1">Now update your Aadhaar details online in just 10 minutes</p>
+                <small>By UIDAI</small>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="service-card h-100">
-          <div class="card-body">
-            <div class="text-center mb-3">
-              <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--saffron);"></i>
+    </div>
+  </div>
+
+  <!-- PDF Tools Section -->
+  <div class="container my-5" id="pdf-section">
+    <div class="service-card pdf-card h-100">
+      <div class="card-header">
+        <i class="fas fa-file-pdf me-2"></i> PDF TOOLS
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="h4 mb-4">PDF Editor</h3>
+            <div class="pdf-editor-container">
+              <div class="pdf-preview" id="pdfPreview">
+                <p class="text-muted">No PDF loaded. Upload a file to begin editing.</p>
+              </div>
+              <input type="file" id="pdfUpload" accept=".pdf" class="form-control mb-3">
+              <div class="pdf-page-controls">
+                <button class="btn btn-sm btn-outline-secondary" id="prevPage">
+                  <i class="fas fa-arrow-left"></i> Prev
+                </button>
+                <span class="mx-2">Page: <span id="pageNum">0</span> / <span id="pageCount">0</span></span>
+                <button class="btn btn-sm btn-outline-secondary" id="nextPage">
+                  Next <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="pdf-actions">
+                <button class="btn btn-india me-2" id="mergePdf">
+                  <i class="fas fa-object-group me-2"></i> Merge PDFs
+                </button>
+                <button class="btn btn-india" id="downloadPdf">
+                  <i class="fas fa-download me-2"></i> Download
+                </button>
+              </div>
             </div>
-            <p class="text-center">"I updated my Aadhaar details in just 10 minutes using this portal. Amazing service!"</p>
-            <div class="text-center mt-3">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle" width="60" alt="User">
-              <p class="mt-2 mb-0"><strong>Priya Patel</strong></p>
-              <small class="text-muted">Gujarat</small>
+          </div>
+          <div class="col-md-6">
+            <h3 class="h4 mb-4">Common Government Forms</h3>
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action" onclick="loadSamplePdf('aadhaar')">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Aadhaar Update Form</h5>
+                  <small class="text-muted">PDF, 120KB</small>
+                </div>
+                <p class="mb-1">Form for updating personal details in Aadhaar</p>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action" onclick="loadSamplePdf('pan')">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">PAN Application Form</h5>
+                  <small class="text-muted">PDF, 150KB</small>
+                </div>
+                <p class="mb-1">Form 49A for new PAN card application</p>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action" onclick="loadSamplePdf('passport')">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Passport Application</h5>
+                  <small class="text-muted">PDF, 180KB</small>
+                </div>
+                <p class="mb-1">Form for fresh passport/renewal</p>
+              </a>
+            </div>
+            <div class="mt-4">
+              <h4 class="h5">PDF Help Guides</h4>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <a href="#" style="color: var(--navy-blue);">How to fill Aadhaar Update Form</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#" style="color: var(--navy-blue);">PAN Application Process</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#" style="color: var(--navy-blue);">Passport Document Requirements</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="service-card h-100">
-          <div class="card-body">
-            <div class="text-center mb-3">
-              <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--saffron);"></i>
+    </div>
+  </div>
+
+  <!-- State Services Section -->
+  <div class="container my-5" id="state-section">
+    <div class="service-card">
+      <div class="card-header">
+        <h3 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i> STATE SERVICES PORTAL</h3>
+      </div>
+      <div class="card-body">
+        <h4 class="h5 mb-4">Select Your State to Access Local Services</h4>
+        <div class="text-center">
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Uttar Pradesh</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Maharashtra</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Bihar</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> West Bengal</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Madhya Pradesh</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Tamil Nadu</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Rajasthan</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Karnataka</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Gujarat</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Andhra Pradesh</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Odisha</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Kerala</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Telangana</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Assam</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Punjab</a>
+          <a href="#" class="state-link"><i class="fas fa-city me-2"></i> Haryana</a>
+        </div>
+        
+        <div class="mt-5">
+          <h4 class="h5 mb-3">Popular State Services</h4>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="service-card mb-3 h-100">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-landmark me-2"></i> Land Records</h5>
+                  <p class="card-text">Check land ownership, plot details, and mutation status</p>
+                  <a href="#" class="btn btn-india btn-sm">Access Service</a>
+                </div>
+              </div>
             </div>
-            <p class="text-center">"As a farmer, the PM Kisan status check feature has been a game-changer for me."</p>
-            <div class="text-center mt-3">
-              <img src="https://randomuser.me/api/portraits/men/75.jpg" class="rounded-circle" width="60" alt="User">
-              <p class="mt-2 mb-0"><strong>Harish Singh</strong></p>
-              <small class="text-muted">Uttar Pradesh</small>
+            <div class="col-md-4">
+              <div class="service-card mb-3 h-100">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-home me-2"></i> Property Registration</h5>
+                  <p class="card-text">Register property, check valuation, and pay stamp duty</p>
+                  <a href="#" class="btn btn-india btn-sm">Access Service</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-card mb-3 h-100">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-id-card me-2"></i> Ration Card</h5>
+                  <p class="card-text">Apply for new ration card or update existing details</p>
+                  <a href="#" class="btn btn-india btn-sm">Access Service</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Job Portal Section -->
+  <div class="container my-5" id="jobs-section">
+    <div class="service-card">
+      <div class="card-header">
+        <h3 class="mb-0"><i class="fas fa-briefcase me-2"></i> GOVERNMENT JOB PORTAL</h3>
+      </div>
+      <div class="card-body">
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <h4 class="h5">Latest Job Openings</h4>
+            <p class="text-muted">Browse through thousands of government job opportunities</p>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search jobs...">
+              <button class="btn btn-india" type="button">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-responsive">
+          <table class="table table-hover job-table">
+            <thead class="table-light">
+              <tr>
+                <th>Job Title</th>
+                <th>Department</th>
+                <th>Location</th>
+                <th>Last Date</th>
+                <th>Qualification</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SSC CGL 2025</td>
+                <td>Staff Selection Commission</td>
+                <td>All India</td>
+                <td>15-Jul-2025</td>
+                <td>Graduation</td>
+                <td>
+                  <span class="badge bg-success">New</span>
+                  <a href="#" class="btn btn-india btn-sm">Apply</a>
+                </td>
+              </tr>
+              <tr>
+                <td>IBPS PO 2025</td>
+                <td>Banking</td>
+                <td>All India</td>
+                <td>30-Jun-2025</td>
+                <td>Graduation</td>
+                <td>
+                  <a href="#" class="btn btn-india btn-sm">Apply</a>
+                </td>
+              </tr>
+              <tr>
+                <td>UP Police Constable</td>
+                <td>Police Department</td>
+                <td>Uttar Pradesh</td>
+                <td>10-Jul-2025</td>
+                <td>12th Pass</td>
+                <td>
+                  <span class="badge bg-warning text-dark">Last Week</span>
+                  <a href="#" class="btn btn-india btn-sm">Apply</a>
+                </td>
+              </tr>
+              <tr>
+                <td>MP Lekhpal</td>
+                <td>Revenue Department</td>
+                <td>Madhya Pradesh</td>
+                <td>30-Jun-2025</td>
+                <td>12th Pass</td>
+                <td>
+                  <span class="badge bg-danger">Closing Soon</span>
+                  <a href="#" class="btn btn-india btn-sm">Apply</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Railway Group D</td>
+                <td>Indian Railways</td>
+                <td>All India</td>
+                <td>20-Jul-2025</td>
+                <td>10th Pass</td>
+                <td>
+                  <a href="#" class="btn btn-india btn-sm">Apply</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="text-center mt-4">
+          <a href="#" class="btn btn-india">
+            <i class="fas fa-list me-2"></i> View All Jobs (1,245+)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education Section -->
+  <div class="container my-5" id="education-section">
+    <div class="service-card">
+      <div class="card-header">
+        <h3 class="mb-0"><i class="fas fa-graduation-cap me-2"></i> EDUCATION PORTAL</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="service-card mb-4 h-100">
+              <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-book me-2"></i> NCERT Books</h5>
+              </div>
+              <div class="card-body">
+                <p>Download free NCERT textbooks for all classes and subjects</p>
+                <a href="https://ncert.nic.in/textbook.php" class="btn btn-india btn-sm" target="_blank">
+                  <i class="fas fa-download me-2"></i> Download
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card mb-4 h-100">
+              <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="fas fa-laptop-code me-2"></i> SWAYAM Courses</h5>
+              </div>
+              <div class="card-body">
+                <p>Free online courses from top Indian universities and professors</p>
+                <a href="https://swayam.gov.in/" class="btn btn-india btn-sm" target="_blank">
+                  <i class="fas fa-external-link-alt me-2"></i> Explore
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card mb-4 h-100">
+              <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i> DIKSHA Platform</h5>
+              </div>
+              <div class="card-body">
+                <p>School education resources for teachers and students</p>
+                <a href="https://diksha.gov.in/" class="btn btn-india btn-sm" target="_blank">
+                  <i class="fas fa-external-link-alt me-2"></i> Visit
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <h4 class="h5">Exam Preparation</h4>
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">UPSC Civil Services</h5>
+                  <small class="text-muted">Free</small>
+                </div>
+                <p class="mb-1">Complete study material for UPSC Prelims and Mains</p>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">SSC CGL Previous Papers</h5>
+                  <small class="text-muted">Free</small>
+                </div>
+                <p class="mb-1">10 years of solved question papers with explanations</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4 class="h5">Scholarships</h4>
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">National Scholarship Portal</h5>
+                  <small class="text-muted">Government</small>
+                </div>
+                <p class="mb-1">Apply for various central and state scholarships</p>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">AICTE Scholarships</h5>
+                  <small class="text-muted">Technical Education</small>
+                </div>
+                <p class="mb-1">For students pursuing technical and professional courses</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Identity Services Section -->
+  <div class="container my-5" id="identity-section">
+    <div class="service-card">
+      <div class="card-header">
+        <h3 class="mb-0"><i class="fas fa-id-card me-2"></i> IDENTITY SERVICES</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="service-card mb-4 h-100">
+              <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0"><i class="fas fa-fingerprint me-2"></i> Aadhaar Services</h5>
+              </div>
+              <div class="card-body">
+                <ul class="feature-list">
+                  <li><a href="https://uidai.gov.in/" target="_blank" style="color: var(--navy-blue);">Check Aadhaar Status</a></li>
+                  <li><a href="https://myaadhaar.uidai.gov.in/" target="_blank" style="color: var(--navy-blue);">Download e-Aadhaar</a></li>
+                  <li><a href="https://uidai.gov.in/update-aadhaar.html" target="_blank" style="color: var(--navy-blue);">Update Aadhaar Details</a></li>
+                  <li><a href="https://resident.uidai.gov.in/verify" target="_blank" style="color: var(--navy-blue);">Verify Aadhaar Number</a></li>
+                </ul>
+                <a href="https://uidai.gov.in/" class="btn btn-india btn-sm mt-2" target="_blank">
+                  <i class="fas fa-external-link-alt me-2"></i> Visit UIDAI
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="service-card mb-4 h-100">
+              <div class="card-header bg-danger text-white">
+                <h5 class="mb-0"><i class="fas fa-credit-card me-2"></i> PAN Card Services</h5>
+              </div>
+              <div class="card-body">
+                <ul class="feature-list">
+                  <li><a href="https://www.incometaxindia.gov.in/Pages/tax-services/apply-for-pan.aspx" target="_blank" style="color: var(--navy-blue);">Apply for New PAN</a></li>
+                  <li><a href="https://www.protean-tinpan.com/" target="_blank" style="color: var(--navy-blue);">PAN Correction/Update</a></li>
+                  <li><a href="https://www.incometaxindia.gov.in/Pages/tax-services/verify-your-pan.aspx" target="_blank" style="color: var(--navy-blue);">Verify PAN Details</a></li>
+                  <li><a href="https://www.incometaxindia.gov.in/Pages/tax-services/link-aadhaar-with-pan.aspx" target="_blank" style="color: var(--navy-blue);">Link Aadhaar with PAN</a></li>
+                </ul>
+                <a href="https://www.incometaxindia.gov.in/" class="btn btn-india btn-sm mt-2" target="_blank">
+                  <i class="fas fa-external-link-alt me-2"></i> Visit NSDL
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <div class="service-card h-100">
+              <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="fas fa-passport me-2"></i> Passport Services</h5>
+              </div>
+              <div class="card-body">
+                <p>Apply for fresh passport, renewal, or other passport related services</p>
+                <a href="https://passportindia.gov.in/" class="btn btn-india btn-sm" target="_blank">
+                  <i class="fas fa-external-link-alt me-2"></i> Apply Now
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card h-100">
+              <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0"><i class="fas fa-car me-2"></i> Driving License</h5>
+              </div>
+              <div class="card-body">
+                <p>Apply for new DL, renewal, duplicate, or other services</p>
+                <a href="https://parivahan.gov.in/" class="btn btn-india btn-sm" target="_blank">
+                  <i class="fas fa-external-link-alt me-2"></i> Apply Now
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card h-100">
+              <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-voter-id me-2"></i> Voter ID Services</h5>
+              </div>
+              <div class="card-body">
+                <p>Apply for new voter ID, correction, or track application status</p>
+                <a href="https://www.nvsp.in/" class="btn btn-india btn-sm" target="_blank">
+                  <i class="fas fa-external-link-alt me-2"></i> Apply Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agriculture Section -->
+  <div class="container my-5" id="agriculture-section">
+    <div class="service-card">
+      <div class="card-header">
+        <h3 class="mb-0"><i class="fas fa-tractor me-2"></i> AGRICULTURE PORTAL</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="service-card mb-4 h-100">
+              <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="fas fa-rupee-sign me-2"></i> PM Kisan Samman Nidhi</h5>
+              </div>
+              <div class="card-body">
+                <p>Check your beneficiary status under Pradhan Mantri Kisan Samman Nidhi Yojana</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <a href="https://pmkisan.gov.in/" class="btn btn-india btn-sm w-100 mb-2" target="_blank">
+                      <i class="fas fa-search-dollar me-2"></i> Check Status
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="https://pmkisan.gov.in/" class="btn btn-outline-success btn-sm w-100" target="_blank">
+                      <i class="fas fa-info-circle me-2"></i> Scheme Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="service-card mb-4 h-100">
+              <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0"><i class="fas fa-seedling me-2"></i> Kisan Credit Card</h5>
+              </div>
+              <div class="card-body">
+                <p>Apply for Kisan Credit Card to get agricultural loans at subsidized rates</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <a href="https://www.agricoop.nic.in/" class="btn btn-india btn-sm w-100 mb-2" target="_blank">
+                      <i class="fas fa-edit me-2"></i> Apply Online
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="https://www.agricoop.nic.in/" class="btn btn-outline-warning btn-sm w-100" target="_blank">
+                      <i class="fas fa-question-circle me-2"></i> Guidelines
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <div class="service-card h-100">
+              <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-cloud-sun-rain me-2"></i> Weather Advisory</h5>
+              </div>
+              <div class="card-body">
+                <p>Get localized weather forecasts and agricultural advisories</p>
+                <a href="https://mausam.imd.gov.in/" class="btn btn-india btn-sm" target="_blank">
+                  <i class="fas fa-external-link-alt me-2"></i> View Forecast
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card h-100">
+              <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0"><i class="fas fa-shopping-cart me-2"></i> eNAM Market</h5>
+              </div>
+              <div class="card-body">
+                <p>National Agriculture Market for online trading of commodities</p>
+                <a href="https://www.enam.gov.in/" class="btn btn-india btn-sm" target="_blank">
+                  <i class="fas fa-external-link-alt me-2"></i> Visit eNAM
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-card h-100">
+              <div class="card-header bg-danger text-white">
+                <h5 class="mb-0"><i class="fas fa-phone-alt me-2"></i> Kisan Call Center</h5>
+              </div>
+              <div class="card-body">
+                <p>24/7 support for farmers with agricultural queries</p>
+                <a href="tel:18001801551" class="btn btn-india btn-sm">
+                  <i class="fas fa-phone-alt me-2"></i> Call 1800-180-1551
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -648,7 +1581,7 @@
     <div class="service-card">
       <div class="card-body text-center py-5">
         <h2 class="mb-4" style="color: var(--navy-blue);">Ready to Access Government Services?</h2>
-        <p class="lead mb-4">Join millions of Indians who are using आत्‍मनिर्भर भारत एक नवनिर्माण की राह to simplify their interactions with government services.</p>
+        <p class="lead mb-4">Join millions of Indians who are using Digital India Nexus to simplify their interactions with government services.</p>
         <a href="#" class="btn btn-india btn-lg me-3">
           <i class="fas fa-user-plus me-2"></i> Create Account
         </a>
@@ -660,16 +1593,59 @@
   </div>
 
   <!-- Footer -->
-  <footer class="py-4" style="background: rgba(0,0,128,0.9); color: white;">
+  <footer class="main-footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 text-center text-md-start">
-          <p class="mb-0">© 2025 आत्‍मनिर्भर भारत एक नवनिर्माण की राह. All rights reserved.</p>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="text-white mb-3">Digital India Nexus</h5>
+          <p>Your one-stop portal for all government services, schemes, and digital governance initiatives.</p>
+          <div class="mt-3">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+          </div>
         </div>
-        <div class="col-md-6 text-center text-md-end">
-          <a href="#" class="text-white me-3">Privacy Policy</a>
-          <a href="#" class="text-white me-3">Terms of Use</a>
-          <a href="#" class="text-white">Contact Us</a>
+        <div class="col-md-2 mb-4 mb-md-0">
+          <h5 class="text-white mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-white-50">Home</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50">About Us</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50">Services</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50">Contact</a></li>
+            <li class="mb-2"><a href="#" class="text-white-50">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h5 class="text-white mb-3">Important Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="https://india.gov.in/" class="text-white-50" target="_blank">National Portal of India</a></li>
+            <li class="mb-2"><a href="https://www.mygov.in/" class="text-white-50" target="_blank">MyGov</a></li>
+            <li class="mb-2"><a href="https://www.digitalindia.gov.in/" class="text-white-50" target="_blank">Digital India</a></li>
+            <li class="mb-2"><a href="https://www.pmindia.gov.in/en/" class="text-white-50" target="_blank">PMO India</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-white mb-3">Contact Us</h5>
+          <ul class="list-unstyled text-white-50">
+            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> New Delhi, India</li>
+            <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> 1800 123 4343</li>
+            <li class="mb-2"><i class="fas fa-envelope me-2"></i> support@digitalindianexus.gov.in</li>
+            <li class="mb-2"><i class="fas fa-clock me-2"></i> 24x7 Helpline</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4 bg-light">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="mb-0">© 2025 Digital India Nexus. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Sitemap</a>
         </div>
       </div>
     </div>
@@ -680,30 +1656,162 @@
     <i class="fas fa-arrow-up"></i>
   </a>
 
+  <!-- Toast Notification -->
+  <div class="toast align-items-center text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Welcome to Digital India Nexus!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+
   <!-- JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
   
   <script>
-    // Show back to top button when scrolling
-    window.addEventListener('scroll', function() {
-      var backToTop = document.querySelector('.back-to-top');
-      if (window.pageYOffset > 300) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
+    // Show toast notification on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      var toastEl = document.querySelector('.toast');
+      var toast = new bootstrap.Toast(toastEl);
+      toast.show();
+      
+      // Show back to top button when scrolling
+      window.addEventListener('scroll', function() {
+        var backToTop = document.querySelector('.back-to-top');
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = 'block';
+        } else {
+          backToTop.style.display = 'none';
+        }
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+    
+    // Blog Editor Functions
+    function formatText(command) {
+      document.execCommand(command, false, null);
+    }
+    
+    function insertImage() {
+      var url = prompt('Enter the image URL:');
+      if (url) {
+        document.execCommand('insertImage', false, url);
+      }
+    }
+    
+    function insertLink() {
+      var url = prompt('Enter the link URL:');
+      if (url) {
+        document.execCommand('createLink', false, url);
+      }
+    }
+    
+    function saveBlogPost() {
+      var content = document.getElementById('editor').innerHTML;
+      // In a real app, you would send this content to a server
+      alert('Blog post saved successfully!');
+    }
+    
+    // PDF Editor Functions
+    document.getElementById('pdfUpload').addEventListener('change', function(e) {
+      var file = e.target.files[0];
+      if (file.type !== 'application/pdf') {
+        alert('Please select a PDF file');
+        return;
+      }
+      
+      var reader = new FileReader();
+      reader.onload = function() {
+        // Load the PDF using PDF.js
+        pdfjsLib.getDocument(reader.result).promise.then(function(pdf) {
+          // For demo purposes, we'll just show page count
+          document.getElementById('pageCount').textContent = pdf.numPages;
+          document.getElementById('pageNum').textContent = 1;
+          
+          // Render the first page
+          pdf.getPage(1).then(function(page) {
+            var viewport = page.getViewport({ scale: 1.0 });
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            
+            document.getElementById('pdfPreview').innerHTML = '';
+            document.getElementById('pdfPreview').appendChild(canvas);
+            
+            page.render({
+              canvasContext: context,
+              viewport: viewport
+            });
+          });
+        });
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    
+    // Page navigation for PDF
+    document.getElementById('prevPage').addEventListener('click', function() {
+      var currentPage = parseInt(document.getElementById('pageNum').textContent);
+      if (currentPage > 1) {
+        document.getElementById('pageNum').textContent = currentPage - 1;
+        // In a real app, you would render the previous page
       }
     });
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
+    document.getElementById('nextPage').addEventListener('click', function() {
+      var currentPage = parseInt(document.getElementById('pageNum').textContent);
+      var totalPages = parseInt(document.getElementById('pageCount').textContent);
+      if (currentPage < totalPages) {
+        document.getElementById('pageNum').textContent = currentPage + 1;
+        // In a real app, you would render the next page
+      }
+    });
+    
+    // Load sample PDFs
+    function loadSamplePdf(type) {
+      var sampleUrl = '';
+      var previewText = '';
+      
+      switch(type) {
+        case 'aadhaar':
+          previewText = 'Aadhaar Update Form loaded';
+          break;
+        case 'pan':
+          previewText = 'PAN Application Form loaded';
+          break;
+        case 'passport':
+          previewText = 'Passport Application Form loaded';
+          break;
+      }
+      
+      document.getElementById('pdfPreview').innerHTML = '<p class="text-success">' + previewText + '</p>';
+      document.getElementById('pageNum').textContent = '1';
+      document.getElementById('pageCount').textContent = '1';
+    }
+    
+    // Merge PDFs function (demo only)
+    document.getElementById('mergePdf').addEventListener('click', function() {
+      alert('In a real application, this would merge selected PDF files');
+    });
+    
+    // Download PDF function (demo only)
+    document.getElementById('downloadPdf').addEventListener('click', function() {
+      alert('In a real application, this would download the edited PDF');
     });
   </script>
 </body>
