@@ -1064,82 +1064,101 @@
 
   <!-- PDF Tools Section -->
   <div class="container my-5" id="pdf-section">
-    <div class="service-card pdf-card h-100">
-      <div class="card-header">
-        <i class="fas fa-file-pdf me-2"></i> PDF TOOLS
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <h3 class="h4 mb-4">PDF Editor</h3>
-            <div class="pdf-editor-container">
-              <div class="pdf-preview" id="pdfPreview">
-                <p class="text-muted">No PDF loaded. Upload a file to begin editing.</p>
-              </div>
-              <input type="file" id="pdfUpload" accept=".pdf" class="form-control mb-3">
-              <div class="pdf-page-controls">
-                <button class="btn btn-sm btn-outline-secondary" id="prevPage">
-                  <i class="fas fa-arrow-left"></i> Prev
-                </button>
-                <span class="mx-2">Page: <span id="pageNum">0</span> / <span id="pageCount">0</span></span>
-                <button class="btn btn-sm btn-outline-secondary" id="nextPage">
-                  Next <i class="fas fa-arrow-right"></i>
-                </button>
-              </div>
-              <div class="pdf-actions">
-                <button class="btn btn-india me-2" id="mergePdf">
-                  <i class="fas fa-object-group me-2"></i> Merge PDFs
-                </button>
-                <button class="btn btn-india" id="downloadPdf">
-                  <i class="fas fa-download me-2"></i> Download
-                </button>
-              </div>
+  <div class="service-card pdf-card h-100">
+    <div class="card-header bg-danger text-white">
+      <i class="fas fa-file-pdf me-2"></i> PDF & DOC TOOLS
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <!-- PDF Editor Panel -->
+        <div class="col-md-6">
+          <h3 class="h4 mb-4">Document Converter</h3>
+          <div class="pdf-editor-container">
+            <input type="file" id="docUpload" accept=".pdf,.doc,.docx,.txt" class="form-control mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="convertType" id="toPdf" checked>
+              <label class="form-check-label" for="toPdf">Convert to PDF</label>
             </div>
-          </div>
-          <div class="col-md-6">
-            <h3 class="h4 mb-4">Common Government Forms</h3>
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action" onclick="loadSamplePdf('aadhaar')">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Aadhaar Update Form</h5>
-                  <small class="text-muted">PDF, 120KB</small>
-                </div>
-                <p class="mb-1">Form for updating personal details in Aadhaar</p>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action" onclick="loadSamplePdf('pan')">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">PAN Application Form</h5>
-                  <small class="text-muted">PDF, 150KB</small>
-                </div>
-                <p class="mb-1">Form 49A for new PAN card application</p>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action" onclick="loadSamplePdf('passport')">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Passport Application</h5>
-                  <small class="text-muted">PDF, 180KB</small>
-                </div>
-                <p class="mb-1">Form for fresh passport/renewal</p>
-              </a>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="radio" name="convertType" id="toDoc">
+              <label class="form-check-label" for="toDoc">Convert to DOC</label>
             </div>
-            <div class="mt-4">
-              <h4 class="h5">PDF Help Guides</h4>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <a href="#" style="color: var(--navy-blue);">How to fill Aadhaar Update Form</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#" style="color: var(--navy-blue);">PAN Application Process</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#" style="color: var(--navy-blue);">Passport Document Requirements</a>
-                </li>
-              </ul>
-            </div>
+            <button class="btn btn-danger me-2" onclick="convertDocument()">
+              <i class="fas fa-sync-alt me-2"></i> Convert
+            </button>
+            <button class="btn btn-success" id="downloadConverted" style="display:none">
+              <i class="fas fa-download me-2"></i> Download Converted File
+            </button>
+            <p class="mt-3 text-muted">Supports: PDF, DOC, DOCX, TXT</p>
           </div>
         </div>
+
+        <!-- Government Forms Panel -->
+        <div class="col-md-6">
+          <h3 class="h4 mb-4">Common Government Forms</h3>
+          <div class="list-group">
+            <a href="/forms/aadhaar-update.pdf" class="list-group-item list-group-item-action" download>
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Aadhaar Update Form</h5>
+                <small class="text-muted">PDF, 120KB</small>
+              </div>
+              <p class="mb-1">Form for updating personal details in Aadhaar</p>
+            </a>
+            <a href="/forms/pan-application.pdf" class="list-group-item list-group-item-action" download>
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">PAN Application Form</h5>
+                <small class="text-muted">PDF, 150KB</small>
+              </div>
+              <p class="mb-1">Form 49A for new PAN card application</p>
+            </a>
+            <a href="/forms/passport-form.pdf" class="list-group-item list-group-item-action" download>
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Passport Application</h5>
+                <small class="text-muted">PDF, 180KB</small>
+              </div>
+              <p class="mb-1">Form for fresh passport/renewal</p>
+            </a>
+          </div>
+          <div class="mt-4">
+            <h4 class="h5">PDF Help Guides</h4>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="#">How to fill Aadhaar Update Form</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">PAN Application Process</a>
+              </li>
+              <li class="list-group-item">
+                <a href="#">Passport Document Requirements</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+</div>
+
+<script>
+function convertDocument() {
+  const fileInput = document.getElementById("docUpload");
+  const toPdf = document.getElementById("toPdf").checked;
+  const downloadBtn = document.getElementById("downloadConverted");
+
+  if (!fileInput.files.length) {
+    alert("Please upload a file first.");
+    return;
+  }
+
+  // Simulated conversion
+  setTimeout(() => {
+    alert("Document converted successfully!");
+    downloadBtn.style.display = "inline-block";
+    downloadBtn.href = "#"; // Replace with backend-generated file URL
+  }, 1000);
+}
+</script>
 
   <!-- State Services Section -->
   <div class="container my-5" id="state-section">
