@@ -166,41 +166,6 @@
       opacity: 0.9;
     }
     
-    /* Quick Links */
-    .quick-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 2rem;
-    }
-    
-    .quick-link {
-      display: flex;
-      align-items: center;
-      background: rgba(255,255,255,0.9);
-      color: var(--navy-blue);
-      padding: 0.75rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    .quick-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      background: linear-gradient(to right, var(--saffron), var(--gold));
-      color: var(--navy-blue);
-    }
-    
-    .quick-link i {
-      margin-right: 8px;
-      color: var(--navy-blue);
-    }
-    
     /* Card Styles */
     .service-card {
       border: none;
@@ -321,275 +286,6 @@
       font-weight: bold;
     }
     
-    /* Stats Counter */
-    .stats-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin: 2rem 0;
-    }
-    
-    .stat-item {
-      text-align: center;
-      padding: 1rem;
-      min-width: 150px;
-      background: rgba(255,255,255,0.95);
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin: 0.5rem;
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--navy-blue);
-      margin-bottom: 0.5rem;
-    }
-    
-    .stat-label {
-      font-size: 1rem;
-      color: var(--navy-blue);
-      opacity: 0.8;
-    }
-    
-    /* Ashoka Chakra Style */
-    .chakra-icon {
-      color: var(--navy-blue);
-      font-size: 1.5rem;
-      margin: 0 5px;
-    }
-    
-    /* News Ticker */
-    .news-ticker {
-      background-color: var(--navy-blue);
-      color: white;
-      padding: 0.75rem;
-      border-radius: 6px;
-      margin: 1.5rem 0;
-      overflow: hidden;
-      border-left: 4px solid var(--saffron);
-    }
-    
-    .ticker-content {
-      display: inline-block;
-      white-space: nowrap;
-      animation: ticker 25s linear infinite;
-    }
-    
-    @keyframes ticker {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    
-    .ticker-item {
-      display: inline-block;
-      margin-right: 2rem;
-      font-weight: 500;
-    }
-    
-    .ticker-item i {
-      color: var(--saffron);
-    }
-    
-    /* State Links */
-    .state-link {
-      display: inline-block;
-      background-color: white;
-      color: var(--navy-blue);
-      padding: 0.5rem 1.25rem;
-      border-radius: 50px;
-      margin: 0.5rem;
-      text-decoration: none;
-      font-weight: 500;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      border: 1px solid #e0e0e0;
-    }
-    
-    .state-link:hover {
-      background: linear-gradient(to right, var(--saffron), var(--gold));
-      color: var(--navy-blue);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(255, 153, 51, 0.2);
-      border-color: transparent;
-    }
-    
-    /* Footer */
-    .main-footer {
-      background-color: var(--navy-blue);
-      color: white;
-      padding: 2rem 0;
-      margin-top: 3rem;
-      border-top: 3px solid var(--saffron);
-      position: relative;
-    }
-    
-    .main-footer::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(to right, var(--saffron), var(--white), var(--green));
-    }
-    
-    .footer-links a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      margin: 0 0.75rem;
-      transition: color 0.3s ease;
-    }
-    
-    .footer-links a:hover {
-      color: white;
-      text-decoration: underline;
-    }
-    
-    .social-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background-color: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      margin: 0 0.5rem;
-      transition: all 0.3s ease;
-      color: white;
-    }
-    
-    .social-icon:hover {
-      background-color: var(--saffron);
-      transform: translateY(-3px);
-      color: var(--navy-blue);
-    }
-    
-    /* Animation */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .animated-card {
-      animation: fadeIn 0.6s ease-out forwards;
-    }
-    
-    /* Delay animations */
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .delay-5 { animation-delay: 0.5s; }
-    .delay-6 { animation-delay: 0.6s; }
-    
-    /* Blog Editor Styles */
-    .blog-editor {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      min-height: 300px;
-      background-color: white;
-    }
-    
-    .toolbar {
-      margin-bottom: 10px;
-    }
-    
-    .toolbar button {
-      margin-right: 5px;
-      margin-bottom: 5px;
-      background-color: #f1f1f1;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-    
-    .toolbar button:hover {
-      background-color: #e1e1e1;
-    }
-    
-    /* PDF Editor Styles */
-    .pdf-editor-container {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      background-color: white;
-    }
-    
-    .pdf-preview {
-      width: 100%;
-      height: 300px;
-      border: 1px dashed #ccc;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f9f9f9;
-    }
-    
-    .pdf-actions {
-      margin-top: 15px;
-    }
-    
-    .pdf-page-controls {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-    
-    .pdf-page-controls button {
-      margin: 0 5px;
-    }
-    
-    /* Job Portal Styles */
-    .job-table th {
-      white-space: nowrap;
-    }
-    
-    .job-table .badge {
-      font-size: 0.75em;
-    }
-    
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1100;
-    }
-    
-    /* Table Styles */
-    .table-hover tbody tr:hover {
-      background-color: rgba(0, 0, 128, 0.05);
-    }
-    
-    /* Modal Styles */
-    .modal-lg {
-      max-width: 900px;
-    }
-    
-    /* Testimonials */
-    .testimonial-card {
-      background-color: white;
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      margin-bottom: 1.5rem;
-      border-left: 4px solid var(--saffron);
-    }
-    
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-    
-    .testimonial-author {
-      font-weight: 600;
-      color: var(--navy-blue);
-    }
-    
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .main-logo {
@@ -608,19 +304,6 @@
         font-size: 1rem;
       }
       
-      .quick-link {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-      
-      .stat-item {
-        min-width: 120px;
-      }
-      
-      .stat-number {
-        font-size: 2rem;
-      }
-      
       .nav-pills .nav-link {
         padding: 0.5rem 0.75rem;
         font-size: 0.9rem;
@@ -637,31 +320,11 @@
       background: linear-gradient(to right, #4285f4, #34a853);
     }
     
-    .study-card .card-header {
+    .govt-card .card-header {
       background: linear-gradient(to right, #673ab7, #9c27b0);
     }
     
-    .pmkisan-card .card-header {
-      background: linear-gradient(to right, #ff9800, #ff5722);
-    }
-    
-    .aadhaar-card .card-header {
-      background: linear-gradient(to right, #00bcd4, #009688);
-    }
-    
-    .mp-card .card-header {
-      background: linear-gradient(to right, #3f51b5, #2196f3);
-    }
-    
-    .farmer-card .card-header {
-      background: linear-gradient(to right, #4caf50, #8bc34a);
-    }
-    
-    .blog-card .card-header {
-      background: linear-gradient(to right, #9c27b0, #e91e63);
-    }
-    
-    .pdf-card .card-header {
+    .doc-card .card-header {
       background: linear-gradient(to right, #ff5722, #f44336);
     }
   </style>
@@ -689,22 +352,10 @@
         <a class="nav-link" href="#jobs-section"><i class="fas fa-briefcase me-2"></i>Jobs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#education-section"><i class="fas fa-graduation-cap me-2"></i>Education</a>
+        <a class="nav-link" href="#govt-section"><i class="fas fa-landmark me-2"></i>Government Services</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#identity-section"><i class="fas fa-id-card me-2"></i>Identity</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#agriculture-section"><i class="fas fa-tractor me-2"></i>Agriculture</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#state-section"><i class="fas fa-map-marked-alt me-2"></i>State Services</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#blog-section"><i class="fas fa-blog me-2"></i>Blog</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#pdf-section"><i class="fas fa-file-pdf me-2"></i>PDF Tools</a>
+        <a class="nav-link" href="#doc-section"><i class="fas fa-file-alt me-2"></i>Document Tools</a>
       </li>
     </ul>
   </div>
@@ -713,348 +364,404 @@
   <div class="container" id="home-section">
     <div class="hero-section">
       <h1 class="hero-title">Welcome to आत्‍मनिर्भर भारत</h1>
-      <p class="hero-subtitle">Your one-stop portal for all government services, schemes, and digital governance initiatives</p>
-      
-      <div class="quick-links">
-        <a href="#jobs-section" class="quick-link"><i class="fas fa-briefcase"></i> Latest Jobs</a>
-        <a href="#education-section" class="quick-link"><i class="fas fa-book-open"></i> Study Materials</a>
-        <a href="#identity-section" class="quick-link"><i class="fas fa-id-card"></i> Aadhaar Services</a>
-        <a href="#agriculture-section" class="quick-link"><i class="fas fa-rupee-sign"></i> PM Kisan Status</a>
-      </div>
+      <p class="hero-subtitle">Your one-stop portal for job opportunities, government services, and document tools</p>
     </div>
   </div>
-  
-  <!-- Stats Counter -->
-  <div class="container">
-    <div class="stats-container">
-      <div class="stat-item">
-        <div class="stat-number">1,245+</div>
-        <div class="stat-label">Government Jobs</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">5.2M+</div>
-        <div class="stat-label">Citizens Served</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">28+</div>
-        <div class="stat-label">State Portals</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">Support Available</div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- News Ticker -->
-  <div class="container">
-    <div class="news-ticker">
-      <div class="ticker-content">
-        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> PM Kisan 15th Installment released - Check your status now!</span>
-        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> MP Lekhpal Recruitment 2025 - Apply before June 30</span>
-        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> Aadhaar Update Portal now available in 12 regional languages</span>
-        <span class="ticker-item"><i class="fas fa-bullhorn me-2"></i> SSC CGL Notification 2025 released - 10,000+ vacancies</span>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Testimonials -->
-  <div class="container my-5">
-    <h2 class="text-center mb-4" style="color: var(--navy-blue);">What Citizens Say About Us</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="testimonial-card">
-          <div class="text-center mb-3">
-            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--saffron);"></i>
-          </div>
-          <p class="testimonial-text text-center">"आत्‍मनिर्भर भारत helped me find my dream government job. The application process was so simple!"</p>
-          <div class="text-center mt-3">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="60" alt="User">
-            <p class="testimonial-author mt-2 mb-0">Rahul Sharma</p>
-            <small class="text-muted">Delhi</small>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-card">
-          <div class="text-center mb-3">
-            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--saffron);"></i>
-          </div>
-          <p class="testimonial-text text-center">"I updated my Aadhaar details in just 10 minutes using this portal. Amazing service!"</p>
-          <div class="text-center mt-3">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle" width="60" alt="User">
-            <p class="testimonial-author mt-2 mb-0">Priya Patel</p>
-            <small class="text-muted">Gujarat</small>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-card">
-          <div class="text-center mb-3">
-            <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--saffron);"></i>
-          </div>
-          <p class="testimonial-text text-center">"As a farmer, the PM Kisan status check feature has been a game-changer for me."</p>
-          <div class="text-center mt-3">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" class="rounded-circle" width="60" alt="User">
-            <p class="testimonial-author mt-2 mb-0">Harish Singh</p>
-            <small class="text-muted">Uttar Pradesh</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+
   <!-- Main Services Grid -->
   <div class="container my-5">
     <h2 class="text-center mb-4" style="color: var(--navy-blue);">Our Key Services</h2>
     <div class="row">
-      <!-- Government Jobs Card -->
-      <<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-  <div class="service-card jobs-card h-100 animated-card delay-1 shadow rounded-4">
-    <div class="card-header bg-primary text-white fw-bold">
-      <i class="fas fa-briefcase me-2"></i> GOVERNMENT JOBS
-    </div>
-    <div class="card-body">
-      
-      <!-- Clickable icon linking to job portal -->
-      <div class="card-icon text-center mb-3">
-        <a href="https://musk06.com/jobs" target="_blank" class="text-warning" style="font-size: 2rem;">
-          <i class="fas fa-search"></i>
-        </a>
-      </div>
-
-      <h3 class="h5 text-center">Find Your Dream Government Job</h3>
-      <p class="text-center small text-muted">
-        Explore thousands of latest government job opportunities across all departments and states.
-      </p>
-
-      <ul class="feature-list list-unstyled ps-3">
-        <li><i class="fas fa-check-circle text-success me-2"></i> <a href="https://musk06.com/state-jobs" target="_blank" class="text-dark text-decoration-none">Advanced search by state, department, qualification</a></li>
-        <li><i class="fas fa-check-circle text-success me-2"></i> <a href="https://musk06.com/alerts" target="_blank" class="text-dark text-decoration-none">Personalized job alerts</a></li>
-        <li><i class="fas fa-check-circle text-success me-2"></i> <a href="https://musk06.com/tracking" target="_blank" class="text-dark text-decoration-none">Application tracking</a></li>
-        <li><i class="fas fa-check-circle text-success me-2"></i> <a href="https://musk06.com/exam-prep" target="_blank" class="text-dark text-decoration-none">Exam preparation resources</a></li>
-      </ul>
-
-      <div class="text-center">
-        <a href="https://musk06.com/jobs" class="btn btn-outline-success mt-3" target="_blank">
-          <i class="fas fa-external-link-alt me-2"></i> Explore Jobs
-        </a>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-      
-      <!-- Study Materials Card -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card study-card h-100 animated-card delay-2">
-          <div class="card-header">
-            <i class="fas fa-download me-2"></i> STUDY MATERIALS
+      <!-- Document Tools Card -->
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Tools | आत्‍मनिर्भर भारत</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --saffron: #FF9933;
+      --white: #FFFFFF;
+      --green: #138808;
+      --navy-blue: #000080;
+      --deep-blue: #1a237e;
+      --doc-red: #f44336;
+    }
+    
+    .doc-card .card-header {
+      background: linear-gradient(to right, var(--doc-red), #ff5722);
+    }
+    
+    .tool-card {
+      border: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .tool-icon {
+      font-size: 2.5rem;
+      color: var(--doc-red);
+      margin-bottom: 1rem;
+    }
+    
+    .file-drop-area {
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .file-drop-area:hover {
+      border-color: var(--doc-red);
+      background: rgba(244, 67, 54, 0.05);
+    }
+    
+    .file-drop-area.active {
+      border-color: var(--doc-red);
+      background: rgba(244, 67, 54, 0.1);
+    }
+    
+    .file-thumbnail {
+      width: 100px;
+      height: 120px;
+      background: #f5f5f5;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .file-thumbnail i {
+      font-size: 2rem;
+      color: #666;
+    }
+    
+    .file-thumbnail .remove-file {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: var(--doc-red);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    
+    .progress {
+      height: 8px;
+    }
+    
+    .progress-bar {
+      background-color: var(--doc-red);
+    }
+    
+    #conversionResult {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="service-card doc-card h-100">
+          <div class="card-header text-white">
+            <i class="fas fa-file-pdf me-2"></i> DOCUMENT TOOLS
           </div>
           <div class="card-body">
-            <div class="card-icon">
-              <i class="fas fa-book-open"></i>
-            </div>
-            <h3 class="h5">Free Educational Resources</h3>
-            <p>Download free study materials from top educational platforms and government portals.</p>
+            <h3 class="h4 mb-4">PDF Tools</h3>
             
             <div class="row">
-              <div class="col-6">
-                <h4 class="h6"><i class="fas fa-globe me-2"></i>Portals</h4>
-                <ul class="list-unstyled">
-                  <li><a href="https://testbook.com/" target="_blank" style="color: var(--navy-blue);">Testbook</a></li>
-                  <li><a href="https://www.adda247.com/" target="_blank" style="color: var(--navy-blue);">Adda247</a></li>
-                  <li><a href="https://swayam.gov.in/" target="_blank" style="color: var(--navy-blue);">SWAYAM</a></li>
-                </ul>
+              <!-- PDF to Word -->
+              <div class="col-md-6 mb-4">
+                <div class="tool-card p-3 text-center h-100" onclick="showTool('pdf-to-word')">
+                  <div class="tool-icon">
+                    <i class="fas fa-file-pdf"></i> <i class="fas fa-arrow-right mx-2"></i> <i class="fas fa-file-word"></i>
+                  </div>
+                  <h5>PDF to Word</h5>
+                  <p class="small text-muted">Convert PDF files to editable Word documents</p>
+                </div>
               </div>
-              <div class="col-6">
-                <h4 class="h6"><i class="fas fa-mobile-alt me-2"></i>Apps</h4>
-                <ul class="list-unstyled">
-                  <li><a href="https://play.google.com/store/apps/details?id=com.sarkariresult" target="_blank" style="color: var(--navy-blue);">Sarkari Result</a></li>
-                  <li><a href="https://play.google.com/store/apps/details?id=com.freejobalert.app" target="_blank" style="color: var(--navy-blue);">Free Job Alert</a></li>
-                </ul>
+              
+              <!-- Word to PDF -->
+              <div class="col-md-6 mb-4">
+                <div class="tool-card p-3 text-center h-100" onclick="showTool('word-to-pdf')">
+                  <div class="tool-icon">
+                    <i class="fas fa-file-word"></i> <i class="fas fa-arrow-right mx-2"></i> <i class="fas fa-file-pdf"></i>
+                  </div>
+                  <h5>Word to PDF</h5>
+                  <p class="small text-muted">Convert Word documents to PDF files</p>
+                </div>
+              </div>
+              
+              <!-- Merge PDF -->
+              <div class="col-md-6 mb-4">
+                <div class="tool-card p-3 text-center h-100" onclick="showTool('merge-pdf')">
+                  <div class="tool-icon">
+                    <i class="fas fa-object-group"></i>
+                  </div>
+                  <h5>Merge PDF</h5>
+                  <p class="small text-muted">Combine multiple PDFs into one document</p>
+                </div>
+              </div>
+              
+              <!-- Compress PDF -->
+              <div class="col-md-6 mb-4">
+                <div class="tool-card p-3 text-center h-100" onclick="showTool('compress-pdf')">
+                  <div class="tool-icon">
+                    <i class="fas fa-compress-alt"></i>
+                  </div>
+                  <h5>Compress PDF</h5>
+                  <p class="small text-muted">Reduce PDF file size while preserving quality</p>
+                </div>
               </div>
             </div>
-            
-            <a href="https://ncert.nic.in/textbook.php" class="btn btn-india mt-3" target="_blank">
-              <i class="fas fa-download me-2"></i> Download Now
-            </a>
           </div>
         </div>
       </div>
       
-      <!-- PM Kisan Card -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card pmkisan-card h-100 animated-card delay-3">
-          <div class="card-header">
-            <i class="fas fa-rupee-sign me-2"></i> PM KISAN
-          </div>
+      <!-- Tool Workspace -->
+      <div class="col-lg-8 col-md-6 col-sm-12 mb-4">
+        <div class="service-card h-100">
           <div class="card-body">
-            <div class="card-icon">
-              <i class="fas fa-hand-holding-usd"></i>
+            <!-- Default View -->
+            <div id="tool-default-view" class="text-center py-5">
+              <i class="fas fa-file-alt fa-4x mb-4" style="color: #ddd;"></i>
+              <h4>Select a tool from the left to get started</h4>
+              <p class="text-muted">Convert, merge, compress and more with our document tools</p>
             </div>
-            <h3 class="h5">Farmer Support Scheme</h3>
-            <p>Check your beneficiary status under Pradhan Mantri Kisan Samman Nidhi Yojana.</p>
             
-            <ul class="feature-list">
-              <li>Check payment status</li>
-              <li>View payment history</li>
-              <li>Update bank details</li>
-              <li>Scheme guidelines</li>
-            </ul>
-            
-            <a href="https://pmkisan.gov.in/BeneficiaryStatus_New.aspx" class="btn btn-india mt-3" target="_blank">
-              <i class="fas fa-search-dollar me-2"></i> Check Status
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Aadhaar Card -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card aadhaar-card h-100 animated-card delay-4">
-          <div class="card-header">
-            <i class="fas fa-id-card me-2"></i> AADHAAR
-          </div>
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fas fa-qrcode"></i>
-            </div>
-            <h3 class="h5">Identity Verification</h3>
-            <p>Verify your Aadhaar card validity and update details through the official UIDAI portal.</p>
-            
-            <ul class="feature-list">
-              <li>Verify Aadhaar number</li>
-              <li>Update personal details</li>
-              <li>Download e-Aadhaar</li>
-              <li>Check update status</li>
-            </ul>
-            
-            <a href="https://myaadhaar.uidai.gov.in/check-aadhaar-validity/" class="btn btn-india mt-3" target="_blank">
-              <i class="fas fa-shield-alt me-2"></i> Verify Now
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- MP Services Card -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card mp-card h-100 animated-card delay-5">
-          <div class="card-header">
-            <i class="fas fa-map-marked-alt me-2"></i> MP SERVICES
-          </div>
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fas fa-landmark"></i>
-            </div>
-            <h3 class="h5">Madhya Pradesh Services</h3>
-            <p>Access various Madhya Pradesh government services through these official portals.</p>
-            
-            <ul class="feature-list">
-              <li><a href="https://mpbhulekh.gov.in/mpbhulekh.do" target="_blank" style="color: var(--navy-blue);">MP Bhulekh (Land Records)</a></li>
-              <li><a href="https://saara.mp.gov.in/" target="_blank" style="color: var(--navy-blue);">SAARA (Property Registration)</a></li>
-              <li><a href="https://mpedistrict.gov.in/MPL/index.aspx" target="_blank" style="color: var(--navy-blue);">MP e-District Services</a></li>
-            </ul>
-            
-            <a href="https://mp.gov.in/" class="btn btn-india mt-3" target="_blank">
-              <i class="fas fa-external-link-alt me-2"></i> Access Portal
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Farmer Registration Card -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card farmer-card h-100 animated-card delay-6">
-          <div class="card-header">
-            <i class="fas fa-tractor me-2"></i> FARMER REGISTRY
-          </div>
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fas fa-user-plus"></i>
-            </div>
-            <h3 class="h5">Farmer Registration Portal</h3>
-            <p>Register as a farmer to access various agricultural schemes and benefits from the government.</p>
-            
-            <ul class="feature-list">
-              <li>New farmer registration</li>
-              <li>Scheme application</li>
-              <li>Subsidy tracking</li>
-              <li>Crop advisory</li>
-            </ul>
-            
-            <a href="https://farmer.gov.in/" class="btn btn-india mt-3" target="_blank">
-              <i class="fas fa-user-edit me-2"></i> Register Now
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Blog Section -->
-  <div class="container my-5" id="blog-section">
-    <div class="service-card blog-card h-100">
-      <div class="card-header">
-        <i class="fas fa-blog me-2"></i> BLOG & NEWS
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <h3 class="h4 mb-4">Latest Government Updates</h3>
-            <div class="blog-editor">
-              <div class="toolbar">
-                <button onclick="formatText('bold')"><i class="fas fa-bold"></i></button>
-                <button onclick="formatText('italic')"><i class="fas fa-italic"></i></button>
-                <button onclick="formatText('underline')"><i class="fas fa-underline"></i></button>
-                <button onclick="insertImage()"><i class="fas fa-image"></i></button>
-                <button onclick="insertLink()"><i class="fas fa-link"></i></button>
+            <!-- PDF to Word Tool -->
+            <div id="pdf-to-word-tool" class="tool-view" style="display: none;">
+              <h4 class="mb-4"><i class="fas fa-file-pdf"></i> PDF to Word Converter</h4>
+              <div class="file-drop-area" id="pdf-to-word-drop">
+                <i class="fas fa-cloud-upload-alt fa-3x mb-3" style="color: #666;"></i>
+                <h5>Select PDF files</h5>
+                <p class="text-muted">or drag and drop files here</p>
+                <input type="file" id="pdf-to-word-input" accept=".pdf" multiple style="display: none;">
+                <button class="btn btn-primary mt-3" onclick="document.getElementById('pdf-to-word-input').click()">
+                  <i class="fas fa-folder-open me-2"></i> Choose Files
+                </button>
               </div>
-              <div id="editor" contenteditable="true" class="p-3 border rounded">
-                <h4>New Digital India Initiatives Launched</h4>
-                <p>The government has announced 5 new digital initiatives to boost rural connectivity and e-governance services.</p>
-                <ul>
-                  <li>Digital Village Program expanded to 50,000 villages</li>
-                  <li>New BharatNet phase with 10x faster speeds</li>
-                  <li>AI-powered grievance redressal system</li>
-                </ul>
+              
+              <div class="mt-4" id="pdf-to-word-files" style="display: none;">
+                <h5 class="mb-3">Selected Files</h5>
+                <div class="d-flex flex-wrap gap-3" id="pdf-to-word-thumbnails"></div>
+                <div class="mt-4">
+                  <button class="btn btn-danger" id="pdf-to-word-convert">
+                    <i class="fas fa-sync-alt me-2"></i> Convert to Word
+                  </button>
+                </div>
               </div>
-              <div class="mt-3">
-                <button class="btn btn-india" onclick="saveBlogPost()">
-                  <i class="fas fa-save me-2"></i> Publish Update
+              
+              <div class="mt-4" id="pdf-to-word-progress" style="display: none;">
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Converting...</span>
+                  <span id="pdf-to-word-progress-text">0%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" id="pdf-to-word-progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+              </div>
+              
+              <div class="mt-4 text-center" id="pdf-to-word-result" style="display: none;">
+                <div class="alert alert-success">
+                  <i class="fas fa-check-circle me-2"></i> Conversion complete!
+                </div>
+                <a href="#" class="btn btn-success" id="pdf-to-word-download">
+                  <i class="fas fa-download me-2"></i> Download Word File
+                </a>
+                <button class="btn btn-outline-secondary ms-2" onclick="resetTool('pdf-to-word')">
+                  <i class="fas fa-redo me-2"></i> Convert Another
                 </button>
               </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <h3 class="h4 mb-4">Recent Blog Posts</h3>
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">How to Apply for PM Kisan Scheme</h5>
-                  <small>3 days ago</small>
+            
+            <!-- Word to PDF Tool -->
+            <div id="word-to-pdf-tool" class="tool-view" style="display: none;">
+              <h4 class="mb-4"><i class="fas fa-file-word"></i> Word to PDF Converter</h4>
+              <div class="file-drop-area" id="word-to-pdf-drop">
+                <i class="fas fa-cloud-upload-alt fa-3x mb-3" style="color: #666;"></i>
+                <h5>Select Word files</h5>
+                <p class="text-muted">or drag and drop files here</p>
+                <input type="file" id="word-to-pdf-input" accept=".doc,.docx" multiple style="display: none;">
+                <button class="btn btn-primary mt-3" onclick="document.getElementById('word-to-pdf-input').click()">
+                  <i class="fas fa-folder-open me-2"></i> Choose Files
+                </button>
+              </div>
+              
+              <div class="mt-4" id="word-to-pdf-files" style="display: none;">
+                <h5 class="mb-3">Selected Files</h5>
+                <div class="d-flex flex-wrap gap-3" id="word-to-pdf-thumbnails"></div>
+                <div class="mt-4">
+                  <button class="btn btn-danger" id="word-to-pdf-convert">
+                    <i class="fas fa-sync-alt me-2"></i> Convert to PDF
+                  </button>
                 </div>
-                <p class="mb-1">Step-by-step guide to register for PM Kisan Samman Nidhi Yojana</p>
-                <small>By Agriculture Ministry</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">SSC CGL 2025 Preparation Tips</h5>
-                  <small>1 week ago</small>
+              </div>
+              
+              <div class="mt-4" id="word-to-pdf-progress" style="display: none;">
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Converting...</span>
+                  <span id="word-to-pdf-progress-text">0%</span>
                 </div>
-                <p class="mb-1">Expert strategies to crack SSC Combined Graduate Level exam</p>
-                <small>By Education Department</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Aadhaar Update Process Simplified</h5>
-                  <small>2 weeks ago</small>
+                <div class="progress">
+                  <div class="progress-bar" id="word-to-pdf-progress-bar" role="progressbar" style="width: 0%"></div>
                 </div>
-                <p class="mb-1">Now update your Aadhaar details online in just 10 minutes</p>
-                <small>By UIDAI</small>
-              </a>
+              </div>
+              
+              <div class="mt-4 text-center" id="word-to-pdf-result" style="display: none;">
+                <div class="alert alert-success">
+                  <i class="fas fa-check-circle me-2"></i> Conversion complete!
+                </div>
+                <a href="#" class="btn btn-success" id="word-to-pdf-download">
+                  <i class="fas fa-download me-2"></i> Download PDF File
+                </a>
+                <button class="btn btn-outline-secondary ms-2" onclick="resetTool('word-to-pdf')">
+                  <i class="fas fa-redo me-2"></i> Convert Another
+                </button>
+              </div>
+            </div>
+            
+            <!-- Merge PDF Tool -->
+            <div id="merge-pdf-tool" class="tool-view" style="display: none;">
+              <h4 class="mb-4"><i class="fas fa-object-group"></i> Merge PDF Files</h4>
+              <div class="file-drop-area" id="merge-pdf-drop">
+                <i class="fas fa-cloud-upload-alt fa-3x mb-3" style="color: #666;"></i>
+                <h5>Select PDF files to merge</h5>
+                <p class="text-muted">or drag and drop files here</p>
+                <input type="file" id="merge-pdf-input" accept=".pdf" multiple style="display: none;">
+                <button class="btn btn-primary mt-3" onclick="document.getElementById('merge-pdf-input').click()">
+                  <i class="fas fa-folder-open me-2"></i> Choose Files
+                </button>
+              </div>
+              
+              <div class="mt-4" id="merge-pdf-files" style="display: none;">
+                <h5 class="mb-3">Selected Files (drag to reorder)</h5>
+                <div class="d-flex flex-column gap-2" id="merge-pdf-thumbnails"></div>
+                <div class="mt-4">
+                  <button class="btn btn-danger" id="merge-pdf-convert">
+                    <i class="fas fa-object-group me-2"></i> Merge PDFs
+                  </button>
+                </div>
+              </div>
+              
+              <div class="mt-4" id="merge-pdf-progress" style="display: none;">
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Merging...</span>
+                  <span id="merge-pdf-progress-text">0%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" id="merge-pdf-progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+              </div>
+              
+              <div class="mt-4 text-center" id="merge-pdf-result" style="display: none;">
+                <div class="alert alert-success">
+                  <i class="fas fa-check-circle me-2"></i> Files merged successfully!
+                </div>
+                <a href="#" class="btn btn-success" id="merge-pdf-download">
+                  <i class="fas fa-download me-2"></i> Download Merged PDF
+                </a>
+                <button class="btn btn-outline-secondary ms-2" onclick="resetTool('merge-pdf')">
+                  <i class="fas fa-redo me-2"></i> Merge More Files
+                </button>
+              </div>
+            </div>
+            
+            <!-- Compress PDF Tool -->
+            <div id="compress-pdf-tool" class="tool-view" style="display: none;">
+              <h4 class="mb-4"><i class="fas fa-compress-alt"></i> Compress PDF</h4>
+              <div class="file-drop-area" id="compress-pdf-drop">
+                <i class="fas fa-cloud-upload-alt fa-3x mb-3" style="color: #666;"></i>
+                <h5>Select PDF file to compress</h5>
+                <p class="text-muted">or drag and drop file here</p>
+                <input type="file" id="compress-pdf-input" accept=".pdf" style="display: none;">
+                <button class="btn btn-primary mt-3" onclick="document.getElementById('compress-pdf-input').click()">
+                  <i class="fas fa-folder-open me-2"></i> Choose File
+                </button>
+              </div>
+              
+              <div class="mt-4" id="compress-pdf-files" style="display: none;">
+                <h5 class="mb-3">Selected File</h5>
+                <div class="d-flex flex-wrap gap-3" id="compress-pdf-thumbnails"></div>
+                <div class="mt-4">
+                  <div class="mb-3">
+                    <label class="form-label">Compression Level</label>
+                    <select class="form-select" id="compression-level">
+                      <option value="low">Low Compression (Better Quality)</option>
+                      <option value="medium" selected>Medium Compression (Recommended)</option>
+                      <option value="high">High Compression (Smaller File)</option>
+                    </select>
+                  </div>
+                  <button class="btn btn-danger" id="compress-pdf-convert">
+                    <i class="fas fa-compress-alt me-2"></i> Compress PDF
+                  </button>
+                </div>
+              </div>
+              
+              <div class="mt-4" id="compress-pdf-progress" style="display: none;">
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Compressing...</span>
+                  <span id="compress-pdf-progress-text">0%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" id="compress-pdf-progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+              </div>
+              
+              <div class="mt-4" id="compress-pdf-result" style="display: none;">
+                <div class="alert alert-success">
+                  <i class="fas fa-check-circle me-2"></i> Compression complete!
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card mb-3">
+                      <div class="card-body text-center">
+                        <h6>Original File</h6>
+                        <div class="mb-2"><i class="fas fa-file-pdf fa-3x text-danger"></i></div>
+                        <div id="original-file-size">1.2 MB</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card mb-3">
+                      <div class="card-body text-center">
+                        <h6>Compressed File</h6>
+                        <div class="mb-2"><i class="fas fa-file-pdf fa-3x text-success"></i></div>
+                        <div id="compressed-file-size">0.6 MB</div>
+                        <div class="text-success" id="compression-ratio">(50% smaller)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <a href="#" class="btn btn-success" id="compress-pdf-download">
+                    <i class="fas fa-download me-2"></i> Download Compressed PDF
+                  </a>
+                  <button class="btn btn-outline-secondary ms-2" onclick="resetTool('compress-pdf')">
+                    <i class="fas fa-redo me-2"></i> Compress Another
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1062,553 +769,244 @@
     </div>
   </div>
 
-  <!-- PDF Tools Section -->
-  <div class="container my-5" id="pdf-section">
-  <div class="service-card pdf-card h-100">
-    <div class="card-header bg-danger text-white">
-      <i class="fas fa-file-pdf me-2"></i> PDF & DOC TOOLS
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <!-- PDF Editor Panel -->
-        <div class="col-md-6">
-          <h3 class="h4 mb-4">Document Converter</h3>
-          <div class="pdf-editor-container">
-            <input type="file" id="docUpload" accept=".pdf,.doc,.docx,.txt" class="form-control mb-3">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="convertType" id="toPdf" checked>
-              <label class="form-check-label" for="toPdf">Convert to PDF</label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="convertType" id="toDoc">
-              <label class="form-check-label" for="toDoc">Convert to DOC</label>
-            </div>
-            <button class="btn btn-danger me-2" onclick="convertDocument()">
-              <i class="fas fa-sync-alt me-2"></i> Convert
-            </button>
-            <button class="btn btn-success" id="downloadConverted" style="display:none">
-              <i class="fas fa-download me-2"></i> Download Converted File
-            </button>
-            <p class="mt-3 text-muted">Supports: PDF, DOC, DOCX, TXT</p>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+  
+  <script>
+    // Initialize Sortable for merge PDF thumbnails
+    let sortable;
+    
+    // Show selected tool
+    function showTool(tool) {
+      document.getElementById('tool-default-view').style.display = 'none';
+      document.querySelectorAll('.tool-view').forEach(view => {
+        view.style.display = 'none';
+      });
+      document.getElementById(`${tool}-tool`).style.display = 'block';
+      
+      // Initialize Sortable for merge tool
+      if (tool === 'merge-pdf') {
+        const el = document.getElementById('merge-pdf-thumbnails');
+        sortable = new Sortable(el, {
+          animation: 150,
+          ghostClass: 'sortable-ghost'
+        });
+      }
+    }
+    
+    // Reset tool to initial state
+    function resetTool(tool) {
+      document.getElementById(`${tool}-drop`).style.display = 'block';
+      document.getElementById(`${tool}-files`).style.display = 'none';
+      document.getElementById(`${tool}-progress`).style.display = 'none';
+      document.getElementById(`${tool}-result`).style.display = 'none';
+      document.getElementById(`${tool}-thumbnails`).innerHTML = '';
+      document.getElementById(`${tool}-input`).value = '';
+    }
+    
+    // Setup file drop areas for all tools
+    document.querySelectorAll('.file-drop-area').forEach(area => {
+      const input = area.parentElement.querySelector('input[type="file"]');
+      const tool = area.id.split('-')[0] + '-' + area.id.split('-')[1];
+      
+      // Highlight drop area when dragging over
+      area.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        area.classList.add('active');
+      });
+      
+      // Remove highlight when leaving
+      area.addEventListener('dragleave', () => {
+        area.classList.remove('active');
+      });
+      
+      // Handle dropped files
+      area.addEventListener('drop', (e) => {
+        e.preventDefault();
+        area.classList.remove('active');
+        
+        if (e.dataTransfer.files.length) {
+          input.files = e.dataTransfer.files;
+          handleFileSelection(tool, input.files);
+        }
+      });
+      
+      // Handle clicked files
+      input.addEventListener('change', () => {
+        if (input.files.length) {
+          handleFileSelection(tool, input.files);
+        }
+      });
+    });
+    
+    // Handle file selection for each tool
+    function handleFileSelection(tool, files) {
+      // For compress tool, only allow one file
+      if (tool === 'compress-pdf' && files.length > 1) {
+        alert('Please select only one file for compression');
+        return;
+      }
+      
+      const dropArea = document.getElementById(`${tool}-drop`);
+      const filesArea = document.getElementById(`${tool}-files`);
+      const thumbnails = document.getElementById(`${tool}-thumbnails`);
+      
+      dropArea.style.display = 'none';
+      filesArea.style.display = 'block';
+      thumbnails.innerHTML = '';
+      
+      Array.from(files).forEach((file, index) => {
+        const thumbnail = document.createElement('div');
+        thumbnail.className = 'file-thumbnail';
+        thumbnail.innerHTML = `
+          <i class="fas fa-file-pdf"></i>
+          <div class="remove-file" onclick="removeFile('${tool}', ${index})">
+            <i class="fas fa-times"></i>
           </div>
-        </div>
-
-       <div class="container my-5" id="pdf-section">
-  <div class="service-card pdf-card h-100">
-    <div class="card-header bg-danger text-white">
-      <i class="fas fa-file-pdf me-2"></i> PDF & DOC TOOLS
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <!-- PDF Editor Panel -->
-        <div class="col-md-6">
-          <h3 class="h4 mb-4">Document Converter</h3>
-          <div class="pdf-editor-container">
-            <input type="file" id="docUpload" accept=".pdf,.doc,.docx,.txt" class="form-control mb-3">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="convertType" id="toPdf" checked>
-              <label class="form-check-label" for="toPdf">Convert to PDF</label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="convertType" id="toDoc">
-              <label class="form-check-label" for="toDoc">Convert to DOC</label>
-            </div>
-            <button class="btn btn-danger me-2" onclick="convertDocument()">
-              <i class="fas fa-sync-alt me-2"></i> Convert
-            </button>
-            <a class="btn btn-success" id="downloadConverted" style="display:none" download="converted_file.pdf">
-              <i class="fas fa-download me-2"></i> Download Converted File
-            </a>
-            <p class="mt-3 text-muted">Supports: PDF, DOC, DOCX, TXT</p>
+          <div class="position-absolute bottom-0 start-0 end-0 p-1 bg-white text-center small">
+            ${file.name.substring(0, 10)}${file.name.length > 10 ? '...' : ''}
           </div>
-        </div>
-
-        <!-- Government Forms Panel -->
-        <div class="col-md-6">
-          <h3 class="h4 mb-4">Common Government Forms</h3>
-          <div class="list-group">
-            <a href="/forms/aadhaar-update.pdf" class="list-group-item list-group-item-action" download>
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Aadhaar Update Form</h5>
-                <small class="text-muted">PDF, 120KB</small>
-              </div>
-              <p class="mb-1">Form for updating personal details in Aadhaar</p>
-            </a>
-            <a href="/forms/pan-application.pdf" class="list-group-item list-group-item-action" download>
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">PAN Application Form</h5>
-                <small class="text-muted">PDF, 150KB</small>
-              </div>
-              <p class="mb-1">Form 49A for new PAN card application</p>
-            </a>
-            <a href="/forms/passport-form.pdf" class="list-group-item list-group-item-action" download>
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Passport Application</h5>
-                <small class="text-muted">PDF, 180KB</small>
-              </div>
-              <p class="mb-1">Form for fresh passport/renewal</p>
-            </a>
+        `;
+        thumbnails.appendChild(thumbnail);
+      });
+    }
+    
+    // Remove file from selection
+    function removeFile(tool, index) {
+      const input = document.getElementById(`${tool}-input`);
+      const files = Array.from(input.files);
+      files.splice(index, 1);
+      
+      // Create new DataTransfer to update files
+      const dataTransfer = new DataTransfer();
+      files.forEach(file => dataTransfer.items.add(file));
+      input.files = dataTransfer.files;
+      
+      // Update UI
+      if (input.files.length === 0) {
+        document.getElementById(`${tool}-drop`).style.display = 'block';
+        document.getElementById(`${tool}-files`).style.display = 'none';
+      } else {
+        handleFileSelection(tool, input.files);
+      }
+    }
+    
+    // Setup convert buttons
+    document.querySelectorAll('[id$="-convert"]').forEach(btn => {
+      const tool = btn.id.split('-')[0] + '-' + btn.id.split('-')[1];
+      
+      btn.addEventListener('click', () => {
+        const input = document.getElementById(`${tool}-input`);
+        if (!input.files || input.files.length === 0) {
+          alert('Please select files first');
+          return;
+        }
+        
+        // Show progress
+        document.getElementById(`${tool}-files`).style.display = 'none';
+        document.getElementById(`${tool}-progress`).style.display = 'block';
+        
+        // Simulate conversion progress
+        let progress = 0;
+        const progressInterval = setInterval(() => {
+          progress += Math.random() * 10;
+          if (progress > 100) progress = 100;
+          
+          document.getElementById(`${tool}-progress-bar`).style.width = `${progress}%`;
+          document.getElementById(`${tool}-progress-text`).textContent = `${Math.round(progress)}%`;
+          
+          if (progress === 100) {
+            clearInterval(progressInterval);
+            setTimeout(() => {
+              document.getElementById(`${tool}-progress`).style.display = 'none';
+              document.getElementById(`${tool}-result`).style.display = 'block';
+              
+              // For compress tool, show file size comparison
+              if (tool === 'compress-pdf') {
+                const originalSize = (input.files[0].size / 1024 / 1024).toFixed(2);
+                const compressedSize = (originalSize * (Math.random() * 0.5 + 0.3)).toFixed(2); // 30-80% of original
+                const ratio = Math.round((1 - compressedSize/originalSize) * 100);
+                
+                document.getElementById('original-file-size').textContent = `${originalSize} MB`;
+                document.getElementById('compressed-file-size').textContent = `${compressedSize} MB`;
+                document.getElementById('compression-ratio').textContent = `(${ratio}% smaller)`;
+              }
+            }, 500);
+          }
+        }, 200);
+      });
+    });
+    
+    // Setup download buttons (simulated)
+    document.querySelectorAll('[id$="-download"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('In a real implementation, this would download the converted file');
+      });
+    });
+  </script>
+</body>
+</html>
+      
+      <!-- Job Portal Card -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card jobs-card h-100" id="jobs-section">
+          <div class="card-header">
+            <i class="fas fa-briefcase me-2"></i> JOB PORTAL
           </div>
-          <div class="mt-4">
-            <h4 class="h5">PDF Help Guides</h4>
-            <ul class="list-group">
-              <li class="list-group-item">
-                <a href="#">How to fill Aadhaar Update Form</a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">PAN Application Process</a>
-              </li>
-              <li class="list-group-item">
-                <a href="#">Passport Document Requirements</a>
-              </li>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3 class="h5">Government Job Opportunities</h3>
+            <p>Find your dream government job from thousands of listings</p>
+            
+            <ul class="feature-list">
+              <li>Search by department and location</li>
+              <li>Personalized job alerts</li>
+              <li>Application tracking</li>
+              <li>Exam preparation resources</li>
             </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-function convertDocument() {
-  const fileInput = document.getElementById("docUpload");
-  const toPdf = document.getElementById("toPdf").checked;
-  const downloadBtn = document.getElementById("downloadConverted");
-
-  if (!fileInput.files.length) {
-    alert("Please upload a file first.");
-    return;
-  }
-
-  // Simulated conversion
-  setTimeout(() => {
-    alert("Document converted successfully!");
-    downloadBtn.style.display = "inline-block";
-    downloadBtn.href = "converted_sample_output.pdf"; // Link to dummy or generated file
-  }, 1000);
-}
-</script>
-
-
-  <!-- State Services Section -->
-  <div class="container my-5" id="state-section">
-  <div class="service-card">
-    <div class="card-header bg-primary text-white">
-      <h3 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i> STATE SERVICES PORTAL</h3>
-    </div>
-    <div class="card-body">
-      <h4 class="h5 mb-4">Select Your State to Access Local Services</h4>
-      <div class="text-center d-flex flex-wrap justify-content-center gap-2">
-        <a href="https://up.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> Uttar Pradesh</a>
-        <a href="https://maharashtra.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> Maharashtra</a>
-        <a href="https://state.bihar.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> Bihar</a>
-        <a href="https://wb.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> West Bengal</a>
-        <a href="https://mp.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> Madhya Pradesh</a>
-        <a href="https://tn.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> Tamil Nadu</a>
-        <a href="https://rajasthan.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> Rajasthan</a>
-        <a href="https://karnataka.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> Karnataka</a>
-        <a href="https://gujaratindia.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> Gujarat</a>
-        <a href="https://ap.gov.in" class="state-link btn btn-outline-secondary btn-sm"><i class="fas fa-city me-2"></i> Andhra Pradesh</a>
-        <a href="https://odisha.gov.in" class="state-link btn btn-outlin
-
-
-  <!-- Job Portal Section -->
-  <div class="container my-5" id="jobs-section">
-    <div class="service-card">
-      <div class="card-header">
-        <h3 class="mb-0"><i class="fas fa-briefcase me-2"></i> GOVERNMENT JOB PORTAL</h3>
-      </div>
-      <div class="card-body">
-        <div class="row mb-4">
-          <div class="col-md-6">
-            <h4 class="h5">Latest Job Openings</h4>
-            <p class="text-muted">Browse through thousands of government job opportunities</p>
-          </div>
-          <div class="col-md-6">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search jobs...">
-              <button class="btn btn-india" type="button">
-                <i class="fas fa-search"></i> Search
+            
+            <div class="text-center mt-4">
+              <button class="btn btn-india">
+                <i class="fas fa-search me-2"></i> Browse Jobs
               </button>
             </div>
           </div>
         </div>
-        
-        <div class="table-responsive">
-          <table class="table table-hover job-table">
-            <thead class="table-light">
-              <tr>
-                <th>Job Title</th>
-                <th>Department</th>
-                <th>Location</th>
-                <th>Last Date</th>
-                <th>Qualification</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>SSC CGL 2025</td>
-                <td>Staff Selection Commission</td>
-                <td>All India</td>
-                <td>15-Jul-2025</td>
-                <td>Graduation</td>
-                <td>
-                  <span class="badge bg-success">New</span>
-                  <a href="#" class="btn btn-india btn-sm">Apply</a>
-                </td>
-              </tr>
-              <tr>
-                <td>IBPS PO 2025</td>
-                <td>Banking</td>
-                <td>All India</td>
-                <td>30-Jun-2025</td>
-                <td>Graduation</td>
-                <td>
-                  <a href="#" class="btn btn-india btn-sm">Apply</a>
-                </td>
-              </tr>
-              <tr>
-                <td>UP Police Constable</td>
-                <td>Police Department</td>
-                <td>Uttar Pradesh</td>
-                <td>10-Jul-2025</td>
-                <td>12th Pass</td>
-                <td>
-                  <span class="badge bg-warning text-dark">Last Week</span>
-                  <a href="#" class="btn btn-india btn-sm">Apply</a>
-                </td>
-              </tr>
-              <tr>
-                <td>MP Lekhpal</td>
-                <td>Revenue Department</td>
-                <td>Madhya Pradesh</td>
-                <td>30-Jun-2025</td>
-                <td>12th Pass</td>
-                <td>
-                  <span class="badge bg-danger">Closing Soon</span>
-                  <a href="#" class="btn btn-india btn-sm">Apply</a>
-                </td>
-              </tr>
-              <tr>
-                <td>Railway Group D</td>
-                <td>Indian Railways</td>
-                <td>All India</td>
-                <td>20-Jul-2025</td>
-                <td>10th Pass</td>
-                <td>
-                  <a href="#" class="btn btn-india btn-sm">Apply</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <div class="text-center mt-4">
-          <a href="#" class="btn btn-india">
-            <i class="fas fa-list me-2"></i> View All Jobs (1,245+)
-          </a>
-        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Education Section -->
-  <div class="container my-5" id="education-section">
-    <div class="service-card">
-      <div class="card-header">
-        <h3 class="mb-0"><i class="fas fa-graduation-cap me-2"></i> EDUCATION PORTAL</h3>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="service-card mb-4 h-100">
-              <div class="card-header bg-info text-white">
-                <h5 class="mb-0"><i class="fas fa-book me-2"></i> NCERT Books</h5>
-              </div>
-              <div class="card-body">
-                <p>Download free NCERT textbooks for all classes and subjects</p>
-                <a href="https://ncert.nic.in/textbook.php" class="btn btn-india btn-sm" target="_blank">
-                  <i class="fas fa-download me-2"></i> Download
-                </a>
-              </div>
-            </div>
+      
+      <!-- Government Services Card -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-card govt-card h-100" id="govt-section">
+          <div class="card-header">
+            <i class="fas fa-landmark me-2"></i> GOVERNMENT SERVICES
           </div>
-          <div class="col-md-4">
-            <div class="service-card mb-4 h-100">
-              <div class="card-header bg-success text-white">
-                <h5 class="mb-0"><i class="fas fa-laptop-code me-2"></i> SWAYAM Courses</h5>
-              </div>
-              <div class="card-body">
-                <p>Free online courses from top Indian universities and professors</p>
-                <a href="https://swayam.gov.in/" class="btn btn-india btn-sm" target="_blank">
-                  <i class="fas fa-external-link-alt me-2"></i> Explore
-                </a>
-              </div>
+          <div class="card-body">
+            <div class="card-icon">
+              <i class="fas fa-id-card"></i>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card mb-4 h-100">
-              <div class="card-header bg-warning text-dark">
-                <h5 class="mb-0"><i class="fas fa-chalkboard-teacher me-2"></i> DIKSHA Platform</h5>
-              </div>
-              <div class="card-body">
-                <p>School education resources for teachers and students</p>
-                <a href="https://diksha.gov.in/" class="btn btn-india btn-sm" target="_blank">
-                  <i class="fas fa-external-link-alt me-2"></i> Visit
-                </a>
-              </div>
+            <h3 class="h5">Ease of Government Services</h3>
+            <p>Access all government services in one place</p>
+            
+            <ul class="feature-list">
+              <li>Aadhaar services</li>
+              <li>PAN card services</li>
+              <li>Passport applications</li>
+              <li>Farmer schemes</li>
+            </ul>
+            
+            <div class="text-center mt-4">
+              <button class="btn btn-india">
+                <i class="fas fa-external-link-alt me-2"></i> Access Services
+              </button>
             </div>
           </div>
         </div>
-        
-        <div class="row mt-3">
-          <div class="col-md-6">
-            <h4 class="h5">Exam Preparation</h4>
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">UPSC Civil Services</h5>
-                  <small class="text-muted">Free</small>
-                </div>
-                <p class="mb-1">Complete study material for UPSC Prelims and Mains</p>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">SSC CGL Previous Papers</h5>
-                  <small class="text-muted">Free</small>
-                </div>
-                <p class="mb-1">10 years of solved question papers with explanations</p>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <h4 class="h5">Scholarships</h4>
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">National Scholarship Portal</h5>
-                  <small class="text-muted">Government</small>
-                </div>
-                <p class="mb-1">Apply for various central and state scholarships</p>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">AICTE Scholarships</h5>
-                  <small class="text-muted">Technical Education</small>
-                </div>
-                <p class="mb-1">For students pursuing technical and professional courses</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Identity Services Section -->
-  <div class="container my-5" id="identity-section">
-    <div class="service-card">
-      <div class="card-header">
-        <h3 class="mb-0"><i class="fas fa-id-card me-2"></i> IDENTITY SERVICES</h3>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="service-card mb-4 h-100">
-              <div class="card-header bg-secondary text-white">
-                <h5 class="mb-0"><i class="fas fa-fingerprint me-2"></i> Aadhaar Services</h5>
-              </div>
-              <div class="card-body">
-                <ul class="feature-list">
-                  <li><a href="https://uidai.gov.in/" target="_blank" style="color: var(--navy-blue);">Check Aadhaar Status</a></li>
-                  <li><a href="https://myaadhaar.uidai.gov.in/" target="_blank" style="color: var(--navy-blue);">Download e-Aadhaar</a></li>
-                  <li><a href="https://uidai.gov.in/update-aadhaar.html" target="_blank" style="color: var(--navy-blue);">Update Aadhaar Details</a></li>
-                  <li><a href="https://resident.uidai.gov.in/verify" target="_blank" style="color: var(--navy-blue);">Verify Aadhaar Number</a></li>
-                </ul>
-                <a href="https://uidai.gov.in/" class="btn btn-india btn-sm mt-2" target="_blank">
-                  <i class="fas fa-external-link-alt me-2"></i> Visit UIDAI
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="service-card mb-4 h-100">
-              <div class="card-header bg-danger text-white">
-                <h5 class="mb-0"><i class="fas fa-credit-card me-2"></i> PAN Card Services</h5>
-              </div>
-              <div class="card-body">
-                <ul class="feature-list">
-                  <li><a href="https://www.incometaxindia.gov.in/Pages/tax-services/apply-for-pan.aspx" target="_blank" style="color: var(--navy-blue);">Apply for New PAN</a></li>
-                  <li><a href="https://www.protean-tinpan.com/" target="_blank" style="color: var(--navy-blue);">PAN Correction/Update</a></li>
-                  <li><a href="https://www.incometaxindia.gov.in/Pages/tax-services/verify-your-pan.aspx" target="_blank" style="color: var(--navy-blue);">Verify PAN Details</a></li>
-                  <li><a href="https://www.incometaxindia.gov.in/Pages/tax-services/link-aadhaar-with-pan.aspx" target="_blank" style="color: var(--navy-blue);">Link Aadhaar with PAN</a></li>
-                </ul>
-                <a href="https://www.incometaxindia.gov.in/" class="btn btn-india btn-sm mt-2" target="_blank">
-                  <i class="fas fa-external-link-alt me-2"></i> Visit NSDL
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="row mt-3">
-          <div class="col-md-4">
-            <div class="service-card h-100">
-              <div class="card-header bg-success text-white">
-                <h5 class="mb-0"><i class="fas fa-passport me-2"></i> Passport Services</h5>
-              </div>
-              <div class="card-body">
-                <p>Apply for fresh passport, renewal, or other passport related services</p>
-                <a href="https://passportindia.gov.in/" class="btn btn-india btn-sm" target="_blank">
-                  <i class="fas fa-external-link-alt me-2"></i> Apply Now
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card h-100">
-              <div class="card-header bg-warning text-dark">
-                <h5 class="mb-0"><i class="fas fa-car me-2"></i> Driving License</h5>
-              </div>
-              <div class="card-body">
-                <p>Apply for new DL, renewal, duplicate, or other services</p>
-                <a href="https://parivahan.gov.in/" class="btn btn-india btn-sm" target="_blank">
-                  <i class="fas fa-external-link-alt me-2"></i> Apply Now
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card h-100">
-              <div class="card-header bg-info text-white">
-                <h5 class="mb-0"><i class="fas fa-voter-id me-2"></i> Voter ID Services</h5>
-              </div>
-              <div class="card-body">
-                <p>Apply for new voter ID, correction, or track application status</p>
-                <a href="https://www.nvsp.in/" class="btn btn-india btn-sm" target="_blank">
-                  <i class="fas fa-external-link-alt me-2"></i> Apply Now
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Agriculture Section -->
-  <div class="container my-5" id="agriculture-section">
-    <div class="service-card">
-      <div class="card-header">
-        <h3 class="mb-0"><i class="fas fa-tractor me-2"></i> AGRICULTURE PORTAL</h3>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="service-card mb-4 h-100">
-              <div class="card-header bg-success text-white">
-                <h5 class="mb-0"><i class="fas fa-rupee-sign me-2"></i> PM Kisan Samman Nidhi</h5>
-              </div>
-              <div class="card-body">
-                <p>Check your beneficiary status under Pradhan Mantri Kisan Samman Nidhi Yojana</p>
-                <div class="row">
-                  <div class="col-md-6">
-                    <a href="https://pmkisan.gov.in/" class="btn btn-india btn-sm w-100 mb-2" target="_blank">
-                      <i class="fas fa-search-dollar me-2"></i> Check Status
-                    </a>
-                  </div>
-                  <div class="col-md-6">
-                    <a href="https://pmkisan.gov.in/" class="btn btn-outline-success btn-sm w-100" target="_blank">
-                      <i class="fas fa-info-circle me-2"></i> Scheme Details
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="service-card mb-4 h-100">
-              <div class="card-header bg-warning text-dark">
-                <h5 class="mb-0"><i class="fas fa-seedling me-2"></i> Kisan Credit Card</h5>
-              </div>
-              <div class="card-body">
-                <p>Apply for Kisan Credit Card to get agricultural loans at subsidized rates</p>
-                <div class="row">
-                  <div class="col-md-6">
-                    <a href="https://www.agricoop.nic.in/" class="btn btn-india btn-sm w-100 mb-2" target="_blank">
-                      <i class="fas fa-edit me-2"></i> Apply Online
-                    </a>
-                  </div>
-                  <div class="col-md-6">
-                    <a href="https://www.agricoop.nic.in/" class="btn btn-outline-warning btn-sm w-100" target="_blank">
-                      <i class="fas fa-question-circle me-2"></i> Guidelines
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="row mt-3">
-          <div class="col-md-4">
-            <div class="service-card h-100">
-              <div class="card-header bg-info text-white">
-                <h5 class="mb-0"><i class="fas fa-cloud-sun-rain me-2"></i> Weather Advisory</h5>
-              </div>
-              <div class="card-body">
-                <p>Get localized weather forecasts and agricultural advisories</p>
-                <a href="https://mausam.imd.gov.in/" class="btn btn-india btn-sm" target="_blank">
-                  <i class="fas fa-external-link-alt me-2"></i> View Forecast
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card h-100">
-              <div class="card-header bg-secondary text-white">
-                <h5 class="mb-0"><i class="fas fa-shopping-cart me-2"></i> eNAM Market</h5>
-              </div>
-              <div class="card-body">
-                <p>National Agriculture Market for online trading of commodities</p>
-                <a href="https://www.enam.gov.in/" class="btn btn-india btn-sm" target="_blank">
-                  <i class="fas fa-external-link-alt me-2"></i> Visit eNAM
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card h-100">
-              <div class="card-header bg-danger text-white">
-                <h5 class="mb-0"><i class="fas fa-phone-alt me-2"></i> Kisan Call Center</h5>
-              </div>
-              <div class="card-body">
-                <p>24/7 support for farmers with agricultural queries</p>
-                <a href="tel:18001801551" class="btn btn-india btn-sm">
-                  <i class="fas fa-phone-alt me-2"></i> Call 1800-180-1551
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Call to Action -->
-  <div class="container my-5">
-    <div class="service-card">
-      <div class="card-body text-center py-5">
-        <h2 class="mb-4" style="color: var(--navy-blue);">Ready to Access Government Services?</h2>
-        <p class="lead mb-4">Join millions of Indians who are using आत्‍मनिर्भर भारत to simplify their interactions with government services.</p>
-        <a href="#" class="btn btn-india btn-lg me-3">
-          <i class="fas fa-user-plus me-2"></i> Create Account
-        </a>
-        <a href="#" class="btn btn-outline-india btn-lg">
-          <i class="fas fa-sign-in-alt me-2"></i> Login
-        </a>
       </div>
     </div>
   </div>
@@ -1617,50 +1015,9 @@ function convertDocument() {
   <footer class="main-footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 mb-4 mb-md-0">
+        <div class="col-md-6 mb-4 mb-md-0">
           <h5 class="text-white mb-3">आत्‍मनिर्भर भारत</h5>
           <p>Your one-stop portal for all government services, schemes, and digital governance initiatives.</p>
-          <div class="mt-3">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-        <div class="col-md-2 mb-4 mb-md-0">
-          <h5 class="text-white mb-3">Quick Links</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="text-white-50">Home</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50">About Us</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50">Services</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50">Contact</a></li>
-            <li class="mb-2"><a href="#" class="text-white-50">Feedback</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 mb-4 mb-md-0">
-          <h5 class="text-white mb-3">Important Links</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="https://india.gov.in/" class="text-white-50" target="_blank">National Portal of India</a></li>
-            <li class="mb-2"><a href="https://www.mygov.in/" class="text-white-50" target="_blank">MyGov</a></li>
-            <li class="mb-2"><a href="https://www.digitalindia.gov.in/" class="text-white-50" target="_blank">Digital India</a></li>
-            <li class="mb-2"><a href="https://www.pmindia.gov.in/en/" class="text-white-50" target="_blank">PMO India</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5 class="text-white mb-3">Contact Us</h5>
-          <ul class="list-unstyled text-white-50">
-            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> New Delhi, India</li>
-            <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> 1800 123 4343</li>
-            <li class="mb-2"><i class="fas fa-envelope me-2"></i> support@digitalindianexus.gov.in</li>
-            <li class="mb-2"><i class="fas fa-clock me-2"></i> 24x7 Helpline</li>
-          </ul>
-        </div>
-      </div>
-      <hr class="my-4 bg-light">
-      <div class="row">
-        <div class="col-md-6 text-center text-md-start">
-          <p class="mb-0">© 2025 आत्‍मनिर्भर भारत. All rights reserved.</p>
         </div>
         <div class="col-md-6 text-center text-md-end footer-links">
           <a href="#">Privacy Policy</a>
@@ -1669,170 +1026,29 @@ function convertDocument() {
           <a href="#">Sitemap</a>
         </div>
       </div>
+      <hr class="my-4 bg-light">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0">© 2025 आत्‍मनिर्भर भारत. All rights reserved.</p>
+        </div>
+      </div>
     </div>
   </footer>
-
-  <!-- Back to Top Button -->
-  <a href="#" class="btn btn-india btn-lg back-to-top" style="position: fixed; bottom: 20px; right: 20px; display: none;">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-
-  <!-- Toast Notification -->
-  <div class="toast align-items-center text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="d-flex">
-      <div class="toast-body">
-        Welcome to आत्‍मनिर्भर भारत!
-      </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-  </div>
 
   <!-- JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
   
   <script>
-    // Show toast notification on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      var toastEl = document.querySelector('.toast');
-      var toast = new bootstrap.Toast(toastEl);
-      toast.show();
-      
-      // Show back to top button when scrolling
-      window.addEventListener('scroll', function() {
-        var backToTop = document.querySelector('.back-to-top');
-        if (window.pageYOffset > 300) {
-          backToTop.style.display = 'block';
-        } else {
-          backToTop.style.display = 'none';
-        }
-      });
-      
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
       });
-    });
-    
-    // Blog Editor Functions
-    function formatText(command) {
-      document.execCommand(command, false, null);
-    }
-    
-    function insertImage() {
-      var url = prompt('Enter the image URL:');
-      if (url) {
-        document.execCommand('insertImage', false, url);
-      }
-    }
-    
-    function insertLink() {
-      var url = prompt('Enter the link URL:');
-      if (url) {
-        document.execCommand('createLink', false, url);
-      }
-    }
-    
-    function saveBlogPost() {
-      var content = document.getElementById('editor').innerHTML;
-      // In a real app, you would send this content to a server
-      alert('Blog post saved successfully!');
-    }
-    
-    // PDF Editor Functions
-    document.getElementById('pdfUpload').addEventListener('change', function(e) {
-      var file = e.target.files[0];
-      if (file.type !== 'application/pdf') {
-        alert('Please select a PDF file');
-        return;
-      }
-      
-      var reader = new FileReader();
-      reader.onload = function() {
-        // Load the PDF using PDF.js
-        pdfjsLib.getDocument(reader.result).promise.then(function(pdf) {
-          // For demo purposes, we'll just show page count
-          document.getElementById('pageCount').textContent = pdf.numPages;
-          document.getElementById('pageNum').textContent = 1;
-          
-          // Render the first page
-          pdf.getPage(1).then(function(page) {
-            var viewport = page.getViewport({ scale: 1.0 });
-            var canvas = document.createElement('canvas');
-            var context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-            
-            document.getElementById('pdfPreview').innerHTML = '';
-            document.getElementById('pdfPreview').appendChild(canvas);
-            
-            page.render({
-              canvasContext: context,
-              viewport: viewport
-            });
-          });
-        });
-      };
-      reader.readAsArrayBuffer(file);
-    });
-    
-    // Page navigation for PDF
-    document.getElementById('prevPage').addEventListener('click', function() {
-      var currentPage = parseInt(document.getElementById('pageNum').textContent);
-      if (currentPage > 1) {
-        document.getElementById('pageNum').textContent = currentPage - 1;
-        // In a real app, you would render the previous page
-      }
-    });
-    
-    document.getElementById('nextPage').addEventListener('click', function() {
-      var currentPage = parseInt(document.getElementById('pageNum').textContent);
-      var totalPages = parseInt(document.getElementById('pageCount').textContent);
-      if (currentPage < totalPages) {
-        document.getElementById('pageNum').textContent = currentPage + 1;
-        // In a real app, you would render the next page
-      }
-    });
-    
-    // Load sample PDFs
-    function loadSamplePdf(type) {
-      var sampleUrl = '';
-      var previewText = '';
-      
-      switch(type) {
-        case 'aadhaar':
-          previewText = 'Aadhaar Update Form loaded';
-          break;
-        case 'pan':
-          previewText = 'PAN Application Form loaded';
-          break;
-        case 'passport':
-          previewText = 'Passport Application Form loaded';
-          break;
-      }
-      
-      document.getElementById('pdfPreview').innerHTML = '<p class="text-success">' + previewText + '</p>';
-      document.getElementById('pageNum').textContent = '1';
-      document.getElementById('pageCount').textContent = '1';
-    }
-    
-    // Merge PDFs function (demo only)
-    document.getElementById('mergePdf').addEventListener('click', function() {
-      alert('In a real application, this would merge selected PDF files');
-    });
-    
-    // Download PDF function (demo only)
-    document.getElementById('downloadPdf').addEventListener('click', function() {
-      alert('In a real application, this would download the edited PDF');
     });
   </script>
 </body>
